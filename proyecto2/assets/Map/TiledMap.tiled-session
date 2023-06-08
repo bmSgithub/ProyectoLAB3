@@ -1,0 +1,52 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "MarioMap.tmx",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "C:/Users/Chaste/Desktop/tileset_gutterBLAS.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "MarioMap.tmx": {
+            "scale": 2,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 384,
+                "y": 69.5
+            }
+        },
+        "tileset_gutter.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.imagePath": "C:/Users/Chaste/Desktop",
+    "map.height": 13,
+    "map.lastUsedFormat": "tmx",
+    "map.layerDataFormat": null,
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 240,
+    "openFiles": [
+        "MarioMap.tmx"
+    ],
+    "project": "TiledMap.tiled-project",
+    "recentFiles": [
+        "MarioMap.tmx",
+        "C:/Users/Chaste/Desktop/tileset_gutterBLAS.tsx",
+        "tileset_gutter.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.margin": 1,
+    "tileset.spacing": 2,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
