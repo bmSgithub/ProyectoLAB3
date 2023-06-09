@@ -6,8 +6,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class MarioBros extends Game {
 
 	public SpriteBatch batch;
-	public static final int V_WIDHT = 7000;;
-	public static final int V_HEIGHT = 3008;;
+	public static final int V_WIDHT = 700;;
+	public static final int V_HEIGHT = 308;;
 	public static final int PPM = 100;
 
 
