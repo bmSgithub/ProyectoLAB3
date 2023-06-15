@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -33,12 +34,14 @@ public class PlayScreen implements Screen {
     private final World world;
     private final Box2DDebugRenderer b2dr;
     private Mario player;
+    private TextureAtlas atlas;
 
 
 
 
 
     public PlayScreen(MarioBros game) {
+        atlas = new TextureAtlas("Mario_and_Enemies.pack");
 
         this.game = game;
 
@@ -62,7 +65,7 @@ public class PlayScreen implements Screen {
         PolygonShape shape = new PolygonShape();
         FixtureDef fdef = new FixtureDef();
         Body body;
-        player = new Mario(world);
+        player = new Mario(world,this);
 
 
 
@@ -98,9 +101,11 @@ public class PlayScreen implements Screen {
 
             body = world.createBody(bdef);
 
-            shape.setAsBox(rect.getWidth() / 2,rect.getHeight() / 2);
+            shape.setAsBox(rect.getWidth() / 2 /MarioBros.PPM,rect.getHeight() / 2/MarioBros.PPM);
 
             fdef.shape = shape;
+            fdef.filter.categoryBits = MarioBros.OBJECT_BIT;
+
 
             body.createFixture(fdef);
         }
@@ -115,7 +120,7 @@ public class PlayScreen implements Screen {
 
             body = world.createBody(bdef);
 
-            shape.setAsBox(rect.getWidth() / 2,rect.getHeight() / 2);
+            shape.setAsBox(rect.getWidth() / 2 / MarioBros.PPM,rect.getHeight() / 2 / MarioBros.PPM);
 
             fdef.shape = shape;
 
@@ -133,7 +138,7 @@ public class PlayScreen implements Screen {
 
             body = world.createBody(bdef);
 
-            shape.setAsBox(rect.getWidth() / 2,rect.getHeight() / 2);
+            shape.setAsBox(rect.getWidth() / 2 / MarioBros.PPM,rect.getHeight() / 2 / MarioBros.PPM);
 
             fdef.shape = shape;
 
@@ -149,17 +154,17 @@ public class PlayScreen implements Screen {
 
     public void handleInput(float dt) {
         if (Gdx.input.isKeyJustPressed(Input.Keys.UP)){
-            player.b2body.applyLinearImpulse(new Vector2(0,3f),player.b2body.getWorldCenter(),true);
+            player.b2body.applyLinearImpulse(new Vector2(0,4f),player.b2body.getWorldCenter(),true);
             // aplica un impulso al cuerpo que se le aplique se aplica en el sentro ya que sino cambiaria
             //de angulo
-        }if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)&& player.b2body.getLinearVelocity().x <= 5){
+        }if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)&& player.b2body.getLinearVelocity().x <= 2){
             // Se fija que si apretamos solo una vez o mantenemos apretado
             // la segunda parte controla que el movimieto no sea de una velocidad mayor a la deseada
             // se pueden hacer variables globales o enum
             player.b2body.applyLinearImpulse(new Vector2(0.1f,0),player.b2body.getWorldCenter(),true);
 
 
-        }if (Gdx.input.isKeyPressed(Input.Keys.LEFT)&& player.b2body.getLinearVelocity().x >= -5){
+        }if (Gdx.input.isKeyPressed(Input.Keys.LEFT)&& player.b2body.getLinearVelocity().x >= -2){
             player.b2body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2body.getWorldCenter(),true);
 
         }
@@ -168,11 +173,12 @@ public class PlayScreen implements Screen {
     }
 
     public void update(float dt) {
+
         handleInput(dt);
 
         world.step(1/60f,6,2); // afecta la reaccion de dos cuerpos durante una colision
         gamecam.position.x = player.b2body.getPosition().x; // Rastreamos el player
-
+        player.update(dt);
         gamecam.update();
         renderer.setView(gamecam);
 
@@ -192,6 +198,10 @@ public class PlayScreen implements Screen {
         renderer.render();
 
         b2dr.render(world,gamecam.combined);
+        game.batch.setProjectionMatrix(gamecam.combined);
+        game.batch.begin();
+        player.draw(game.batch);
+        game.batch.end();
 
 
 
@@ -235,6 +245,9 @@ public class PlayScreen implements Screen {
     }
     public World getWorld(){
         return world;
+    }
+    public TextureAtlas getAtlas (){
+        return atlas;
     }
 
 
