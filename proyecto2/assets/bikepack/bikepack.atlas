@@ -1,0 +1,13 @@
+
+bikepack.png
+size: 1746, 1744
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+bike
+  rotate: false
+  xy: 2, 170
+  size: 1742, 1572
+  orig: 1746, 1744
+  offset: 2, 2
+  index: -1

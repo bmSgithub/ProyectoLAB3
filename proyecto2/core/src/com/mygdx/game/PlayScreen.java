@@ -17,6 +17,7 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.Scenes.Hud;
+import com.mygdx.game.Tools.WorldContactListener;
 import com.mygdx.game.sprites.Mario;
 
 public class PlayScreen implements Screen {
@@ -41,7 +42,7 @@ public class PlayScreen implements Screen {
 
 
     public PlayScreen(MarioBros game) {
-        atlas = new TextureAtlas("Mario_and_Enemies.pack");
+        atlas = new TextureAtlas("bikepack/bikepack.atlas");
 
         this.game = game;
 
@@ -66,6 +67,7 @@ public class PlayScreen implements Screen {
         FixtureDef fdef = new FixtureDef();
         Body body;
         player = new Mario(world,this);
+        world.setContactListener(new WorldContactListener());
 
 
 

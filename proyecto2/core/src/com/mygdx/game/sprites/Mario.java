@@ -3,6 +3,7 @@ package com.mygdx.game.sprites;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.MarioBros;
@@ -25,6 +26,7 @@ public class Mario extends Sprite {
     private Animation<TextureRegion> marioJump;
     private float estadoTimer;
     private boolean runningRight;
+    protected Fixture fixture;
 
 
 
@@ -33,7 +35,7 @@ public class Mario extends Sprite {
 
 
     public Mario (World world, PlayScreen screen){
-        super(screen.getAtlas().findRegion("little_mario"));
+        super(screen.getAtlas().findRegion("bike"));
         this.world = world;
         estadoActual = State.STANDING;
         estadoPrevio = State.STANDING;
@@ -42,17 +44,17 @@ public class Mario extends Sprite {
 
         Array<TextureRegion> frames = new Array<TextureRegion>();
         for (int i = 1; i < 4; i++){
-            frames.add(new TextureRegion(getTexture(),i*16,0,16,16));
+            frames.add(new TextureRegion(getTexture(),i*9,0,600,700));
             marioRun = new Animation(0.1f,frames);
 
         }
         for (int i = 4;i<6;i++){
-            frames.add(new TextureRegion(getTexture(),i*16,0,16,16));
+            frames.add(new TextureRegion(getTexture(),i*9,0,602,700));
             marioJump = new Animation(0.1f,frames);
         }
 
         defineMario();
-        marioStand = new TextureRegion(getTexture(),0,0,16,16);
+        marioStand = new TextureRegion(getTexture(),0,0,602,700);
        setBounds(0,0,16 / MarioBros.PPM,16/MarioBros.PPM);
         ///setBounds(0,0.1f,0.5f,0.6f);
         setRegion(marioStand);
@@ -77,6 +79,15 @@ public class Mario extends Sprite {
 
         fdef.shape = shape;
         b2body.createFixture(fdef);
+
+        /// Creamos un sensor para la cabeza de mario para saber cuando
+        /// Colisiona
+        EdgeShape head = new EdgeShape();
+        head.set(new Vector2(-2 / MarioBros.PPM , 6/ MarioBros.PPM), new Vector2(2/MarioBros.PPM, 6/MarioBros.PPM));
+        fdef.shape = head;
+        fdef.isSensor = true;
+        b2body.createFixture(fdef).setUserData("head");
+
     }
     public TextureRegion getFrame(float dt){
         estadoActual = getState();
