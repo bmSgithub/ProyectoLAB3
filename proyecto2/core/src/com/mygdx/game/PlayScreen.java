@@ -42,7 +42,7 @@ public class PlayScreen implements Screen {
 
 
     public PlayScreen(MarioBros game) {
-        atlas = new TextureAtlas("bikepack/bikepack.atlas");
+        atlas = new TextureAtlas("Mario_and_Enemies.pack");
 
         this.game = game;
 

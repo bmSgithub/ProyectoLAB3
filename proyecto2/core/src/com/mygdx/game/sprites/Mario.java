@@ -35,7 +35,7 @@ public class Mario extends Sprite {
 
 
     public Mario (World world, PlayScreen screen){
-        super(screen.getAtlas().findRegion("bike"));
+        super(screen.getAtlas().findRegion("little_mario"));
         this.world = world;
         estadoActual = State.STANDING;
         estadoPrevio = State.STANDING;
@@ -44,17 +44,17 @@ public class Mario extends Sprite {
 
         Array<TextureRegion> frames = new Array<TextureRegion>();
         for (int i = 1; i < 4; i++){
-            frames.add(new TextureRegion(getTexture(),i*9,0,600,700));
+            frames.add(new TextureRegion(getTexture(),i*16,0,16,16));
             marioRun = new Animation(0.1f,frames);
 
         }
         for (int i = 4;i<6;i++){
-            frames.add(new TextureRegion(getTexture(),i*9,0,602,700));
+            frames.add(new TextureRegion(getTexture(),i*16,0,16,16));
             marioJump = new Animation(0.1f,frames);
         }
 
         defineMario();
-        marioStand = new TextureRegion(getTexture(),0,0,602,700);
+        marioStand = new TextureRegion(getTexture(),0,0,16,16);
        setBounds(0,0,16 / MarioBros.PPM,16/MarioBros.PPM);
         ///setBounds(0,0.1f,0.5f,0.6f);
         setRegion(marioStand);
