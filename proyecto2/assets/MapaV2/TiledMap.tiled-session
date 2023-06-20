@@ -1,0 +1,49 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "Todos los archivos (*)",
+    "fileStates": {
+        "tileset_gutter2.tsx": {
+            "scaleInEditor": 1
+        },
+        "tileset_gutter3.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tileset_gutter4.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tileset_v2.tsx": {
+            "scaleInEditor": 1
+        }
+    },
+    "last.imagePath": "E:/Documentos/UTN/Programacion 3/Proyecto Laboratorio 3/ProyectoLAB3/proyecto2/assets/MapaV2",
+    "map.height": 13,
+    "map.lastUsedFormat": "tmx",
+    "map.layerDataFormat": null,
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 240,
+    "openFiles": [
+    ],
+    "project": "TiledMap.tiled-project",
+    "recentFiles": [
+        "tileset_gutter3.tsx",
+        "tileset_gutter2.tsx",
+        "tileset_gutter4.tsx",
+        "tileset_v2.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.margin": 1,
+    "tileset.spacing": 2,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
