@@ -1,6 +1,8 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.game.Pantallas.PantallaCarga;
 import com.mygdx.game.Pantallas.PantallaUTN;
@@ -14,24 +16,31 @@ public class MarioBros extends Game {
 
 	public  static  final  short DEFAULT_BIT =1;
 	public static final  short MARIO_BIT = 2;
-	public static final  short BRICK_BIT = 4;
-	public static final  short COIN_BIT = 8;
+	public static final  short BRICK_BIT = 9;
+	public static final  short COIN_BIT = 11;
 	public static final  short DESTROYED_BIT = 16;
 	public static final short OBJECT_BIT = 32;
+	public  static AssetManager manager;
 
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
+		manager = new AssetManager();
+		manager.load("Musica/Beat-automatico-Bpm-118-Key-G-Minor.ogg", Music.class);
+		manager.finishLoading();
 		setScreen(new PantallaUTN(this,"Otros/logoUTN.png"));
 	}
 
 	@Override
 	public void render () {
 		super.render();
+		manager.update();
 	}
 
 	@Override
 	public void dispose () {
+		super.dispose();
+		manager.dispose();
 		batch.dispose();
 	}
 }

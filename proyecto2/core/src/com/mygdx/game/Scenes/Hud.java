@@ -20,10 +20,10 @@ public class Hud {
 
     private Integer worldTimer;
     private float timeCount;
-    private Integer score;
+    private static Integer score;
 
-    Label countDownLabel;
-    Label scoreLabel;
+    Label countDownLabel ;
+    static Label  scoreLabel;
     Label timeLabel;
     Label leveLabel;
     Label worldLabel;
@@ -72,8 +72,13 @@ public class Hud {
         timeCount +=dt;
         if(timeCount >=1 ){
             worldTimer--;
-            countDownLabel.setText()
+            countDownLabel.setText(String.format("%03d", worldTimer));
+            timeCount = 0;
         }
+    }
+    public static void addScore (int value){
+        score += value;
+        scoreLabel.setText(String.format("%06d",score));
     }
 
 

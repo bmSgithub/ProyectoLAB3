@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -36,6 +37,7 @@ public class PlayScreen implements Screen {
     private final Box2DDebugRenderer b2dr;
     private Mario player;
     private TextureAtlas atlas;
+    private Music musica;
 
 
 
@@ -68,6 +70,11 @@ public class PlayScreen implements Screen {
         Body body;
         player = new Mario(world,this);
         world.setContactListener(new WorldContactListener());
+        musica = MarioBros.manager.get("Musica/Beat-automatico-Bpm-118-Key-G-Minor.ogg", Music.class);
+        musica.setLooping(true);
+        musica.play();
+
+
 
 
 
@@ -145,6 +152,7 @@ public class PlayScreen implements Screen {
             fdef.shape = shape;
 
             body.createFixture(fdef);
+
         }
 
     }
@@ -182,6 +190,7 @@ public class PlayScreen implements Screen {
         world.step(1/60f,6,2); // afecta la reaccion de dos cuerpos durante una colision
         gamecam.position.x = player.b2body.getPosition().x; // Rastreamos el player
         player.update(dt);
+        hud.update(dt);
         gamecam.update();
         renderer.setView(gamecam);
 
@@ -251,6 +260,9 @@ public class PlayScreen implements Screen {
     }
     public TextureAtlas getAtlas (){
         return atlas;
+    }
+    public TiledMap getMap(){
+        return map;
     }
 
 
