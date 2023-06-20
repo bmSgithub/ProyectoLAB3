@@ -21,7 +21,7 @@ public class WorldContactListener implements ContactListener {
         Fixture fixB = contact.getFixtureB();
         if (fixA.getUserData()== "head" || fixB.getUserData() == "head"){
             Fixture head = fixA.getUserData() == "head" ? fixA : fixB;
-            Fixture object = head == fixA? fixB : fixA;
+            Fixture object = head == fixA ? fixB : fixA;
             if (object.getUserData() != null && InteractiveTileObject.class.isAssignableFrom(object.getUserData().getClass())){
                 ((InteractiveTileObject) object.getUserData()).onHeadHit();
             }
@@ -33,7 +33,7 @@ public class WorldContactListener implements ContactListener {
 
     @Override
     public void endContact(Contact contact) {
-        Gdx.app.log("End Contact", "");
+
 
 
     }

@@ -48,10 +48,13 @@ public class Mario extends Sprite {
             marioRun = new Animation(0.1f,frames);
 
         }
-        for (int i = 4;i<6;i++){
-            frames.add(new TextureRegion(getTexture(),i*16,0,16,16));
-            marioJump = new Animation(0.1f,frames);
-        }
+
+            for (int i = 7;i<16;i++){
+                frames.add(new TextureRegion(getTexture(),i*16,0,16,16));
+                marioJump = new Animation(0.1f,frames);
+            }
+
+
 
         defineMario();
         marioStand = new TextureRegion(getTexture(),0,0,16,16);
@@ -76,8 +79,9 @@ public class Mario extends Sprite {
         FixtureDef fdef =  new FixtureDef();
         CircleShape shape = new CircleShape();
         shape.setRadius(6/MarioBros.PPM);
-
-        fdef.shape = shape;
+        fdef.filter.categoryBits = MarioBros.MARIO_BIT;
+       fdef.filter.maskBits = MarioBros.DEFAULT_BIT |MarioBros.COIN_BIT| MarioBros.BRICK_BIT ;
+       fdef.shape = shape;
         b2body.createFixture(fdef);
 
         /// Creamos un sensor para la cabeza de mario para saber cuando
@@ -96,6 +100,7 @@ public class Mario extends Sprite {
         switch (estadoActual){
             case JUMPING:
                 region = marioJump.getKeyFrame(estadoTimer);
+                estadoActual = State.JUMPING;
                 break;
             case RUNNING:
                 region = marioRun.getKeyFrame(estadoTimer,true);
