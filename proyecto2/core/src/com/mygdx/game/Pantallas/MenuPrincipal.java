@@ -30,6 +30,8 @@ public class MenuPrincipal extends ScreenAdapter {
     private Texture textQuitBoton;
     private Sprite spriteQuitBoton;
 
+    private float alphaStage = 0f;
+
 
 
 //    private Texture background;
@@ -37,6 +39,7 @@ public class MenuPrincipal extends ScreenAdapter {
 //    private Viewport viewportBackground;
 
     //TODO: Agregar imagenes en vez de fuentes.
+    //TODO: Ver si el menu puede aparecer con un fade.
 
     public MenuPrincipal(MarioBros game) {
         this.game = game;
@@ -49,6 +52,8 @@ public class MenuPrincipal extends ScreenAdapter {
         textQuitBoton = new Texture(Direcciones.BOTON_QUITGAME.getFilePath());
         spriteQuitBoton = new Sprite(textQuitBoton);
         imgQuitBoton = new Image(spriteQuitBoton);
+
+
 
 
 //        background = new Texture(Direcciones.MENU_BACKGOUNRD.getFilePath());
@@ -88,14 +93,16 @@ public class MenuPrincipal extends ScreenAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 
-        game.batch.begin();
-//      font.draw(game.batch,"PEDIDOS YA GAME", (float) Gdx.graphics.getWidth() / 2 - 45,Gdx.graphics.getHeight() - 45);
-//        backgroundSprite.draw(game.batch);
-        game.batch.end();
+        if (alphaStage < 1){
+            stage.getRoot().getColor().a = alphaStage +=0.007;
+        }
 
         stage.act(delta);
         stage.draw();
 
+
+//      font.draw(game.batch,"PEDIDOS YA GAME", (float) Gdx.graphics.getWidth() / 2 - 45,Gdx.graphics.getHeight() - 45);
+//      backgroundSprite.draw(game.batch);
     }
 
     @Override

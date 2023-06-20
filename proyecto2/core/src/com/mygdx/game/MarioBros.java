@@ -18,7 +18,7 @@ public class MarioBros extends Game {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		setScreen(new PantallaUTN(this,Direcciones.LOGO_UTN.getFilePath()));
+		setScreen(new PantallaUTN(this));
 
 	}
 

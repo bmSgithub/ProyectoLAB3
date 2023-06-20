@@ -8,8 +8,9 @@ import com.mygdx.game.MarioBros;
 import com.mygdx.game.PlayScreen;
 
 public class PantallaUTN extends PantallaCarga{
-    public PantallaUTN(MarioBros game, String direccionLogo) {
-        super(game, direccionLogo);
+    public PantallaUTN(MarioBros game) {
+        super(game);
+        this.direccionLogo = Direcciones.LOGO_UTN.getFilePath();
     }
 
     @Override
@@ -27,8 +28,7 @@ public class PantallaUTN extends PantallaCarga{
         sprite.setAlpha(transicionAlpha());
 
         if (transicionAlpha() == 0f || Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)){
-
-            game.setScreen(new PantallaPedidosYA(game, Direcciones.LOGO_PEDIDOS_YA.getFilePath()));
+            game.setScreen(new PantallaPedidosYA(game));
         }
     }
 

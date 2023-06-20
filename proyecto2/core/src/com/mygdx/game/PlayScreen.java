@@ -57,9 +57,7 @@ public class PlayScreen implements Screen {
 
         mapLoader = new TmxMapLoader();
 
-        //TODO: Cambiar ruta por el enum Direcciones
-//        map = mapLoader.load(Direcciones.MAPA_TMX.getFilePath());
-        map = mapLoader.load("Map/MarioMap.tmx");
+        map = mapLoader.load(Direcciones.MAPA_TMX.getFilePath());
         renderer = new OrthogonalTiledMapRenderer(map, (float) 1 / MarioBros.PPM);
 
         gamecam.position.set((float) gamePort.getWorldWidth() / 2,

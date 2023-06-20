@@ -3,12 +3,14 @@ package com.mygdx.game.Pantallas;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
+import com.mygdx.game.Enum.Direcciones;
 import com.mygdx.game.MarioBros;
 import com.mygdx.game.PlayScreen;
 
 public class PantallaPedidosYA extends PantallaCarga{
-    public PantallaPedidosYA(MarioBros game, String direccionLogo) {
-        super(game, direccionLogo);
+    public PantallaPedidosYA(MarioBros game) {
+        super(game);
+        this.direccionLogo = Direcciones.LOGO_PEDIDOS_YA.getFilePath();
     }
 
     @Override
