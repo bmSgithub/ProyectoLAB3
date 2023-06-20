@@ -18,7 +18,9 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.Scenes.Hud;
+import com.mygdx.game.Tools.B2WorldCreator;
 import com.mygdx.game.Tools.WorldContactListener;
+import com.mygdx.game.sprites.Enemigos.Goomba;
 import com.mygdx.game.sprites.Mario;
 
 public class PlayScreen implements Screen {
@@ -36,6 +38,8 @@ public class PlayScreen implements Screen {
     private final World world;
     private final Box2DDebugRenderer b2dr;
     private Mario player;
+    private Goomba goomba;
+
     private TextureAtlas atlas;
     private Music musica;
 
@@ -64,96 +68,22 @@ public class PlayScreen implements Screen {
         world = new World(new Vector2(0,-10),true);
         b2dr = new Box2DDebugRenderer();
 
-        BodyDef bdef = new BodyDef();
-        PolygonShape shape = new PolygonShape();
-        FixtureDef fdef = new FixtureDef();
-        Body body;
-        player = new Mario(world,this);
+        new B2WorldCreator(this);
+
+
+        player = new Mario(this);
         world.setContactListener(new WorldContactListener());
         musica = MarioBros.manager.get("Musica/Beat-automatico-Bpm-118-Key-G-Minor.ogg", Music.class);
         musica.setLooping(true);
         musica.play();
 
+        goomba = new Goomba(this, .32f,.32f);
 
 
 
 
 
 
-
-
-
-//        Codigo para el suelo
-        for (MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)){
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MarioBros.PPM ,
-                    (rect.getY() + rect.getHeight() / 2) / MarioBros.PPM );
-
-            body = world.createBody(bdef);
-
-            shape.setAsBox(rect.getWidth() / 2 / MarioBros.PPM,rect.getHeight() / 2 / MarioBros.PPM);
-
-            fdef.shape = shape;
-
-            body.createFixture(fdef);
-        }
-
-//        Codigo para la tuberia
-        for (MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)){
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MarioBros.PPM ,
-                    (rect.getY() + rect.getHeight() / 2) / MarioBros.PPM );
-
-            body = world.createBody(bdef);
-
-            shape.setAsBox(rect.getWidth() / 2 /MarioBros.PPM,rect.getHeight() / 2/MarioBros.PPM);
-
-            fdef.shape = shape;
-            fdef.filter.categoryBits = MarioBros.OBJECT_BIT;
-
-
-            body.createFixture(fdef);
-        }
-
-//        Codigo para las coins
-        for (MapObject object : map.getLayers().get(5).getObjects().getByType(RectangleMapObject.class)){
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MarioBros.PPM ,
-                    (rect.getY() + rect.getHeight() / 2) / MarioBros.PPM );
-
-            body = world.createBody(bdef);
-
-            shape.setAsBox(rect.getWidth() / 2 / MarioBros.PPM,rect.getHeight() / 2 / MarioBros.PPM);
-
-            fdef.shape = shape;
-
-            body.createFixture(fdef);
-        }
-
-
-//        Codigo para los bricks
-        for (MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)){
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MarioBros.PPM ,
-                    (rect.getY() + rect.getHeight() / 2) / MarioBros.PPM );
-
-            body = world.createBody(bdef);
-
-            shape.setAsBox(rect.getWidth() / 2 / MarioBros.PPM,rect.getHeight() / 2 / MarioBros.PPM);
-
-            fdef.shape = shape;
-
-            body.createFixture(fdef);
-
-        }
 
     }
 
@@ -190,6 +120,7 @@ public class PlayScreen implements Screen {
         world.step(1/60f,6,2); // afecta la reaccion de dos cuerpos durante una colision
         gamecam.position.x = player.b2body.getPosition().x; // Rastreamos el player
         player.update(dt);
+        goomba.update(dt);
         hud.update(dt);
         gamecam.update();
         renderer.setView(gamecam);
@@ -213,6 +144,7 @@ public class PlayScreen implements Screen {
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
         player.draw(game.batch);
+        goomba.draw(game.batch);
         game.batch.end();
 
 
