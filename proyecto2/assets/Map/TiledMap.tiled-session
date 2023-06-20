@@ -13,11 +13,11 @@
             "scaleInEditor": 1
         },
         "MarioMap.tmx": {
-            "scale": 2,
-            "selectedLayer": 1,
+            "scale": 4,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 384,
-                "y": 69.5
+                "x": 245,
+                "y": 78.375
             }
         },
         "tileset_gutter.tsx": {

@@ -3,12 +3,27 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "tileset_v2.tsx",
     "expandedProjectPaths": [
+        "."
     ],
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
     "fileStates": {
+        "PedidosYaMap.tmx": {
+            "expandedObjectLayers": [
+                11,
+                10,
+                9
+            ],
+            "scale": 3,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": -33,
+                "y": 144.66666666666669
+            }
+        },
         "tileset_gutter2.tsx": {
+            "scaleInDock": 1,
             "scaleInEditor": 1
         },
         "tileset_gutter3.tsx": {
@@ -20,24 +35,28 @@
             "scaleInEditor": 1
         },
         "tileset_v2.tsx": {
+            "scaleInDock": 1,
             "scaleInEditor": 1
         }
     },
     "last.imagePath": "E:/Documentos/UTN/Programacion 3/Proyecto Laboratorio 3/ProyectoLAB3/proyecto2/assets/MapaV2",
-    "map.height": 13,
+    "map.height": 7,
     "map.lastUsedFormat": "tmx",
     "map.layerDataFormat": null,
-    "map.tileHeight": 16,
-    "map.tileWidth": 16,
-    "map.width": 240,
+    "map.tileHeight": 32,
+    "map.tileWidth": 32,
+    "map.width": 120,
     "openFiles": [
+        "PedidosYaMap.tmx",
+        "tileset_v2.tsx"
     ],
     "project": "TiledMap.tiled-project",
     "recentFiles": [
+        "PedidosYaMap.tmx",
+        "tileset_v2.tsx",
         "tileset_gutter3.tsx",
         "tileset_gutter2.tsx",
-        "tileset_gutter4.tsx",
-        "tileset_v2.tsx"
+        "tileset_gutter4.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.margin": 1,
