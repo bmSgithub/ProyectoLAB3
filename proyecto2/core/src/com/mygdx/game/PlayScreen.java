@@ -75,7 +75,7 @@ public class PlayScreen implements Screen {
         world.setContactListener(new WorldContactListener());
         musica = MarioBros.manager.get("Musica/Beat-automatico-Bpm-118-Key-G-Minor.ogg", Music.class);
         musica.setLooping(true);
-        musica.play();
+        //musica.play();
 
         goomba = new Goomba(this, .32f,.32f);
 
@@ -93,19 +93,19 @@ public class PlayScreen implements Screen {
     }
 
     public void handleInput(float dt) {
-        if (Gdx.input.isKeyJustPressed(Input.Keys.UP)){
+        if (Gdx.input.isKeyJustPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.W)){
             player.b2body.applyLinearImpulse(new Vector2(0,4f),player.b2body.getWorldCenter(),true);
 
             // aplica un impulso al cuerpo que se le aplique se aplica en el sentro ya que sino cambiaria
             //de angulo
-        }if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)&& player.b2body.getLinearVelocity().x <= 2){
+        }if ((Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyPressed(Input.Keys.D)) && player.b2body.getLinearVelocity().x <= 2){
             // Se fija que si apretamos solo una vez o mantenemos apretado
             // la segunda parte controla que el movimieto no sea de una velocidad mayor a la deseada
             // se pueden hacer variables globales o enum
             player.b2body.applyLinearImpulse(new Vector2(0.1f,0),player.b2body.getWorldCenter(),true);
 
 
-        }if (Gdx.input.isKeyPressed(Input.Keys.LEFT)&& player.b2body.getLinearVelocity().x >= -2){
+        }if ((Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.A)) && player.b2body.getLinearVelocity().x >= -2 ){
             player.b2body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2body.getWorldCenter(),true);
 
         }
