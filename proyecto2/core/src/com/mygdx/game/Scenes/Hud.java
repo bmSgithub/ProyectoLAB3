@@ -68,6 +68,13 @@ public class Hud {
 
 
     }
+    public  void  update(float dt){
+        timeCount +=dt;
+        if(timeCount >=1 ){
+            worldTimer--;
+            countDownLabel.setText()
+        }
+    }
 
 
 

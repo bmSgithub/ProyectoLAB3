@@ -53,7 +53,7 @@ public class PlayScreen implements Screen {
         hud = new Hud(game.batch);
 
         mapLoader = new TmxMapLoader();
-        map = mapLoader.load("Map/MarioMap.tmx");
+        map = mapLoader.load("MapaV2/PedidosYaMap.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, (float) 1 / MarioBros.PPM);
 
         gamecam.position.set((float) gamePort.getWorldWidth() / 2,
@@ -77,7 +77,7 @@ public class PlayScreen implements Screen {
 
 
 //        Codigo para el suelo
-        for (MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)){
+        for (MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)){
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
@@ -113,7 +113,7 @@ public class PlayScreen implements Screen {
         }
 
 //        Codigo para las coins
-        for (MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)){
+        for (MapObject object : map.getLayers().get(5).getObjects().getByType(RectangleMapObject.class)){
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
@@ -131,7 +131,7 @@ public class PlayScreen implements Screen {
 
 
 //        Codigo para los bricks
-        for (MapObject object : map.getLayers().get(5).getObjects().getByType(RectangleMapObject.class)){
+        for (MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)){
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;

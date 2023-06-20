@@ -58,7 +58,7 @@ public class Mario extends Sprite {
 
         defineMario();
         marioStand = new TextureRegion(getTexture(),0,0,16,16);
-       setBounds(0,0,16 / MarioBros.PPM,16/MarioBros.PPM);
+       setBounds(0,0,32 / MarioBros.PPM,32/MarioBros.PPM);
         ///setBounds(0,0.1f,0.5f,0.6f);
         setRegion(marioStand);
     }
@@ -80,7 +80,7 @@ public class Mario extends Sprite {
         CircleShape shape = new CircleShape();
         shape.setRadius(6/MarioBros.PPM);
         fdef.filter.categoryBits = MarioBros.MARIO_BIT;
-       fdef.filter.maskBits = MarioBros.DEFAULT_BIT |MarioBros.COIN_BIT| MarioBros.BRICK_BIT ;
+      fdef.filter.maskBits = MarioBros.DEFAULT_BIT ;
        fdef.shape = shape;
         b2body.createFixture(fdef);
 
