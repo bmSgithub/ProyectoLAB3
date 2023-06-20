@@ -87,7 +87,7 @@ public class Mario extends Sprite {
         /// Creamos un sensor para la cabeza de mario para saber cuando
         /// Colisiona
         EdgeShape head = new EdgeShape();
-        head.set(new Vector2(-2 / MarioBros.PPM , 6/ MarioBros.PPM), new Vector2(2/MarioBros.PPM, 6/MarioBros.PPM));
+        head.set(new Vector2(-2 / MarioBros.PPM , 8/ MarioBros.PPM), new Vector2(2/MarioBros.PPM, 8/MarioBros.PPM));
         fdef.shape = head;
         fdef.isSensor = true;
         b2body.createFixture(fdef).setUserData("head");

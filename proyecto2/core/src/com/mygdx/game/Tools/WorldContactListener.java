@@ -19,7 +19,7 @@ public class WorldContactListener implements ContactListener {
 
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
-        if (fixA.getUserData()== "head" || fixB.getUserData() == "head"){
+        if (fixA.getUserData() == "head" || fixB.getUserData() == "head"){
             Fixture head = fixA.getUserData() == "head" ? fixA : fixB;
             Fixture object = head == fixA ? fixB : fixA;
             if (object.getUserData() != null && InteractiveTileObject.class.isAssignableFrom(object.getUserData().getClass())){
