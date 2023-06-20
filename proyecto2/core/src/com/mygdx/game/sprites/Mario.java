@@ -5,9 +5,8 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
-import com.mygdx.game.MarioBros;
-import com.mygdx.game.PlayScreen;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.mygdx.game.MainLearn;
+import Screens.PlayScreen;
 import com.mygdx.game.Enum.*;
 
 
@@ -53,7 +52,7 @@ public class Mario extends Sprite {
 
         defineMario();
         marioStand = new TextureRegion(getTexture(),0,0,16,16);
-       setBounds(0,0,16 / MarioBros.PPM,16/MarioBros.PPM);
+       setBounds(0,0,16 / MainLearn.PPM,16/ MainLearn.PPM);
         ///setBounds(0,0.1f,0.5f,0.6f);
         setRegion(marioStand);
     }
@@ -64,7 +63,7 @@ public class Mario extends Sprite {
 
     public void defineMario(){
         BodyDef bdef= new BodyDef();
-        bdef.position.set(132 / MarioBros.PPM,132/ MarioBros.PPM); // definimos la posicion del comienzo
+        bdef.position.set(132 / MainLearn.PPM,132/ MainLearn.PPM); // definimos la posicion del comienzo
         //bdef.position.set(32,32);
         bdef.type = BodyDef.BodyType.DynamicBody; // Crea un cuerpo de tipo dinamico (Cuerpo que interactua con el entorno)
         b2body = world.createBody(bdef);
@@ -73,7 +72,7 @@ public class Mario extends Sprite {
 
         FixtureDef fdef =  new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(6/MarioBros.PPM);
+        shape.setRadius(6/ MainLearn.PPM);
 
         fdef.shape = shape;
         b2body.createFixture(fdef);

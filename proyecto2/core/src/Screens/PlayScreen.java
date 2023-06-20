@@ -1,4 +1,4 @@
-package com.mygdx.game;
+package Screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -16,12 +16,13 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.mygdx.game.MainLearn;
 import com.mygdx.game.Scenes.Hud;
 import com.mygdx.game.sprites.Mario;
 
 public class PlayScreen implements Screen {
 
-    private final MarioBros game;
+    private final MainLearn game;
 
     private final OrthographicCamera gamecam;
     private final Viewport gamePort;
@@ -40,20 +41,20 @@ public class PlayScreen implements Screen {
 
 
 
-    public PlayScreen(MarioBros game) {
+    public PlayScreen(MainLearn game) {
         atlas = new TextureAtlas("Mario_and_Enemies.pack");
 
         this.game = game;
 
         gamecam = new OrthographicCamera();
 
-        gamePort = new FitViewport((float) MarioBros.V_WIDHT / MarioBros.PPM, (float) MarioBros.V_HEIGHT / MarioBros.PPM, gamecam);
+        gamePort = new FitViewport((float) MainLearn.V_WIDHT / MainLearn.PPM, (float) MainLearn.V_HEIGHT / MainLearn.PPM, gamecam);
 
         hud = new Hud(game.batch);
 
         mapLoader = new TmxMapLoader();
         map = mapLoader.load("Map/MarioMap.tmx");
-        renderer = new OrthogonalTiledMapRenderer(map, (float) 1 / MarioBros.PPM);
+        renderer = new OrthogonalTiledMapRenderer(map, (float) 1 / MainLearn.PPM);
 
         gamecam.position.set((float) gamePort.getWorldWidth() / 2,
                 (float) gamePort.getWorldHeight() / 2, 0);
@@ -79,12 +80,12 @@ public class PlayScreen implements Screen {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MarioBros.PPM ,
-                    (rect.getY() + rect.getHeight() / 2) / MarioBros.PPM );
+            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MainLearn.PPM ,
+                    (rect.getY() + rect.getHeight() / 2) / MainLearn.PPM );
 
             body = world.createBody(bdef);
 
-            shape.setAsBox(rect.getWidth() / 2 / MarioBros.PPM,rect.getHeight() / 2 / MarioBros.PPM);
+            shape.setAsBox(rect.getWidth() / 2 / MainLearn.PPM,rect.getHeight() / 2 / MainLearn.PPM);
 
             fdef.shape = shape;
 
@@ -96,15 +97,15 @@ public class PlayScreen implements Screen {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MarioBros.PPM ,
-                    (rect.getY() + rect.getHeight() / 2) / MarioBros.PPM );
+            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MainLearn.PPM ,
+                    (rect.getY() + rect.getHeight() / 2) / MainLearn.PPM );
 
             body = world.createBody(bdef);
 
-            shape.setAsBox(rect.getWidth() / 2 /MarioBros.PPM,rect.getHeight() / 2/MarioBros.PPM);
+            shape.setAsBox(rect.getWidth() / 2 / MainLearn.PPM,rect.getHeight() / 2/ MainLearn.PPM);
 
             fdef.shape = shape;
-            fdef.filter.categoryBits = MarioBros.OBJECT_BIT;
+            fdef.filter.categoryBits = MainLearn.OBJECT_BIT;
 
 
             body.createFixture(fdef);
@@ -115,12 +116,12 @@ public class PlayScreen implements Screen {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MarioBros.PPM ,
-                    (rect.getY() + rect.getHeight() / 2) / MarioBros.PPM );
+            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MainLearn.PPM ,
+                    (rect.getY() + rect.getHeight() / 2) / MainLearn.PPM );
 
             body = world.createBody(bdef);
 
-            shape.setAsBox(rect.getWidth() / 2 / MarioBros.PPM,rect.getHeight() / 2 / MarioBros.PPM);
+            shape.setAsBox(rect.getWidth() / 2 / MainLearn.PPM,rect.getHeight() / 2 / MainLearn.PPM);
 
             fdef.shape = shape;
 
@@ -133,12 +134,12 @@ public class PlayScreen implements Screen {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MarioBros.PPM ,
-                    (rect.getY() + rect.getHeight() / 2) / MarioBros.PPM );
+            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MainLearn.PPM ,
+                    (rect.getY() + rect.getHeight() / 2) / MainLearn.PPM );
 
             body = world.createBody(bdef);
 
-            shape.setAsBox(rect.getWidth() / 2 / MarioBros.PPM,rect.getHeight() / 2 / MarioBros.PPM);
+            shape.setAsBox(rect.getWidth() / 2 / MainLearn.PPM,rect.getHeight() / 2 / MainLearn.PPM);
 
             fdef.shape = shape;
 

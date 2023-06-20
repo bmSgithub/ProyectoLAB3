@@ -9,9 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.mygdx.game.MarioBros;
-
-import java.awt.*;
+import com.mygdx.game.MainLearn;
 
 public class Hud {
 
@@ -35,7 +33,7 @@ public class Hud {
         timeCount = 0;
         score = 1000;
 
-        viewport = new FitViewport(MarioBros.V_WIDHT,MarioBros.V_HEIGHT, new OrthographicCamera());
+        viewport = new FitViewport(MainLearn.V_WIDHT, MainLearn.V_HEIGHT, new OrthographicCamera());
         stage = new Stage(viewport,sb);
 
         Table table = new Table();
