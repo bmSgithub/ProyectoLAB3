@@ -2,6 +2,8 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.mygdx.game.Enum.Direcciones;
+import com.mygdx.game.Pantallas.MenuPrincipal;
 import com.mygdx.game.Pantallas.PantallaCarga;
 import com.mygdx.game.Pantallas.PantallaUTN;
 
@@ -22,7 +24,8 @@ public class MarioBros extends Game {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		setScreen(new PantallaUTN(this,"Otros/logoUTN.png"));
+		setScreen(new PantallaUTN(this));
+
 	}
 
 	@Override
