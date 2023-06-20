@@ -16,6 +16,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.mygdx.game.Enum.Direcciones;
 import com.mygdx.game.Scenes.Hud;
 import com.mygdx.game.Tools.WorldContactListener;
 import com.mygdx.game.sprites.Mario;
@@ -42,6 +43,8 @@ public class PlayScreen implements Screen {
 
 
     public PlayScreen(MarioBros game) {
+
+        //TODO: Cambiar ruta por el enum Direcciones
         atlas = new TextureAtlas("Mario_and_Enemies.pack");
 
         this.game = game;
@@ -53,6 +56,9 @@ public class PlayScreen implements Screen {
         hud = new Hud(game.batch);
 
         mapLoader = new TmxMapLoader();
+
+        //TODO: Cambiar ruta por el enum Direcciones
+//        map = mapLoader.load(Direcciones.MAPA_TMX.getFilePath());
         map = mapLoader.load("Map/MarioMap.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, (float) 1 / MarioBros.PPM);
 
@@ -68,11 +74,6 @@ public class PlayScreen implements Screen {
         Body body;
         player = new Mario(world,this);
         world.setContactListener(new WorldContactListener());
-
-
-
-
-
 
 
 
