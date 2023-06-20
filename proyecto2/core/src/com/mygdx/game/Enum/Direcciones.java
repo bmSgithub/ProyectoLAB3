@@ -4,6 +4,7 @@ public enum Direcciones {
 
 
     LOGO_UTN("Logos/logoUTN.png"),
+    LOGO_UTN2("Logos/logoUTN2.png"),
     LOGO_PEDIDOS_YA("Logos/logoPEDIDOSYA.png"),
     MAPA_TMX("Map/MarioMap.tmx"),
     BOTON_PLAYGAME("Botones/startButton.png"),
