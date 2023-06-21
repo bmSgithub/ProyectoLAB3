@@ -60,7 +60,7 @@ public class PlayScreen implements Screen {
         hud = new Hud(game.batch);
 
         mapLoader = new TmxMapLoader();
-        map = mapLoader.load("MapaV2/PedidosYaMap.tmx");
+        map = mapLoader.load("Level1/level1.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, (float) 1 / MarioBros.PPM);
 
         gamecam.position.set((float) gamePort.getWorldWidth() / 2,
