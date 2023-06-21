@@ -30,6 +30,13 @@ public class MenuPrincipal extends ScreenAdapter {
     private Texture textQuitBoton;
     private Sprite spriteQuitBoton;
 
+    private final float TAMANIO_ANCHO_SCORE = 200f;
+    private final float TAMANIO_ALTO_SCORE = 60f;
+    private Image imgScoreBoton;
+    private Texture textScoreBoton;
+    private Sprite spriteScoreBoton;
+
+
     private float alphaStage = 0f;
 
 
@@ -53,6 +60,9 @@ public class MenuPrincipal extends ScreenAdapter {
         spriteQuitBoton = new Sprite(textQuitBoton);
         imgQuitBoton = new Image(spriteQuitBoton);
 
+        textScoreBoton = new Texture(Direcciones.BOTON_SOCRE.getFilePath());
+        spriteScoreBoton = new Sprite(textScoreBoton);
+        imgScoreBoton = new Image(spriteScoreBoton);
 
 
 
@@ -68,6 +78,7 @@ public class MenuPrincipal extends ScreenAdapter {
         Gdx.input.setInputProcessor(stage);
 
         imgStartBoton.setSize(TAMANIO_ANCHO_START, TAMANIO_ALTO_START);
+        imgScoreBoton.setSize(TAMANIO_ANCHO_SCORE,TAMANIO_ALTO_SCORE);
         imgQuitBoton.setSize(TAMANIO_ANCHO_QUIT,TAMANIO_ALTO_QUIT);
 
         float posicionStartX = (float) Gdx.graphics.getWidth() / 2 - imgStartBoton.getWidth() / 2;
@@ -75,15 +86,23 @@ public class MenuPrincipal extends ScreenAdapter {
 
         imgStartBoton.setPosition(posicionStartX,posicionStartY);
 
-        float posicionQuitX = posicionStartX + 3;
-        float posicionQuitY = posicionStartY - 60;
+        float posicionScoreX = posicionStartX + 3;
+        float posicionScoreY = posicionStartY - 60;
+
+        imgScoreBoton.setPosition(posicionScoreX,posicionScoreY);
+
+        float posicionQuitX = posicionScoreX + 3;
+        float posicionQuitY = posicionScoreY - 60;
 
         imgQuitBoton.setPosition(posicionQuitX, posicionQuitY);
 
         imgStartBoton.addListener(createStartButtonListener());
+        imgScoreBoton.addListener(createScoreButtonListener());
         imgQuitBoton.addListener(createQuitButtonListener());
 
+
         stage.addActor(imgStartBoton);
+        stage.addActor(imgScoreBoton);
         stage.addActor(imgQuitBoton);
     }
 
@@ -127,6 +146,15 @@ public class MenuPrincipal extends ScreenAdapter {
         };
     }
 
+    private ClickListener createScoreButtonListener() {
+        return new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new ScoreBoard(game));
+            }
+        };
+    }
+
     private ClickListener createQuitButtonListener() {
         return new ClickListener() {
             @Override
@@ -135,4 +163,6 @@ public class MenuPrincipal extends ScreenAdapter {
             }
         };
     }
+
+
 }

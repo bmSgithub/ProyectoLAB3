@@ -8,7 +8,9 @@ public enum Direcciones {
     LOGO_PEDIDOS_YA("Logos/logoPEDIDOSYA.png"),
     MAPA_TMX("Map/MarioMap.tmx"),
     BOTON_PLAYGAME("Botones/startButton.png"),
-    BOTON_QUITGAME("Botones/quitButton.png");
+    BOTON_QUITGAME("Botones/quitButton.png"),
+    BOTON_SOCRE("Botones/scoreButton.png"),
+    FILE_SCORE("JSON/score.json");
 
 
 
