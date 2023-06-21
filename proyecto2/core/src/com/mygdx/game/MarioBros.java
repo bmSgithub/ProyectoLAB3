@@ -5,7 +5,9 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.game.Pantallas.GameOver;
+import com.mygdx.game.Pantallas.GameOver2;
 import com.mygdx.game.Pantallas.PantallaUTN;
+import com.mygdx.game.Pantallas.PantallaWin;
 import com.mygdx.game.sprites.Jugador;
 
 public class MarioBros extends Game {
@@ -31,6 +33,7 @@ public class MarioBros extends Game {
 		manager.load("Musica/Beat-automatico-Bpm-118-Key-G-Minor.ogg", Music.class);
 		manager.finishLoading();
 
+//		setScreen(new PantallaWin(this,new Jugador("Lauti",300)));
 		setScreen(new PantallaUTN(this));
 
 	}

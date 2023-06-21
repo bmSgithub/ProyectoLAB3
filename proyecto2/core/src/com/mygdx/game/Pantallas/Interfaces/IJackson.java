@@ -1,4 +1,4 @@
-package com.mygdx.game.Pantallas;
+package com.mygdx.game.Pantallas.Interfaces;
 
 import com.mygdx.game.sprites.Jugador;
 
