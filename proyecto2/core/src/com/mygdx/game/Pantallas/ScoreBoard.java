@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import com.mygdx.game.Enum.Direcciones;
+import com.mygdx.game.Pantallas.Interfaces.IJackson;
 import com.mygdx.game.sprites.Jugador;
 import com.mygdx.game.MarioBros;
 
@@ -75,6 +76,7 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
         });
     }
 
+    //TODO: Cambiar posicion y agregar imagen de fondo.
     private void mostrarJugadoresScores() {
 
         float y = Gdx.graphics.getHeight() - 50;

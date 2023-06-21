@@ -32,9 +32,8 @@ public class GameOver extends ScreenAdapter {
     public GameOver(MarioBros game, Jugador jugador) {
         this.game = game;
         this.jugador = jugador;
+
         this.stage = new Stage();
-
-
         this.textureGameOver = new Texture(Direcciones.BOTON_GAMEOVER.getFilePath());
         this.textureGameOver.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
         this.spriteGameOver = new Sprite(textureGameOver);
@@ -58,7 +57,6 @@ public class GameOver extends ScreenAdapter {
         imageGameOver.addListener(createGameOverButtonListener());
 
         stage.addActor(imageGameOver);
-
 
     }
 

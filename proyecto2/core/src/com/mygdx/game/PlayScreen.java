@@ -15,6 +15,8 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.Pantallas.GameOver;
@@ -43,7 +45,6 @@ public class PlayScreen implements Screen {
 
     private TextureAtlas atlas;
     private Music musica;
-
 
 
 
@@ -83,9 +84,6 @@ public class PlayScreen implements Screen {
 
 
 
-
-
-
     }
 
     @Override
@@ -110,8 +108,6 @@ public class PlayScreen implements Screen {
             player.b2body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2body.getWorldCenter(),true);
 
         }
-
-
     }
 
     public void update(float dt) {
@@ -146,6 +142,9 @@ public class PlayScreen implements Screen {
         game.batch.begin();
         player.draw(game.batch);
         goomba.draw(game.batch);
+
+
+
         game.batch.end();
 
         /*
@@ -155,6 +154,7 @@ public class PlayScreen implements Screen {
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
+
 
 
     }
@@ -199,6 +199,7 @@ public class PlayScreen implements Screen {
     public TiledMap getMap(){
         return map;
     }
+
 
 
 

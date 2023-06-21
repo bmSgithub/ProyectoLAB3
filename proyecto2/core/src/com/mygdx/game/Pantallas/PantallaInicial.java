@@ -10,7 +10,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.MarioBros;
 
-public abstract class PantallaCarga extends ScreenAdapter {
+public abstract class PantallaInicial extends ScreenAdapter {
 
     protected MarioBros game;
     protected String direccionLogo;
@@ -29,7 +29,7 @@ public abstract class PantallaCarga extends ScreenAdapter {
     protected float alphaLogoActualmente;
 
 
-    public PantallaCarga(MarioBros game) {
+    public PantallaInicial(MarioBros game) {
         this.game = game;
     }
 

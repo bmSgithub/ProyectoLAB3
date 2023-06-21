@@ -108,7 +108,7 @@ public class MenuPrincipal extends ScreenAdapter {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(210, 210, 210, 1);
+        Gdx.gl.glClearColor(300, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 
