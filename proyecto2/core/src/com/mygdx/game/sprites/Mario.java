@@ -58,7 +58,7 @@ public class Mario extends Sprite {
 
         defineMario();
         marioStand = new TextureRegion(getTexture(),0,0,16,16);
-       setBounds(0,0,32 / MarioBros.PPM,32/MarioBros.PPM);
+       setBounds(0,0,20 / MarioBros.PPM,20/MarioBros.PPM); //tamaño
         ///setBounds(0,0.1f,0.5f,0.6f);
         setRegion(marioStand);
     }

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="240" height="13" tilewidth="16" tileheight="16" infinite="0" nextlayerid="17" nextobjectid="49">
+ <tileset firstgid="1" source="tileset_final.tsx"/>
+ <layer id="1" name="Background" width="240" height="13">
+  <data encoding="base64" compression="zlib">
+   eJzt17lRgmEURuGfkDZohVaI6UJ2BJpAFlGgCfZNmmBHxQI8FuCQ6f/NnOAJz8xN3uCmoihKSQpSWlKwMpKC9YAc8iigiBLKqKCKR9RQR8PGxiY2TRNPaKGNDrp4Rg8veEUfAwxtbGxi04wwxgRTzDDHAkussMYGb9ja2NjEptlhjwOOOOGMC654xwc+ccOXjY1NbJpkQlKofv5iSZL0t5qSFLhs4nf/fZuk+9yvQvMNZn1SLA==
+  </data>
+ </layer>
+ <layer id="6" name="Road" width="240" height="13">
+  <data encoding="base64" compression="zlib">
+   eJzt17sNwkAQBNA7uR7zcSGAK8FUgk0FlMoiAQE6yABjvyeNRpNdssGlBAAAAAAAAMAULKuUVpXW+h97H+kim8j2g7uOLGz7e/t8zVT2OtIU+n5nfWQo7F2ktW17FLt9yqu7nlt3ufy/OORxvE/rUtfyyDFu9RQZbt3n379J5F0uyR5Yeg==
+  </data>
+ </layer>
+ <layer id="7" name="Details" width="240" height="13">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20KP6AAAAAAAAAAAAAAAAC+BjDAAAE=
+  </data>
+ </layer>
+ <layer id="2" name="Buildings" width="240" height="13">
+  <data encoding="base64" compression="zlib">
+   eJztmMuK1EAUhk+ln8HFdCsK3vaiC8fLyttOFHQxzlPoiIoiOOgjKAqjtjTjO6go+A4Kzixs8RlUHAX1P1Qdcrq6UklsnSRaP3xUJXVIKpn+UskQzZCMaNHUY2zKD/vCUSdDHPcZFTOscN7NyjXHrDVtzCL4AX6S/VszHxxjBf92mHHB/hB+bVl97Ph6W88zdA7eL9fUVPoFzBTn7xK4rByNbZf5y94uGEsdh9nPdSqmLf6yk9fBDde/BZZdK32/pkthf7fjXu8ocE07ZAK+8T7xXRNz1Sgn/WdFzP2y50Fb/BVXt2TT7POoFefvXXBP+Rrbjvkr7q446jjchfWXXezztaF9CAYmd1i7G6rpSnx/y9ZE7WCMMr81JnCuonmEakLnbMpfcXc/5nAgs61myUxSy+E/+P6s3T2I/jzVc7gL6y97+MlMI+/KsfGuJOSvySbb0NoZ6p8OUOa5+B06n/HWaKnza9rir7j7HfM8hzmcz2yrCf1eKjuMujVTnfUCf9nPkcn9XcD2Bcr9HVVweBi4Dk1b/P2KeZzJbLth4u3ZzPa76m/sXVd7oj0PjftOVXG4qL5oO/Y+3YS/+vtW+7ts8mcZ9x95DLLN95czcu7eBndUu+L8LYv4SwHa5O8c7tlF8Jos/vVyK2OXUNfPuutv1W/OLtDk96/v7xXsu0q5v2/Qf0u2z77U8fclTfIKvANrFB4r83cVPFVtXX/lft+kvN8mf58Yu6aG/JW+jPEazPXJ3+Zp2l/5/mVn72PfA8r9/Yz+F/o9f9/TJGOwAb5ReOxvr79yvx9Te/1lPpJFP6+kL2NSm/xtHrmmJuKvv/z/2Odk+ykpKSkpKSn/ZuZ6RH0wAFvBtp7dvxPtLrAb7AF7e83OMyUlZTrz8PIQOAyOgKPO02Noj4MT4CQ4lfxNSUlJSflP8gusZfA9
+  </data>
+ </layer>
+ <layer id="3" name="BuildingsDetails" width="240" height="13">
+  <data encoding="base64" compression="zlib">
+   eJzt2MkJwlAYReE86xHFSmIHDjU47hxqcCwkToXozk7EC0EQoxJdvORPzgcHgrzs3iVgEMC3qotrfOlxpihub7L8DsrpeZOf9pnmjDVhJe729Gz5nSxEugs7l3yGH++2+PpbmjMW5XmLVvZ71j24uOQz/Pi0w5qLq6f4Hlt1dcksv4Py+XeHRdivFXn+/iJb7Bewi/0CdrFD/CvU3WlyfwAgc71KEPTVQA3VSI353wXwpqW9tVVHdX/c3kLnl2ql1mqjtuwX8GaivU3VTM1/3F6k8zu1Vwd1VCf2CwBm3AGyKVLs
+  </data>
+ </layer>
+ <layer id="8" name="VehiclesCollision" width="240" height="13">
+  <data encoding="base64" compression="zlib">
+   eJzt1kVvFWEUgOHbW8GK6x7aoit8D23RFb6Htmhw29extjh7qOH8B6jh7LEF1HC2PAnzA0huKAHOmzz5FjPfZObOnOSmUlEURVEURVEURVEURVEURVEURVEURb+/6nQqVUMtddRzgpOc4jRnaKCRpnRm+6Io+vXmZ6dSC1jIIhazhKXZP483m6sWWmmjnevc4Ca3uM0d7nIvndm+HGsueQxjOCMYySjyk/Mqs1KpKqqpoZY66rOG/jeMoj/VOnO6ng1sZBOb2ZLMb4d56aSLbnp4yCMe84SnPOM5L9KZ7SuwFlLETGYxmznMZV5y3lVzeo1mWmiljfZ/fH63ei/bKKOciuw/fUfRULbX+97Hfg5wkEMc5ghHOcbx5LvoNS999DPAIB/4yCc+84WvfON7OrN9xdYSSlnBSlaxmjWsTc67b04f0EEnXXTTk8zvdPc/gwIKKUqe56X9r3jNG97+Zf/bKz1HFdXUUBvz+1/V4H030sRZznGeC1zkEpe5knwX+dbRjGEs4xjPBCYyiclMYSrTMtxXZp7KqWA7O9jJLnazJ5m3d+b0Pb300c8Ag8n8LnO95RRTQmly/bQ1mxxyyYvvP4qiDPoBajeJDw==
+  </data>
+ </layer>
+ <layer id="10" name="RoadDetails" width="240" height="13">
+  <data encoding="base64" compression="zlib">
+   eJztmDsOwjAMhkM7w8aKxGOGjZWKxwXgAmXnBnAUuA6cAxa4BBJ2mYgiqErSxM3/SVaqSLGcOH/SWCmwa303AEC4sEb7iVIDsiHZiOxMfRfo1xp7soPhW+oYEA6s0TlpdkG2JFuR3anvAf1a40h2MnxLHQPCweb/89NNiCAwekLO9XHiO4JPro7WrWvwa+qr4qdJtGk/dALbEz6QkufcdwAamSO/U0M+TH1V/DQJ6PeNlDzPfAegsXXk15Z+pZzLVeH5NX2OZZCyBrnvADRC168+Rso7qSw8Pyl3j0tMa4DaR/OQck6D/0Gu64frcxOH7zncVfFQV665hnvDvirIlLuaGIMzOR7qynVC902KGmJBptzqF/dvPPjI9TpVapPG23I97FdNLIQ40aI1tS/vXnom
+  </data>
+ </layer>
+ <layer id="4" name="Vehicles" width="240" height="13">
+  <data encoding="base64" compression="zlib">
+   eJzt1ldOAlEYhuERpA24BVsiHbdgS6TjFmyJdLy2YGyrsC7Eug/blW0PlteExMAFxAsZot+bPJkwDHDmTP4Ew1BKKaWUUkoppZRSSqmf5YATLrjhgQkvfBiwbmlKWdqazTDWsYFN1LFls3pVzfkRQBAhhBFBFDGMW7c0pZp6ZHae8IwXvP7yLB3w/Yc4wjFOcNr4zRuOt7jDPR4smus4EkgihTQyyCKHuZbr5+2GsYBFLGHZ3v686n6D7P0QhjGC0T/yLFzchxsemPB2uK9+ZsoBJ1xwwwMTXvg6zNwZ75/jApe4wnXjM28c3/Hx9Zp19Fm0x3kUUEQJZVRQRQ2rLddvs84d7GIP+/b251X3m2DvJzGFacz802cxxmz5EUAQIYQRQRSxHvsvrJT6bpb5jCOBJFJII4MscppfpXq2FeYzjwKKKKGMCqqoaX6VUkr1eJ+BNjM2
+  </data>
+ </layer>
+ <layer id="5" name="BuildingsCollision" width="240" height="13">
+  <data encoding="base64" compression="zlib">
+   eJzt0zEOgCAQRFH2lHIg7slVDC1GKLTY6HvJlFP+UgBgr8e3PvAnmVvUL1zddbHqJfOHXFqsxzOjhWNajX1XWT8AAAAAAAAA8LYT92AgDQ==
+  </data>
+ </layer>
+ <objectgroup id="16" name="Limits">
+  <object id="46" x="3840.5" y="0" width="53" height="237.5"/>
+  <object id="47" x="-64.5" y="-5.5" width="64.5" height="237"/>
+  <object id="48" x="5.26316" y="-89.4737" width="3834.21" height="73.6842"/>
+ </objectgroup>
+ <objectgroup id="13" name="Ground">
+  <object id="20" x="-2.63158" y="189.474" width="1026.32" height="42.1053"/>
+  <object id="31" x="1023.67" y="233.667" width="144.667" height="36"/>
+  <object id="36" x="1163.16" y="189.474" width="1226.32" height="55.2632"/>
+  <object id="39" x="3331.58" y="189.474" width="507.895" height="47.3684"/>
+  <object id="40" x="2390" y="246" width="940" height="42"/>
+ </objectgroup>
+ <objectgroup id="14" name="Cars">
+  <object id="28" x="170" y="187.667">
+   <polygon points="0,0 1,-12.6667 27,-25 52.3333,-25.3333 61.6667,-18 85.6667,-15.6667 91,-6.66667 90,0.666667 90,1.66667"/>
+  </object>
+  <object id="29" x="396.333" y="188">
+   <polygon points="0,0 0,-15.6667 7,-18.3333 12.6667,-18.6667 18.3333,-25.6667 27.6667,-30.3333 38.3333,-31.3333 49,-31 56,-29 59.3333,-24.3333 61.3333,-21.3333 72.3333,-18.6667 79,-17.6667 84.3333,-16 95,-19.6667 103.333,-21.3333 111.667,-23.6667 115,-28.3333 121.667,-31.6667 132.667,-32.6667 144,-32 151,-27.6667 156,-25 164.667,-21.6667 174.333,-20.6667 184,-18 185.667,-13.3333 185.333,-0.666667 185,0.666667"/>
+  </object>
+  <object id="30" x="710" y="187.667">
+   <polygon points="0,0 1.33333,-24 1.66667,-38.6667 5,-52.3333 6.66667,-59.3333 8.66667,-63 23.6667,-63.3333 53,-61.6667 87.3333,-63.3333 106,-63 115.667,-62 116,-55 124.667,-55.6667 134,-54.3333 142.667,-51.6667 149,-46.3333 153.667,-38 156,-31 157.333,-17.3333 157.333,-5.66667 155.667,1"/>
+  </object>
+  <object id="33" x="1519" y="188">
+   <polygon points="0,0 -0.666667,-16.6667 4,-23.6667 10,-30 19.6667,-32.3333 45.3333,-30.3333 49.3333,-24.3333 62.6667,-18.6667 73.3333,-14.6667 71,1.33333"/>
+  </object>
+  <object id="34" x="1754" y="188.333">
+   <polygon points="0,0 1.33333,-27.3333 4.66667,-44.3333 11.6667,-48.3333 37.6667,-50.6667 62,-49.3333 83.6667,-46.6667 83.3333,-41 98,-36.3333 108.667,-25.6667 109.667,-8.33333 108,1.33333"/>
+  </object>
+  <object id="35" x="2240.67" y="188.333">
+   <polygon points="0,0 48.6667,-21.6667 89.3333,-39.6667 137.667,-60 142,-61.6667 148,-61.6667 148.333,1"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="15" name="Buildings">
+  <object id="32" x="1040" y="63.6667" width="128" height="16.3333"/>
+  <object id="41" x="2464" y="64" width="79.5" height="16.5"/>
+  <object id="42" x="2672" y="64" width="80" height="15.5"/>
+  <object id="43" x="2880.5" y="64" width="79.5" height="15.5"/>
+  <object id="44" x="3088.5" y="64.5" width="79.5" height="15"/>
+  <object id="45" x="3637.5" y="189">
+   <polygon points="0,0 153,-53.5 202,-54 202,-1.5"/>
+  </object>
+ </objectgroup>
+</map>
