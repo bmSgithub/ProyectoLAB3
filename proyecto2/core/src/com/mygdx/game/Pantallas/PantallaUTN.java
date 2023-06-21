@@ -29,6 +29,7 @@ public class PantallaUTN extends PantallaCarga{
 
         if (transicionAlpha() == 0f || Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)){
             game.setScreen(new PantallaPedidosYA(game));
+            dispose();
         }
     }
 

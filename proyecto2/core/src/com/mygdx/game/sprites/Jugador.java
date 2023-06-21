@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Jugador implements Serializable {
 
     //TODO: Ver si puede extener de Mario para que tenga los atributos y metodos. Y se guarda esta clase en el .json
+    //TODO: Agregar un ID Auto Incremental.
 
     private String nombre;
     private int score;

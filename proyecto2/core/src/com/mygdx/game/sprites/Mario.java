@@ -29,11 +29,6 @@ public class Mario extends Sprite {
     protected Fixture fixture;
 
 
-
-
-
-
-
     public Mario (PlayScreen screen){
         super(screen.getAtlas().findRegion("little_mario"));
         this.world = screen.getWorld();

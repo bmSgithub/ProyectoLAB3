@@ -1,6 +1,7 @@
 package com.mygdx.game.Pantallas;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -51,6 +52,11 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
         mostrarJugadoresScores();
 
         game.batch.end();
+
+        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE) || Gdx.input.isKeyPressed(Input.Keys.ENTER)){
+            game.setScreen(new MenuPrincipal(game));
+            dispose();
+        }
 
     }
 

@@ -1,10 +1,22 @@
-[ {
+[{
   "nombre" : "Tomas",
   "score" : 600
-},{
+}, {
   "nombre" : "Blas",
   "score" : 500
-},{
+}, {
   "nombre" : "Brian",
   "score" : 300
-}]
+}, {
+  "nombre" : "Hola",
+  "score" : 1000
+}, {
+  "nombre" : "putooooo",
+  "score" : 1000
+}, {
+  "nombre" : "Puto el q lee",
+  "score" : 300
+}, {
+  "nombre" : "ola k ace",
+  "score" : 300
+}  ]

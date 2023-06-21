@@ -30,6 +30,7 @@ public class PantallaPedidosYA extends PantallaCarga{
 
         if (transicionAlpha() == 0f || Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)){
             game.setScreen(new MenuPrincipal(game));
+            dispose();
         }
     }
 }

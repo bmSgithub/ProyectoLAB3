@@ -136,30 +136,33 @@ public class MenuPrincipal extends ScreenAdapter {
 //        background.dispose();
         stage.dispose();
     }
-
+    //TODO: Cambiar nombre al metodo Listener
     private ClickListener createStartButtonListener() {
         return new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 game.setScreen(new PlayScreen(game));
+                dispose();
             }
         };
     }
-
+    //TODO: Cambiar nombre al metodo Listener
     private ClickListener createScoreButtonListener() {
         return new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 game.setScreen(new ScoreBoard(game));
+                dispose();
             }
         };
     }
-
+    //TODO: Cambiar nombre al metodo Listener
     private ClickListener createQuitButtonListener() {
         return new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 Gdx.app.exit();
+                dispose();
             }
         };
     }

@@ -17,6 +17,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.mygdx.game.Pantallas.GameOver;
 import com.mygdx.game.Scenes.Hud;
 import com.mygdx.game.Tools.B2WorldCreator;
 import com.mygdx.game.Tools.WorldContactListener;
@@ -147,8 +148,10 @@ public class PlayScreen implements Screen {
         goomba.draw(game.batch);
         game.batch.end();
 
-
-
+        /*
+        //TODO: Si Mario muere, o se acaba el tiempo ... Game Over
+         setScreen(new GameOver()); le pasamos game y le pasamos el juegador que esta jugando.
+        */
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
@@ -196,6 +199,8 @@ public class PlayScreen implements Screen {
     public TiledMap getMap(){
         return map;
     }
+
+
 
 
 }
