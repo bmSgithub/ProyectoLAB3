@@ -125,16 +125,11 @@ public class MenuPrincipal extends ScreenAdapter {
 
         imgTutorialBoton.setPosition(posicionTutorialX,posicionTutorialY);
 
-        try {
-            imgStartBoton.addListener(createStartButtonListener());
-            imgScoreBoton.addListener(createScoreButtonListener());
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
 
+        imgStartBoton.addListener(createStartButtonListener());
+        imgScoreBoton.addListener(createScoreButtonListener());
         imgQuitBoton.addListener(createQuitButtonListener());
         imgTutorialBoton.addListener(createTutorialButtonListener());
-
 
 
         stage.addActor(imgStartBoton);
@@ -188,17 +183,15 @@ public class MenuPrincipal extends ScreenAdapter {
     }
 
     //TODO: Cambiar nombre al metodo Listener
-    private ClickListener createStartButtonListener() throws InterruptedException {
+    private ClickListener createStartButtonListener() {
         return new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 musica.pause();
                 sound.play();
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+
+                sleep();
+
                 game.setScreen(new PlayScreen(game));
                 dispose();
             }
@@ -206,17 +199,15 @@ public class MenuPrincipal extends ScreenAdapter {
     }
 
     //TODO: Cambiar nombre al metodo Listener
-    private ClickListener createScoreButtonListener() throws InterruptedException {
+    private ClickListener createScoreButtonListener() {
         return new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 musica.pause();
                 sound.play();
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+
+                sleep();
+
                 game.setScreen(new ScoreBoard(game));
                 dispose();
             }
@@ -226,6 +217,11 @@ public class MenuPrincipal extends ScreenAdapter {
         return new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                musica.pause();
+                sound.play();
+
+                sleep();
+
                 game.setScreen(new Tutorial(game));
                 dispose();
             }
@@ -237,11 +233,22 @@ public class MenuPrincipal extends ScreenAdapter {
         return new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                sound.play();
+
+                sleep();
+
                 Gdx.app.exit();
                 dispose();
             }
         };
     }
 
+    public void sleep (){
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
