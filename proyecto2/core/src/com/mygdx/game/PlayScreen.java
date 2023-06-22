@@ -7,23 +7,19 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.maps.MapObject;
-import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.mygdx.game.Pantallas.GameOver;
+import com.mygdx.game.Pantallas.GameOver2;
 import com.mygdx.game.Scenes.Hud;
 import com.mygdx.game.Tools.B2WorldCreator;
 import com.mygdx.game.Tools.WorldContactListener;
 import com.mygdx.game.sprites.Enemigos.Goomba;
+import com.mygdx.game.sprites.Jugador;
 import com.mygdx.game.sprites.Mario;
 
 public class PlayScreen implements Screen {
@@ -124,6 +120,8 @@ public class PlayScreen implements Screen {
 
         renderer.render();
 
+        System.out.println("Posicion x" + player.b2body.getPosition().x);
+
 
     }
 
@@ -143,7 +141,8 @@ public class PlayScreen implements Screen {
         player.draw(game.batch);
         goomba.draw(game.batch);
 
-
+        win();
+        gameOver();
 
         game.batch.end();
 
@@ -152,12 +151,28 @@ public class PlayScreen implements Screen {
          setScreen(new GameOver()); le pasamos game y le pasamos el juegador que esta jugando.
         */
 
+
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
 
 
 
     }
+
+    public void win(){
+        if (player.b2body.getPosition().x >= 37.90f){
+            game.setScreen(new GameOver2(game,new Jugador("Brian",400)));
+            dispose();
+        }
+    }
+
+    public void gameOver (){
+        if (player.b2body.getPosition().y <= -0){
+            game.setScreen(new GameOver2(game,new Jugador("Boca",600)));
+            dispose();
+        }
+    }
+
 
     @Override
     public void resize(int width, int height) {
