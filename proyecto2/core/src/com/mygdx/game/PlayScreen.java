@@ -79,7 +79,7 @@ public class PlayScreen extends ScreenAdapter {
         musica = MarioBros.manager.get("Musica/music.ogg", Music.class);
         musica.setLooping(true);
         musica.play();
-        musica.setVolume(0.05f);
+        musica.setVolume(0.20f);
 
 
 
@@ -168,12 +168,14 @@ public class PlayScreen extends ScreenAdapter {
 
     public void win()  {
         if (player.b2body.getPosition().x >= 37.9) {
+            musica.pause();
             game.setScreen(new PantallaWin(game, new Jugador(hud.getWorldTimer())));
         }
     }
 
     public void gameOver() {
         if (player.b2body.getPosition().y <= -0) {
+            musica.pause();
             game.setScreen(new GameOver(game,new Jugador(hud.getWorldTimer())));
             dispose();
         }
