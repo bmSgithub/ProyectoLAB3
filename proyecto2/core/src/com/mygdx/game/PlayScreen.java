@@ -145,13 +145,13 @@ public class PlayScreen extends ScreenAdapter {
 
     public void win() {
         if (player.b2body.getPosition().x >= 37.90) {
-            game.setScreen(new PantallaWin(game, new Jugador("Brian", hud.getWorldTimer())));
+            game.setScreen(new PantallaWin(game, new Jugador(hud.getWorldTimer())));
         }
     }
 
     public void gameOver() {
         if (player.b2body.getPosition().y <= -0) {
-            game.setScreen(new GameOver2(game, new Jugador("Boca", hud.getWorldTimer())));
+            game.setScreen(new GameOver2(game, new Jugador(hud.getWorldTimer())));
             dispose();
         }
     }

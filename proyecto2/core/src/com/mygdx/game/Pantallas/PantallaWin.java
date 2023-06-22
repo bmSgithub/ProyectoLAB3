@@ -14,12 +14,11 @@ public class PantallaWin extends PantallaFinal {
     public PantallaWin(MarioBros game, Jugador jugador) {
         super(game, jugador);
 
-        this.textureBoton = new Texture(Direcciones.BOTON_YOUWIN.getFilePath());
+        this.textureBoton = new Texture(Direcciones.BOTON_SAVE.getFilePath());
         this.textureBoton.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         this.spriteBoton = new Sprite(textureBoton);
         this.imgBoton = new Image(spriteBoton);
         this.background = new Texture(Direcciones.BACKGROUND_WIN.getFilePath());
-        this.background.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
 
     }
 

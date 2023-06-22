@@ -41,10 +41,10 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
         this.font = new BitmapFont();
 
         this.background = new Texture(Direcciones.BACKGROUND_SCOREBOARD.getFilePath());
-        this.background.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
+        this.background.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
 
         this.cameraBackground = new OrthographicCamera();
-        this.cameraBackground.setToOrtho(false,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+        this.cameraBackground.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         this.cameraBackground.update();
 
         cargarJugadores();
@@ -63,7 +63,7 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
 
         game.batch.begin();
 
-        game.batch.draw(background,0,0,cameraBackground.viewportWidth,cameraBackground.viewportHeight);
+        game.batch.draw(background, 0, 0, cameraBackground.viewportWidth, cameraBackground.viewportHeight);
 
         ordenarJugadoresPorPuntuacion();
 
@@ -71,7 +71,7 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
 
         game.batch.end();
 
-        if (Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)){
+        if (Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)) {
             game.setScreen(new MenuPrincipal(game));
             dispose();
         }
@@ -85,11 +85,10 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
     }
 
     private void ordenarJugadoresPorPuntuacion() {
-
         Collections.sort(listaJugadores, new Comparator<Jugador>() {
             @Override
             public int compare(Jugador jugador1, Jugador jugador2) {
-                return Integer.compare(jugador2.getScore(), jugador1.getScore());
+                return Integer.compare(jugador1.getScore(), jugador2.getScore());
             }
         });
     }
@@ -98,18 +97,18 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
     private void mostrarTop10Jugadores() {
 
         float y = 326f;
-        int topeMax = 0;
+        int cont = listaJugadores.size();
+        int topeMax = cont <= 10 ? cont : 10;
 
-        for (int i = 0; i < 10; i++){
 
-            font.draw(game.batch,listaJugadores.get(i).getNombre(), 114f, y);
-            font.draw(game.batch,Float.toString(listaJugadores.get(i).getScore()),280f, y);
+        for (int i = 0; i < topeMax; i++) {
 
+            font.draw(game.batch, listaJugadores.get(i).getNombre(), 114f, y);
+            font.draw(game.batch, Float.toString(listaJugadores.get(i).getScore()), 280f, y);
 
             y -= 25f;
 
         }
-
     }
 
     @Override
@@ -134,6 +133,7 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
     @Override
     public void agregarJugador(Jugador jugador) {
         cargarJugadores();
+        jugador.setId(listaJugadores.size() + 1);
         this.listaJugadores.add(jugador);
         guardarJugadores();
     }
@@ -143,5 +143,4 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
         cargarJugadores();
         return this.listaJugadores;
     }
-
 }

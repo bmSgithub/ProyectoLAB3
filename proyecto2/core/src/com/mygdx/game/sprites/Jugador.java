@@ -1,21 +1,29 @@
 package com.mygdx.game.sprites;
 
 import java.io.Serializable;
+import java.util.Objects;
 
-public class Jugador  implements Serializable {
+public class Jugador implements Serializable {
 
-    //TODO: Ver si puede extener de Mario para que tenga los atributos y metodos. Y se guarda esta clase en el .json
     //TODO: Agregar un ID Auto Incremental.
 
+    private int id;
     private String nombre;
     private int score;
 
-    public Jugador(String nombre, int score) {
-        this.nombre = nombre;
+    public Jugador(int score) {
         this.score = score;
     }
 
     public Jugador() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -35,8 +43,24 @@ public class Jugador  implements Serializable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Jugador jugador = (Jugador) o;
+        return id == jugador.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
     public String toString() {
-        return  "Nombre='" + nombre + '\n' +
-                "Score=" + score + '\n';
+        return "Jugador{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", score=" + score +
+                '}';
     }
 }

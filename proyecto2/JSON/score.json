@@ -1,40 +1,13 @@
 [ {
-  "nombre" : "Tomas",
-  "score" : 600
-}, {
-  "nombre" : "Blas",
-  "score" : 500
-}, {
+  "id" : 1,
   "nombre" : "Brian",
-  "score" : 300
+  "score" : 20
 }, {
-  "nombre" : "Noah",
-  "score" : 1000
+  "id" : 2,
+  "nombre" : "Tomas",
+  "score" : 18
 }, {
-  "nombre" : "Candela",
-  "score" : 1000
-}, {
-  "nombre" : "Gustavo",
-  "score" : 300
-}, {
-  "nombre" : "Cecilia",
-  "score" : 300
-}, {
-  "nombre" : "Axel",
-  "score" : 300
-}, {
-  "nombre" : "Mirtha",
-  "score" : 300
-}, {
-  "nombre" : "Agustin",
-  "score" : 300
-}, {
-  "nombre" : "Jorge",
-  "score" : 300
-}, {
-  "nombre" : "Nueva",
-  "score" : 400
-}, {
-  "nombre" : "oli",
-  "score" : 6
+  "id" : 3,
+  "nombre" : "Blas",
+  "score" : 19
 } ]
