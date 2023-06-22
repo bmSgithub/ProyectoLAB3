@@ -1,6 +1,5 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
@@ -16,14 +15,13 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.mygdx.game.Enum.State;
 import com.mygdx.game.Pantallas.GameOver;
 import com.mygdx.game.Pantallas.PantallaWin;
 import com.mygdx.game.Scenes.Hud;
 import com.mygdx.game.Tools.B2WorldCreator;
 import com.mygdx.game.Tools.WorldContactListener;
 import com.mygdx.game.sprites.Jugador;
-import com.mygdx.game.sprites.Mario;
+import com.mygdx.game.sprites.Delivery;
 
 public class PlayScreen extends ScreenAdapter {
    private int jumpCount =0;
@@ -31,7 +29,7 @@ public class PlayScreen extends ScreenAdapter {
 
     private static final int MAX_JUMP_COUNT = 2;
 
-    private final MarioBros game;
+    private final DeliveryBros game;
 
     private final OrthographicCamera gamecam;
     private final Viewport gamePort;
@@ -43,7 +41,7 @@ public class PlayScreen extends ScreenAdapter {
 
     private final World world;
     private final Box2DDebugRenderer b2dr;
-    private Mario player;
+    private Delivery player;
 
 
     private TextureAtlas atlas;
@@ -52,19 +50,19 @@ public class PlayScreen extends ScreenAdapter {
     private Sound sound2;
 
 
-    public PlayScreen(MarioBros game) {
+    public PlayScreen(DeliveryBros game) {
         atlas = new TextureAtlas("Mario_and_Enemies.pack");
 
         this.game = game;
 
         gamecam = new OrthographicCamera();
 
-        gamePort = new FitViewport((float) MarioBros.V_WIDHT / MarioBros.PPM, (float) MarioBros.V_HEIGHT / MarioBros.PPM, gamecam);
+        gamePort = new FitViewport((float) DeliveryBros.V_WIDHT / DeliveryBros.PPM, (float) DeliveryBros.V_HEIGHT / DeliveryBros.PPM, gamecam);
         hud = new Hud(game.batch);
 
         mapLoader = new TmxMapLoader();
         map = mapLoader.load("Level1/level1.tmx");
-        renderer = new OrthogonalTiledMapRenderer(map, (float) 1 / MarioBros.PPM);
+        renderer = new OrthogonalTiledMapRenderer(map, (float) 1 / DeliveryBros.PPM);
 
         gamecam.position.set((float) gamePort.getWorldWidth() / 2,
                 (float) gamePort.getWorldHeight() / 2, 0);
@@ -75,11 +73,11 @@ public class PlayScreen extends ScreenAdapter {
         new B2WorldCreator(this);
 
 
-        player = new Mario(this);
+        player = new Delivery(this);
         world.setContactListener(new WorldContactListener());
-        this.sound2 = MarioBros.manager.get("Musica/jump.wav", Sound.class);
+        this.sound2 = DeliveryBros.manager.get("Musica/jump.wav", Sound.class);
         sound2.play();
-        musica = MarioBros.manager.get("Musica/music.ogg", Music.class);
+        musica = DeliveryBros.manager.get("Musica/music.ogg", Music.class);
         musica.setLooping(true);
         musica.play();
         musica.setVolume(0.20f);
@@ -186,7 +184,7 @@ public class PlayScreen extends ScreenAdapter {
     public void gameOver() throws InterruptedException {
         if (player.b2body.getPosition().y <= -0) {
             musica.pause();
-            this.sound = MarioBros.manager.get("Musica/death.wav", Sound.class);
+            this.sound = DeliveryBros.manager.get("Musica/death.wav", Sound.class);
             sound.play();
             try {
                 Thread.sleep(700);

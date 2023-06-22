@@ -2,7 +2,6 @@ package com.mygdx.game.Pantallas;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
@@ -10,13 +9,13 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.mygdx.game.Enum.Direcciones;
-import com.mygdx.game.MarioBros;
+import com.mygdx.game.DeliveryBros;
 import com.mygdx.game.sprites.Jugador;
 
 
 public class GameOver extends ScreenAdapter {
 
-    private MarioBros game;
+    private DeliveryBros game;
     private Jugador jugador;
     private BitmapFont font;
     private Texture textureBackground;
@@ -26,7 +25,7 @@ public class GameOver extends ScreenAdapter {
 
 
 
-    public GameOver(MarioBros game, Jugador jugador) {
+    public GameOver(DeliveryBros game, Jugador jugador) {
 
 
         this.game = game;
@@ -39,7 +38,7 @@ public class GameOver extends ScreenAdapter {
         this.cameraBackground = new OrthographicCamera();
         this.cameraBackground.setToOrtho(false,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         this.cameraBackground.update();
-        this.sound = MarioBros.manager.get("Musica/wasted.wav", Sound.class);
+        this.sound = DeliveryBros.manager.get("Musica/wasted.wav", Sound.class);
         sound.play();
 
 

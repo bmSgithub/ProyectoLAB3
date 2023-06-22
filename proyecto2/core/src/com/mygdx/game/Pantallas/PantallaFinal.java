@@ -14,7 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.mygdx.game.MarioBros;
+import com.mygdx.game.DeliveryBros;
 import com.mygdx.game.sprites.Jugador;
 
 import javax.swing.*;
@@ -23,7 +23,7 @@ import javax.swing.*;
 public abstract class PantallaFinal extends ScreenAdapter {
 
 
-    protected MarioBros game;
+    protected DeliveryBros game;
     protected Jugador jugador;
     protected Stage stage;
     protected final float TAMANIO_ANCHO_IMG = 160;
@@ -47,7 +47,7 @@ public abstract class PantallaFinal extends ScreenAdapter {
     private boolean isSoundPlaying = false;
 
 
-    public PantallaFinal(MarioBros game, Jugador jugador) {
+    public PantallaFinal(DeliveryBros game, Jugador jugador) {
         this.game = game;
         this.jugador = jugador;
         this.stage = new Stage();
@@ -58,11 +58,11 @@ public abstract class PantallaFinal extends ScreenAdapter {
         this.cameraBackground.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         this.cameraBackground.update();
 
-        this.soundTimbre = MarioBros.manager.get("Musica/dingdong.wav", Sound.class);
+        this.soundTimbre = DeliveryBros.manager.get("Musica/dingdong.wav", Sound.class);
         this.soundTimbre.play();
-        this.soundYouWin = MarioBros.manager.get("Musica/You-Win.wav", Sound.class);
+        this.soundYouWin = DeliveryBros.manager.get("Musica/You-Win.wav", Sound.class);
         this.soundYouWin.play();
-        this.soundChampion = MarioBros.manager.get("Musica/champions.ogg", Music.class);
+        this.soundChampion = DeliveryBros.manager.get("Musica/champions.ogg", Music.class);
         this.soundChampion.setLooping(true);
         this.soundChampion.play();
         this.soundChampion.setVolume(0.20f);

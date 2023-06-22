@@ -6,7 +6,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.*;
-import com.mygdx.game.MarioBros;
+import com.mygdx.game.DeliveryBros;
 import com.mygdx.game.PlayScreen;
 
 public abstract class InteractiveTileObject {
@@ -30,10 +30,10 @@ public abstract class InteractiveTileObject {
             PolygonShape shape = new PolygonShape();
 
             bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((bounds.getX() + bounds.getWidth()/2 / MarioBros.PPM), (bounds.getY() + bounds.getWidth()/2 / MarioBros.PPM));
+            bdef.position.set((bounds.getX() + bounds.getWidth()/2 / DeliveryBros.PPM), (bounds.getY() + bounds.getWidth()/2 / DeliveryBros.PPM));
 
             body = world.createBody(bdef);
-            shape.setAsBox(bounds.getWidth()/2/ MarioBros.PPM , bounds.getHeight()/2/MarioBros.PPM);
+            shape.setAsBox(bounds.getWidth()/2/ DeliveryBros.PPM , bounds.getHeight()/2/ DeliveryBros.PPM);
             fdef.shape = shape;
             fixture = body.createFixture(fdef);
 
@@ -46,8 +46,8 @@ public abstract class InteractiveTileObject {
         }
         public TiledMapTileLayer.Cell getCell(){
             TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(1);
-            return layer.getCell((int)(body.getPosition().x * MarioBros.PPM / 16),
-                    (int)(body.getPosition().y * MarioBros.PPM / 16));
+            return layer.getCell((int)(body.getPosition().x * DeliveryBros.PPM / 16),
+                    (int)(body.getPosition().y * DeliveryBros.PPM / 16));
 
         }
 

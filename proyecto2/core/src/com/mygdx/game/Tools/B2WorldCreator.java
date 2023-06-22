@@ -1,12 +1,11 @@
 package com.mygdx.game.Tools;
 
-import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.PolygonMapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.*;
-import com.mygdx.game.MarioBros;
+import com.mygdx.game.DeliveryBros;
 import com.mygdx.game.PlayScreen;
 
 public class B2WorldCreator {
@@ -27,12 +26,12 @@ public class B2WorldCreator {
             Rectangle rect = object.getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MarioBros.PPM ,
-                    (rect.getY() + rect.getHeight() / 2) / MarioBros.PPM );
+            bdef.position.set((rect.getX() + rect.getWidth() / 2) / DeliveryBros.PPM ,
+                    (rect.getY() + rect.getHeight() / 2) / DeliveryBros.PPM );
 
             body = world.createBody(bdef);
 
-            shape.setAsBox(rect.getWidth() / 2 / MarioBros.PPM,rect.getHeight() / 2 / MarioBros.PPM);
+            shape.setAsBox(rect.getWidth() / 2 / DeliveryBros.PPM,rect.getHeight() / 2 / DeliveryBros.PPM);
 
             fdef.shape = shape;
 
@@ -44,12 +43,12 @@ public class B2WorldCreator {
             Rectangle rect = object.getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MarioBros.PPM ,
-                    (rect.getY() + rect.getHeight() / 2) / MarioBros.PPM );
+            bdef.position.set((rect.getX() + rect.getWidth() / 2) / DeliveryBros.PPM ,
+                    (rect.getY() + rect.getHeight() / 2) / DeliveryBros.PPM );
 
             body = world.createBody(bdef);
 
-            shape.setAsBox(rect.getWidth() / 2 / MarioBros.PPM,rect.getHeight() / 2 / MarioBros.PPM);
+            shape.setAsBox(rect.getWidth() / 2 / DeliveryBros.PPM,rect.getHeight() / 2 / DeliveryBros.PPM);
 
             fdef.shape = shape;
 
@@ -61,15 +60,15 @@ public class B2WorldCreator {
             Rectangle rect = object.getPolygon().getBoundingRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MarioBros.PPM ,
-                    (rect.getY() + rect.getHeight() / 2) / MarioBros.PPM );
+            bdef.position.set((rect.getX() + rect.getWidth() / 2) / DeliveryBros.PPM ,
+                    (rect.getY() + rect.getHeight() / 2) / DeliveryBros.PPM );
 
             body = world.createBody(bdef);
 
-            shape.setAsBox(rect.getWidth() / 2 /MarioBros.PPM,rect.getHeight() / 2/MarioBros.PPM);
+            shape.setAsBox(rect.getWidth() / 2 / DeliveryBros.PPM,rect.getHeight() / 2/ DeliveryBros.PPM);
 
             fdef.shape = shape;
-            fdef.filter.categoryBits = MarioBros.OBJECT_BIT;
+            fdef.filter.categoryBits = DeliveryBros.OBJECT_BIT;
 
 
             body.createFixture(fdef);
@@ -81,12 +80,12 @@ public class B2WorldCreator {
             Rectangle rect = object.getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MarioBros.PPM ,
-                    (rect.getY() + rect.getHeight() / 2) / MarioBros.PPM );
+            bdef.position.set((rect.getX() + rect.getWidth() / 2) / DeliveryBros.PPM ,
+                    (rect.getY() + rect.getHeight() / 2) / DeliveryBros.PPM );
 
             body = world.createBody(bdef);
 
-            shape.setAsBox(rect.getWidth() / 2 / MarioBros.PPM,rect.getHeight() / 2 / MarioBros.PPM);
+            shape.setAsBox(rect.getWidth() / 2 / DeliveryBros.PPM,rect.getHeight() / 2 / DeliveryBros.PPM);
 
             fdef.shape = shape;
 

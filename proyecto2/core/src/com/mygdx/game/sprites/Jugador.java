@@ -5,7 +5,6 @@ import java.util.Objects;
 
 public class Jugador implements Serializable {
 
-    //TODO: Agregar un ID Auto Incremental.
 
     private int id;
     private String nombre;

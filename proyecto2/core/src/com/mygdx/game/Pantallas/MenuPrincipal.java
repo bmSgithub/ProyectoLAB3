@@ -12,16 +12,14 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.Enum.Direcciones;
-import com.mygdx.game.MarioBros;
+import com.mygdx.game.DeliveryBros;
 import com.mygdx.game.PlayScreen;
 
 public class MenuPrincipal extends ScreenAdapter {
 
     private Stage stage;
-    private MarioBros game;
+    private DeliveryBros game;
 
     private final float TAMANIO_ANCHO_START = 200f;
     private final float TAMANIO_ALTO_START = 60f;
@@ -55,7 +53,7 @@ public class MenuPrincipal extends ScreenAdapter {
     //TODO: Agregar imagenes en vez de fuentes.
     //TODO: Ver si el menu puede aparecer con un fade.
 
-    public MenuPrincipal(MarioBros game) {
+    public MenuPrincipal(DeliveryBros game) {
         this.game = game;
         this.stage = new Stage();
 
@@ -77,9 +75,9 @@ public class MenuPrincipal extends ScreenAdapter {
         cameraBackground = new OrthographicCamera();
         cameraBackground.setToOrtho(false,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         cameraBackground.update();
-        sound = MarioBros.manager.get("Musica/selection.wav", Sound.class);
+        sound = DeliveryBros.manager.get("Musica/selection.wav", Sound.class);
         sound.play();
-        musica = MarioBros.manager.get("Musica/menu.ogg", Music.class);
+        musica = DeliveryBros.manager.get("Musica/menu.ogg", Music.class);
         musica.setLooping(true);
         musica.play();
         musica.setVolume(0.20f);

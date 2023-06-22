@@ -2,7 +2,6 @@ package com.mygdx.game.Pantallas;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
@@ -14,7 +13,7 @@ import com.fasterxml.jackson.databind.type.CollectionType;
 import com.mygdx.game.Enum.Direcciones;
 import com.mygdx.game.Pantallas.Interfaces.IJackson;
 import com.mygdx.game.sprites.Jugador;
-import com.mygdx.game.MarioBros;
+import com.mygdx.game.DeliveryBros;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,7 +26,7 @@ import java.util.List;
 
 public class ScoreBoard extends ScreenAdapter implements IJackson {
 
-    private MarioBros game;
+    private DeliveryBros game;
     private BitmapFont font;
     private Texture background;
     private OrthographicCamera cameraBackground;
@@ -38,7 +37,7 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final File fileScore = new File(Direcciones.FILE_SCORE.getFilePath());
 
-    public ScoreBoard(MarioBros game) {
+    public ScoreBoard(DeliveryBros game) {
         this.game = game;
         this.font = new BitmapFont();
 

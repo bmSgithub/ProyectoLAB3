@@ -13,6 +13,6 @@ public class DesktopLauncher {
 
 		config.setWindowIcon(Direcciones.LOGO_UTN2.getFilePath());
 		config.setTitle("PROYECTO UTN");
-		new Lwjgl3Application(new MarioBros(), config);
+		new Lwjgl3Application(new DeliveryBros(), config);
 	}
 }
