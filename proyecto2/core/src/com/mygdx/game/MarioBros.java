@@ -34,8 +34,6 @@ public class MarioBros extends Game {
 		manager.load("Musica/wasted.wav", Sound.class);
 		manager.finishLoading();
 
-		//setScreen(new PantallaWin(this,new Jugador("Lauti",300)));
-		//setScreen(new GameOver2(this,new Jugador("Candela",100)));
 		setScreen(new PantallaUTN(this));
 
 	}
