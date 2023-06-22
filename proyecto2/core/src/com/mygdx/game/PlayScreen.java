@@ -15,6 +15,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.mygdx.game.Enum.State;
 import com.mygdx.game.Pantallas.GameOver;
 import com.mygdx.game.Pantallas.PantallaWin;
 import com.mygdx.game.Scenes.Hud;
@@ -24,6 +25,8 @@ import com.mygdx.game.sprites.Jugador;
 import com.mygdx.game.sprites.Mario;
 
 public class PlayScreen extends ScreenAdapter {
+
+    private static final int MAX_JUMP_COUNT = 2;
 
     private final MarioBros game;
 
@@ -72,18 +75,35 @@ public class PlayScreen extends ScreenAdapter {
         world.setContactListener(new WorldContactListener());
         musica = MarioBros.manager.get("Musica/music.ogg", Music.class);
         musica.setLooping(true);
-        musica.play();
+        //musica.play();
+        System.out.println(player.b2body.getPosition().y);
 
 
 
     }
 
     public void handleInput(float dt) {
-        if (Gdx.input.isKeyJustPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.W)) {
-            player.b2body.applyLinearImpulse(new Vector2(0, 4f), player.b2body.getWorldCenter(), true);
+        boolean enPiso= true;
+        boolean puedeSaltar = true;
+        int jumpCount =0;
 
-            // aplica un impulso al cuerpo que se le aplique se aplica en el sentro ya que sino cambiaria
-            //de angulo
+
+        if ((Gdx.input.isKeyJustPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.W))  && jumpCount<MAX_JUMP_COUNT && enPiso&& puedeSaltar ) {
+            if (enPiso){
+                player.b2body.applyLinearImpulse(new Vector2(0, 3f), player.b2body.getWorldCenter(), true);
+                enPiso = false;
+                jumpCount++;
+
+
+            } else if (jumpCount < MAX_JUMP_COUNT) {
+
+                player.b2body.applyLinearImpulse(new Vector2(0, 3f), player.b2body.getWorldCenter(), true);
+                player.b2body.setLinearVelocity(player.b2body.getLinearVelocity().x, -3f);
+                jumpCount++;
+
+            }
+            puedeSaltar = false;
+
         }
         if ((Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyPressed(Input.Keys.D)) && player.b2body.getLinearVelocity().x <= 2) {
             // Se fija que si apretamos solo una vez o mantenemos apretado
@@ -97,8 +117,20 @@ public class PlayScreen extends ScreenAdapter {
             player.b2body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2body.getWorldCenter(), true);
 
         }
-    }
+        if (playerOnGround()){
+            enPiso = true;
+            jumpCount = 0;
+            puedeSaltar = true;
 
+        }
+
+    }
+private boolean playerOnGround (){
+        float groundY = 1.32f;
+        float playerY = player.b2body.getPosition().y;
+        float epsilon = 0.01f;
+        return playerY <= groundY+epsilon;
+}
     public void update(float dt) {
 
         handleInput(dt);

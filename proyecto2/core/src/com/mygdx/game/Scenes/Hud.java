@@ -26,8 +26,7 @@ public class Hud {
     static Label  scoreLabel;
     Label timeLabel;
     Label leveLabel;
-    Label worldLabel;
-    Label marioLabel;
+
 
     @SuppressWarnings("DefaultLocale")
     public Hud (SpriteBatch sb) {
@@ -53,12 +52,7 @@ public class Hud {
 
         leveLabel = new Label("1-1",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
-        worldLabel = new Label("WORLD",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
-        marioLabel = new Label("Mario",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-
-        table.add(marioLabel).expandX().padTop(10);
-        table.add(worldLabel).expandX().padTop(10);
         table.add(timeLabel).expandX().padTop(10);
         table.row();
         table.add(scoreLabel).expandX();
