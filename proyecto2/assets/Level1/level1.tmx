@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="240" height="13" tilewidth="16" tileheight="16" infinite="0" nextlayerid="17" nextobjectid="49">
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="240" height="13" tilewidth="16" tileheight="16" infinite="0" nextlayerid="17" nextobjectid="230">
  <tileset firstgid="1" source="tileset_final.tsx"/>
  <layer id="1" name="Background" width="240" height="13">
   <data encoding="base64" compression="zlib">
@@ -51,13 +51,6 @@
   <object id="47" x="-64.5" y="-5.5" width="64.5" height="237"/>
   <object id="48" x="5.26316" y="-89.4737" width="3834.21" height="73.6842"/>
  </objectgroup>
- <objectgroup id="13" name="Ground">
-  <object id="20" x="-2.63158" y="189.474" width="1026.32" height="42.1053"/>
-  <object id="31" x="1023.67" y="233.667" width="144.667" height="36"/>
-  <object id="36" x="1163.16" y="189.474" width="1226.32" height="55.2632"/>
-  <object id="39" x="3331.58" y="189.474" width="507.895" height="47.3684"/>
-  <object id="40" x="2390" y="246" width="940" height="42"/>
- </objectgroup>
  <objectgroup id="14" name="Cars">
   <object id="28" x="170" y="187.667">
    <polygon points="0,0 1,-12.6667 27,-25 52.3333,-25.3333 61.6667,-18 85.6667,-15.6667 91,-6.66667 90,0.666667 90,1.66667"/>
@@ -74,18 +67,46 @@
   <object id="34" x="1754" y="188.333">
    <polygon points="0,0 1.33333,-27.3333 4.66667,-44.3333 11.6667,-48.3333 37.6667,-50.6667 62,-49.3333 83.6667,-46.6667 83.3333,-41 98,-36.3333 108.667,-25.6667 109.667,-8.33333 108,1.33333"/>
   </object>
-  <object id="35" x="2240.67" y="188.333">
-   <polygon points="0,0 48.6667,-21.6667 89.3333,-39.6667 137.667,-60 142,-61.6667 148,-61.6667 148.333,1"/>
-  </object>
  </objectgroup>
- <objectgroup id="15" name="Buildings">
+ <objectgroup id="13" name="Ground">
+  <object id="20" x="-2.63158" y="189.474" width="1026.32" height="42.1053"/>
+  <object id="31" x="1023.67" y="233.667" width="144.667" height="36"/>
+  <object id="36" x="1163.16" y="189.474" width="1226.32" height="55.2632"/>
+  <object id="39" x="3331.58" y="189.474" width="507.895" height="47.3684"/>
+  <object id="40" x="2390" y="246" width="940" height="42"/>
   <object id="32" x="1040" y="63.6667" width="128" height="16.3333"/>
   <object id="41" x="2464" y="64" width="79.5" height="16.5"/>
   <object id="42" x="2672" y="64" width="80" height="15.5"/>
   <object id="43" x="2880.5" y="64" width="79.5" height="15.5"/>
   <object id="44" x="3088.5" y="64.5" width="79.5" height="15"/>
-  <object id="45" x="3637.5" y="189">
-   <polygon points="0,0 153,-53.5 202,-54 202,-1.5"/>
-  </object>
+  <object id="51" x="3633" y="178" width="46" height="12"/>
+  <object id="52" x="3680.5" y="161" width="47" height="14.5"/>
+  <object id="53" x="3729.5" y="144" width="47.5" height="16.5"/>
+  <object id="54" x="3775.5" y="127" width="64.5" height="17"/>
+  <object id="200" x="2244" y="188.063" width="3.125" height="1.25"/>
+  <object id="203" x="2246" y="187" width="3.875" height="1.0625"/>
+  <object id="204" x="2248" y="186" width="3.875" height="0.875"/>
+  <object id="205" x="2250" y="184.938" width="3.9375" height="1"/>
+  <object id="206" x="2251.81" y="184" width="4.0625" height="0.9375"/>
+  <object id="207" x="2254.06" y="183" width="3.875" height="1"/>
+  <object id="208" x="2256" y="182" width="4" height="0.9375"/>
+  <object id="209" x="2258" y="180.938" width="3.8125" height="1"/>
+  <object id="210" x="2260.06" y="180" width="3.8125" height="0.9375"/>
+  <object id="211" x="2262.94" y="178.938" width="3.9375" height="0.9375"/>
+  <object id="212" x="2264.88" y="177.938" width="4.25" height="1"/>
+  <object id="213" x="2267" y="176.813" width="3.875" height="1.125"/>
+  <object id="214" x="2269.13" y="175.938" width="4.875" height="1"/>
+  <object id="215" x="2271.94" y="174.875" width="4.5625" height="1.125"/>
+  <object id="216" x="2274.13" y="174" width="4.6875" height="0.875"/>
+  <object id="217" x="2275.94" y="173.125" width="5" height="0.75"/>
+  <object id="220" x="2278.94" y="171.938" width="4.125" height="1"/>
+  <object id="221" x="2281.19" y="171.063" width="4.0625" height="0.8125"/>
+  <object id="222" x="2283.94" y="170" width="4" height="1"/>
+  <object id="223" x="2286.94" y="168.938" width="4.1875" height="1"/>
+  <object id="224" x="2290" y="168" width="3.875" height="0.875"/>
+  <object id="225" x="2292.94" y="167" width="3.9375" height="0.9375"/>
+  <object id="227" x="2295" y="165.875" width="4.0625" height="1.0625"/>
+  <object id="228" x="2297.06" y="164.938" width="3.875" height="1"/>
+  <object id="229" x="2298.81" y="163.938" width="4.1875" height="1.0625"/>
  </objectgroup>
 </map>
