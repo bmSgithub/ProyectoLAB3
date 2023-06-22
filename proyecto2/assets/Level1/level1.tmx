@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="240" height="13" tilewidth="16" tileheight="16" infinite="0" nextlayerid="17" nextobjectid="553">
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="240" height="13" tilewidth="16" tileheight="16" infinite="0" nextlayerid="17" nextobjectid="554">
  <tileset firstgid="1" source="tileset_final.tsx"/>
  <layer id="1" name="Background" width="240" height="13">
   <data encoding="base64" compression="zlib">
@@ -231,8 +231,5 @@
   <object id="547" x="2378.07" y="133.567" width="13.2889" height="0.4"/>
   <object id="548" x="2379.07" y="133.011" width="13.3111" height="0.488889"/>
   <object id="549" x="2377.54" y="131.922" width="0.0444444" height="0.0222222"/>
-  <object id="550" x="3776" y="128.667" width="64.6667" height="16"/>
-  <object id="551" x="3728" y="144" width="48" height="15.3333"/>
-  <object id="552" x="3680.67" y="159.333" width="46" height="15.3333"/>
  </objectgroup>
 </map>
