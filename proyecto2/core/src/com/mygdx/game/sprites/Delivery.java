@@ -6,13 +6,12 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
-import com.mygdx.game.MarioBros;
+import com.mygdx.game.DeliveryBros;
 import com.mygdx.game.PlayScreen;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.mygdx.game.Enum.*;
 
 
-public class Mario extends Sprite {
+public class Delivery extends Sprite {
 
     public World world; //Mundo en el que mario va a estar situado
     public Body b2body;
@@ -29,7 +28,7 @@ public class Mario extends Sprite {
     protected Fixture fixture;
 
 
-    public Mario (PlayScreen screen){
+    public Delivery(PlayScreen screen){
         super(screen.getAtlas().findRegion("little_mario"));
         this.world = screen.getWorld();
         estadoActual = State.STANDING;
@@ -53,7 +52,7 @@ public class Mario extends Sprite {
 
         defineMario();
         marioStand = new TextureRegion(getTexture(),0,0,16,16);
-       setBounds(0,0,20 / MarioBros.PPM,20/MarioBros.PPM); //tamaño
+       setBounds(0,0,20 / DeliveryBros.PPM,20/ DeliveryBros.PPM); //tamaño
         ///setBounds(0,0.1f,0.5f,0.6f);
         setRegion(marioStand);
     }
@@ -64,7 +63,7 @@ public class Mario extends Sprite {
 
     public void defineMario(){
         BodyDef bdef= new BodyDef();
-        bdef.position.set(20 / MarioBros.PPM, 20/ MarioBros.PPM); // definimos la posicion del comienzo
+        bdef.position.set(20 / DeliveryBros.PPM, 20/ DeliveryBros.PPM); // definimos la posicion del comienzo
         //bdef.position.set(32,32);
         bdef.type = BodyDef.BodyType.DynamicBody; // Crea un cuerpo de tipo dinamico (Cuerpo que interactua con el entorno)
         b2body = world.createBody(bdef);
@@ -73,8 +72,8 @@ public class Mario extends Sprite {
 
         FixtureDef fdef =  new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(6/MarioBros.PPM);
-        fdef.filter.categoryBits = MarioBros.MARIO_BIT;
+        shape.setRadius(6/ DeliveryBros.PPM);
+        fdef.filter.categoryBits = DeliveryBros.MARIO_BIT;
 //      fdef.filter.maskBits = MarioBros.GROUND_BIT | MarioBros.COIN_BIT | MarioBros.BRICK_BIT ;
        fdef.shape = shape;
         b2body.createFixture(fdef);
@@ -82,7 +81,7 @@ public class Mario extends Sprite {
         /// Creamos un sensor para la cabeza de mario para saber cuando
         /// Colisiona
         EdgeShape head = new EdgeShape();
-        head.set(new Vector2(-2 / MarioBros.PPM , 8/ MarioBros.PPM), new Vector2(2/MarioBros.PPM, 8/MarioBros.PPM));
+        head.set(new Vector2(-2 / DeliveryBros.PPM , 8/ DeliveryBros.PPM), new Vector2(2/ DeliveryBros.PPM, 8/ DeliveryBros.PPM));
         fdef.shape = head;
         fdef.isSensor = true;
         b2body.createFixture(fdef).setUserData("head");

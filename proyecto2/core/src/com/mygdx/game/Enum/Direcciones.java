@@ -17,7 +17,7 @@ public enum Direcciones {
     BOTON_QUITGAME("Botones/quitButton.png"),
     BOTON_SOCRE("Botones/scoreButton.png"),
     BOTON_SAVE("Botones/saveButton.png"),
-    FILE_SCORE("proyecto2/JSON/score.json");
+    FILE_SCORE("JSON/score.json");
 
 
 

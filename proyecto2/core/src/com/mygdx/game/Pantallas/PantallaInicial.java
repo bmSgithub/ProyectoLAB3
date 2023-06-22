@@ -8,11 +8,11 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.mygdx.game.MarioBros;
+import com.mygdx.game.DeliveryBros;
 
 public abstract class PantallaInicial extends ScreenAdapter {
 
-    protected MarioBros game;
+    protected DeliveryBros game;
     protected String direccionLogo;
 
     protected Texture textureLogo;
@@ -29,7 +29,7 @@ public abstract class PantallaInicial extends ScreenAdapter {
     protected float alphaLogoActualmente;
 
 
-    public PantallaInicial(MarioBros game) {
+    public PantallaInicial(DeliveryBros game) {
         this.game = game;
     }
 
