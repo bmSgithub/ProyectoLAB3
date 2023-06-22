@@ -8,36 +8,45 @@
   "nombre" : "Brian",
   "score" : 300
 }, {
-  "nombre" : "Hola",
+  "nombre" : "Noah",
   "score" : 1000
 }, {
-  "nombre" : "putooooo",
+  "nombre" : "Candela",
   "score" : 1000
 }, {
-  "nombre" : "Puto el q lee",
+  "nombre" : "Gustavo",
   "score" : 300
 }, {
-  "nombre" : "ola k ace",
+  "nombre" : "Cecilia",
   "score" : 300
 }, {
   "nombre" : "Axel",
   "score" : 300
 }, {
-  "nombre" : null,
+  "nombre" : "Mirtha",
   "score" : 300
+}, {
+  "nombre" : "Agustin",
+  "score" : 300
+}, {
+  "nombre" : "Jorge",
+  "score" : 300
+}, {
+  "nombre" : null,
+  "score" : 100
+}, {
+  "nombre" : null,
+  "score" : 100
+}, {
+  "nombre" : null,
+  "score" : 100
+}, {
+  "nombre" : null,
+  "score" : 100
 }, {
   "nombre" : null,
   "score" : 300
 }, {
   "nombre" : null,
-  "score" : 300
-}, {
-  "nombre" : null,
-  "score" : 300
-}, {
-  "nombre" : "lauti",
-  "score" : 300
-}, {
-  "nombre" : null,
-  "score" : 300
+  "score" : 100
 } ]

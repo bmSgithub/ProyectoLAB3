@@ -3,12 +3,15 @@ package com.mygdx.game.Pantallas;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.Enum.Direcciones;
 import com.mygdx.game.MarioBros;
 import com.mygdx.game.PlayScreen;
@@ -36,14 +39,12 @@ public class MenuPrincipal extends ScreenAdapter {
     private Texture textScoreBoton;
     private Sprite spriteScoreBoton;
 
-
     private float alphaStage = 0f;
 
+    private Texture background;
+    private OrthographicCamera cameraBackground;
 
 
-//    private Texture background;
-//    private Sprite backgroundSprite;
-//    private Viewport viewportBackground;
 
     //TODO: Agregar imagenes en vez de fuentes.
     //TODO: Ver si el menu puede aparecer con un fade.
@@ -64,13 +65,15 @@ public class MenuPrincipal extends ScreenAdapter {
         spriteScoreBoton = new Sprite(textScoreBoton);
         imgScoreBoton = new Image(spriteScoreBoton);
 
+        background = new Texture(Direcciones.BACKGROUND_MENU.getFilePath());
+        background.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
 
+        cameraBackground = new OrthographicCamera();
+        cameraBackground.setToOrtho(false,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+        cameraBackground.update();
 
-//        background = new Texture(Direcciones.MENU_BACKGOUNRD.getFilePath());
-//        background.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
-//        backgroundSprite = new Sprite(background);
-//        viewportBackground = new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
     }
+
 
     @Override
     public void show() {
@@ -91,7 +94,7 @@ public class MenuPrincipal extends ScreenAdapter {
 
         imgScoreBoton.setPosition(posicionScoreX,posicionScoreY);
 
-        float posicionQuitX = posicionScoreX + 3;
+        float posicionQuitX = posicionScoreX + 2;
         float posicionQuitY = posicionScoreY - 60;
 
         imgQuitBoton.setPosition(posicionQuitX, posicionQuitY);
@@ -108,34 +111,39 @@ public class MenuPrincipal extends ScreenAdapter {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(300, 0, 0, 1);
+        Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+        cameraBackground.update();
+
+        game.batch.setProjectionMatrix(cameraBackground.combined);
 
         if (alphaStage < 1){
             stage.getRoot().getColor().a = alphaStage +=0.007;
         }
 
+        game.batch.begin();
+
+        game.batch.draw(background,0,0,cameraBackground.viewportWidth,cameraBackground.viewportHeight);
+
+        game.batch.end();
+
         stage.act(delta);
         stage.draw();
 
-
-//      font.draw(game.batch,"PEDIDOS YA GAME", (float) Gdx.graphics.getWidth() / 2 - 45,Gdx.graphics.getHeight() - 45);
-//      backgroundSprite.draw(game.batch);
     }
 
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height, true);
-//        viewportBackground.update(width,height);
-//        backgroundSprite.setSize(viewportBackground.getWorldWidth(), viewportBackground.getWorldHeight());
     }
 
     @Override
     public void dispose() {
-//        background.dispose();
+        background.dispose();
         stage.dispose();
     }
+
     //TODO: Cambiar nombre al metodo Listener
     private ClickListener createStartButtonListener() {
         return new ClickListener() {
@@ -156,6 +164,7 @@ public class MenuPrincipal extends ScreenAdapter {
             }
         };
     }
+
     //TODO: Cambiar nombre al metodo Listener
     private ClickListener createQuitButtonListener() {
         return new ClickListener() {

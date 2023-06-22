@@ -18,6 +18,8 @@ public class PantallaWin extends PantallaFinal {
         this.textureBoton.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         this.spriteBoton = new Sprite(textureBoton);
         this.imgBoton = new Image(spriteBoton);
+        this.background = new Texture(Direcciones.BACKGROUND_WIN.getFilePath());
+        this.background.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
 
     }
 
