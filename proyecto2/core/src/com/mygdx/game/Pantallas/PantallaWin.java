@@ -1,5 +1,7 @@
 package com.mygdx.game.Pantallas;
 
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -20,7 +22,10 @@ public class PantallaWin extends PantallaFinal {
         this.imgBoton = new Image(spriteBoton);
         this.background = new Texture(Direcciones.BACKGROUND_WIN.getFilePath());
         this.background.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
-
+        this.sound = MarioBros.manager.get("Musica/dingdong.wav", Sound.class);
+        sound.play();
+        this.sound = MarioBros.manager.get("Musica/You-Win.wav", Sound.class);
+        sound2.play();
     }
 
 }

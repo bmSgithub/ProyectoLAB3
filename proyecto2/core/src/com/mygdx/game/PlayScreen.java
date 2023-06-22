@@ -3,6 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -43,6 +44,7 @@ public class PlayScreen extends ScreenAdapter {
 
     private TextureAtlas atlas;
     private Music musica;
+    private Sound sound;
 
 
     public PlayScreen(MarioBros game) {
@@ -71,9 +73,9 @@ public class PlayScreen extends ScreenAdapter {
 
         player = new Mario(this);
         world.setContactListener(new WorldContactListener());
-        musica = MarioBros.manager.get("Musica/Beat-automatico-Bpm-118-Key-G-Minor.ogg", Music.class);
+        musica = MarioBros.manager.get("Musica/music.ogg", Music.class);
         musica.setLooping(true);
-        //musica.play();
+        musica.play();
 
         goomba = new Goomba(this, .32f, .32f);
 
@@ -143,7 +145,7 @@ public class PlayScreen extends ScreenAdapter {
 
     }
 
-    public void win() {
+    public void win()  {
         if (player.b2body.getPosition().x >= 37.90) {
             game.setScreen(new PantallaWin(game, new Jugador("Brian", hud.getWorldTimer())));
         }
@@ -169,6 +171,7 @@ public class PlayScreen extends ScreenAdapter {
         renderer.dispose();
         world.dispose();
         b2dr.dispose();
+        musica.dispose();
 
     }
 

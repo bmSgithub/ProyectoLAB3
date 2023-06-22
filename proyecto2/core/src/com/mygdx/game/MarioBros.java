@@ -3,6 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.game.Pantallas.GameOver2;
 import com.mygdx.game.Pantallas.PantallaUTN;
@@ -30,11 +31,14 @@ public class MarioBros extends Game {
 	public void create () {
 		batch = new SpriteBatch();
 		manager = new AssetManager();
-		manager.load("Musica/Beat-automatico-Bpm-118-Key-G-Minor.ogg", Music.class);
+		manager.load("Musica/music.ogg", Music.class);
+		manager.load("Musica/dingdong.wav", Sound.class);
+		manager.load("Musica/You-Win.wav", Sound.class);
+		manager.load("Musica/wasted.wav", Sound.class);
 		manager.finishLoading();
 
-//		setScreen(new PantallaWin(this,new Jugador("Lauti",300)));
-//		setScreen(new GameOver2(this,new Jugador("Candela",100)));
+		//setScreen(new PantallaWin(this,new Jugador("Lauti",300)));
+		//setScreen(new GameOver2(this,new Jugador("Candela",100)));
 		setScreen(new PantallaUTN(this));
 
 	}

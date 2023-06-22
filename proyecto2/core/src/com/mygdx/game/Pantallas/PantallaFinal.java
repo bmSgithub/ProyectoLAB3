@@ -4,6 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -27,7 +29,6 @@ public abstract class PantallaFinal extends ScreenAdapter {
     protected MarioBros game;
     protected Jugador jugador;
     protected Stage stage;
-
     protected final float TAMANIO_ANCHO_IMG = 160;
     protected final float TAMANIO_ALTO_IMG = 70f;
     protected Texture textureBoton;
@@ -40,7 +41,8 @@ public abstract class PantallaFinal extends ScreenAdapter {
 
     protected Texture background;
     private OrthographicCamera cameraBackground;
-
+    protected Sound sound;
+    protected Sound sound2;
 
     private final ScoreBoard scoreBoard = new ScoreBoard(game);
 
@@ -109,6 +111,8 @@ public abstract class PantallaFinal extends ScreenAdapter {
         background.dispose();
         stage.dispose();
         font.dispose();
+        sound.dispose();
+        sound2.dispose();
     }
 
     public void guardarScore (Jugador jugador){
