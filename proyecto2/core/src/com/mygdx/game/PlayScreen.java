@@ -20,7 +20,6 @@ import com.mygdx.game.Pantallas.PantallaWin;
 import com.mygdx.game.Scenes.Hud;
 import com.mygdx.game.Tools.B2WorldCreator;
 import com.mygdx.game.Tools.WorldContactListener;
-import com.mygdx.game.sprites.Enemigos.Goomba;
 import com.mygdx.game.sprites.Jugador;
 import com.mygdx.game.sprites.Mario;
 
@@ -39,7 +38,7 @@ public class PlayScreen extends ScreenAdapter {
     private final World world;
     private final Box2DDebugRenderer b2dr;
     private Mario player;
-    private Goomba goomba;
+
 
     private TextureAtlas atlas;
     private Music musica;
@@ -54,7 +53,6 @@ public class PlayScreen extends ScreenAdapter {
         gamecam = new OrthographicCamera();
 
         gamePort = new FitViewport((float) MarioBros.V_WIDHT / MarioBros.PPM, (float) MarioBros.V_HEIGHT / MarioBros.PPM, gamecam);
-
         hud = new Hud(game.batch);
 
         mapLoader = new TmxMapLoader();
@@ -76,7 +74,6 @@ public class PlayScreen extends ScreenAdapter {
         musica.setLooping(true);
         musica.play();
 
-        goomba = new Goomba(this, .32f, .32f);
 
 
     }
@@ -107,9 +104,15 @@ public class PlayScreen extends ScreenAdapter {
         handleInput(dt);
 
         world.step(1 / 60f, 6, 2); // afecta la reaccion de dos cuerpos durante una colision
+        if (player.b2body.getPosition().x >= 2f ){
+            if (player.b2body.getPosition().x <= 36.30f){
+
         gamecam.position.x = player.b2body.getPosition().x; // Rastreamos el player
+            }
+
+        }
         player.update(dt);
-        goomba.update(dt);
+
         hud.update(dt);
         gamecam.update();
         renderer.setView(gamecam);
@@ -132,7 +135,7 @@ public class PlayScreen extends ScreenAdapter {
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
         player.draw(game.batch);
-        goomba.draw(game.batch);
+
 
         game.batch.end();
 
