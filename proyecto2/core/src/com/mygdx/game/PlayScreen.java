@@ -87,7 +87,7 @@ public class PlayScreen extends ScreenAdapter {
             // aplica un impulso al cuerpo que se le aplique se aplica en el sentro ya que sino cambiaria
             //de angulo
         }
-        if ((Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyPressed(Input.Keys.D)) && player.b2body.getLinearVelocity().x <= 6) {
+        if ((Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyPressed(Input.Keys.D)) && player.b2body.getLinearVelocity().x <= 2) {
             // Se fija que si apretamos solo una vez o mantenemos apretado
             // la segunda parte controla que el movimieto no sea de una velocidad mayor a la deseada
             // se pueden hacer variables globales o enum
@@ -95,7 +95,7 @@ public class PlayScreen extends ScreenAdapter {
 
 
         }
-        if ((Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.A)) && player.b2body.getLinearVelocity().x >= -6) {
+        if ((Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.A)) && player.b2body.getLinearVelocity().x >= -2) {
             player.b2body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2body.getWorldCenter(), true);
 
         }
