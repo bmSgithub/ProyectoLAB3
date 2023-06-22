@@ -14,8 +14,6 @@ import com.mygdx.game.sprites.Jugador;
 
 
 public class PantallaWin extends PantallaFinal {
-    private boolean isSoundPlaying = false;
-
 
     public PantallaWin(MarioBros game, Jugador jugador) {
         super(game, jugador);
@@ -31,34 +29,18 @@ public class PantallaWin extends PantallaFinal {
         sound.play();
         this.sound2 = MarioBros.manager.get("Musica/You-Win.wav", Sound.class);
         sound2.play();
+
+
         try {
             Thread.sleep(700);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+
         musica = MarioBros.manager.get("Musica/champions.ogg", Music.class);
         musica.setLooping(true);
         musica.play();
         musica.setVolume(0.20f);
     }
-
-    @Override
-    public void dispose() {
-        sound.stop();
-        musica.stop();
-        isSoundPlaying = false;
-    }
-    @Override
-    public void show() {
-        // ...
-
-        if (!isSoundPlaying) {
-            sound.play();
-            musica.play();
-            isSoundPlaying = true;
-        }
-
-        // ...
-    }
-
 }

@@ -47,6 +47,9 @@ public abstract class PantallaFinal extends ScreenAdapter {
     protected Music musica;
 
     private final ScoreBoard scoreBoard = new ScoreBoard(game);
+    private boolean isSoundPlaying = false;
+
+
 
 
     public PantallaFinal(MarioBros game, Jugador jugador) {
@@ -72,6 +75,12 @@ public abstract class PantallaFinal extends ScreenAdapter {
         this.imgBoton.addListener(tocarBoton());
 
         this.stage.addActor(imgBoton);
+
+        if (!isSoundPlaying){
+            sound.play();
+            musica.play();
+            isSoundPlaying = true;
+        }
 
 
     }
@@ -114,9 +123,13 @@ public abstract class PantallaFinal extends ScreenAdapter {
         background.dispose();
         stage.dispose();
         font.dispose();
-        sound.dispose();
-        sound2.dispose();
-        musica.dispose();
+        sound.stop();
+        musica.stop();
+        sound2.stop();
+        isSoundPlaying = false;
+//        sound.dispose();
+//        sound2.dispose();
+//        musica.dispose();
     }
     public void disposeMusic(){
         sound.dispose();
