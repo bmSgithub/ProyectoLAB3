@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="240" height="13" tilewidth="16" tileheight="16" infinite="0" nextlayerid="17" nextobjectid="554">
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="240" height="13" tilewidth="16" tileheight="16" infinite="0" nextlayerid="17" nextobjectid="555">
  <tileset firstgid="1" source="tileset_final.tsx"/>
  <layer id="1" name="Background" width="240" height="13">
   <data encoding="base64" compression="zlib">
-   eJzt17lRgmEURuGfkDZohVaI6UJ2BJpAFlGgCfZNmmBHxQI8FuCQ6f/NnOAJz8xN3uCmoihKSQpSWlKwMpKC9YAc8iigiBLKqKCKR9RQR8PGxiY2TRNPaKGNDrp4Rg8veEUfAwxtbGxi04wwxgRTzDDHAkussMYGb9ja2NjEptlhjwOOOOGMC654xwc+ccOXjY1NbJpkQlKofv5iSZL0t5qSFLhs4nf/fZuk+9yvQvMNZn1SLA==
+   eJzt17tRAgEUQNHd0Da2FVox1ioQ+ahAEfxEQJsA5SNKE4CoKBbA1YjQIWB3hxuc8M685M2bFwVBEElKpYyk1DqVlFpZXCCHS+RRQBElXOEaNyijYmNjk5imhjoaaKKFW7Rxhw666OEeDzY2Nolp+hjgEU8YYoQxJnjGFC94xczGxiYxzRwLLPGGFd7xgU+s8YVvbPBjY2OTmOYklJRWv3+xJEk6rJr+nIX7i3t26dhVwv1U3V8pdv+9tec7vL+K2xYY/E1d
   </data>
  </layer>
  <layer id="6" name="Road" width="240" height="13">
   <data encoding="base64" compression="zlib">
-   eJzt17sNwkAQBNA7uR7zcSGAK8FUgk0FlMoiAQE6yABjvyeNRpNdssGlBAAAAAAAAMAULKuUVpXW+h97H+kim8j2g7uOLGz7e/t8zVT2OtIU+n5nfWQo7F2ktW17FLt9yqu7nlt3ufy/OORxvE/rUtfyyDFu9RQZbt3n379J5F0uyR5Yeg==
+   eJzt180NgkAQxfEZKEHbwK8KrEClAzsAKxE7oBRLoQZtwCEsagheTFRk/r/k5e3jtJc9IAIAAAAAAAAAAAAAGIN5LLKIaZr+x84suWVj2X5wJ5YZm/29XdYZy15aVj3dvrPCcurZO0vqYE8ikYuKTKNH2v3c3fNVh3F/to+ddvLqXXvrXN/7/zjoMO5P++yE3HO0t5g1OVvKcK67Ct+q8G1t2Rf6+zsT37kBt21e3A==
   </data>
  </layer>
  <layer id="7" name="Details" width="240" height="13">
@@ -28,12 +28,12 @@
  </layer>
  <layer id="8" name="VehiclesCollision" width="240" height="13">
   <data encoding="base64" compression="zlib">
-   eJzt1kVvFWEUgOHbW8GK6x7aoit8D23RFb6Htmhw29extjh7qOH8B6jh7LEF1HC2PAnzA0huKAHOmzz5FjPfZObOnOSmUlEURVEURVEURVEURVEURVEURVEURb+/6nQqVUMtddRzgpOc4jRnaKCRpnRm+6Io+vXmZ6dSC1jIIhazhKXZP483m6sWWmmjnevc4Ca3uM0d7nIvndm+HGsueQxjOCMYySjyk/Mqs1KpKqqpoZY66rOG/jeMoj/VOnO6ng1sZBOb2ZLMb4d56aSLbnp4yCMe84SnPOM5L9KZ7SuwFlLETGYxmznMZV5y3lVzeo1mWmiljfZ/fH63ei/bKKOciuw/fUfRULbX+97Hfg5wkEMc5ghHOcbx5LvoNS999DPAIB/4yCc+84WvfON7OrN9xdYSSlnBSlaxmjWsTc67b04f0EEnXXTTk8zvdPc/gwIKKUqe56X9r3jNG97+Zf/bKz1HFdXUUBvz+1/V4H030sRZznGeC1zkEpe5knwX+dbRjGEs4xjPBCYyiclMYSrTMtxXZp7KqWA7O9jJLnazJ5m3d+b0Pb300c8Ag8n8LnO95RRTQmly/bQ1mxxyyYvvP4qiDPoBajeJDw==
+   eJzt1kdPVFEYgOFxRuy971Wwrux7BfvKvrEkCvbY28aS0MSO3b2iYPc/KAJ297aFgth165N4f4BkojLme5MnZzH3TO7cc79kUqkoiqIoiqIoiqIoiqIoiqIoiqIoiqI/X3k6laqgkoNUcYjDHOEoxzjOCarT2e2Louj3G5dJpcYzgYlMYjJTMr8+rzFXl7lCLXVc5RrXucFNbnGbO+ns9nW05tGJznShK93oTo/kutIOqVQZ5VRQyUGqOvz9ZxhF/6p55nQ+C1jIIhazJJnfevNynwYaaeIBD3nEY57wlGc8T2e3b7g1nwJGMJJRjGYMY5PrLprTS9RwmSvUUvefz+9K57KKYkpYnfnXd9S2ljq/ZSxnRfznanObnPdmtrCVbWxnBzvZxW72JO9Fs2fcwnta+cBHPvGZL3zlG9/5kc5uX6G1iOnMYCazmM0c5ibX3TWn96jnPg000pTM71D3P4zh5FOQ/J4X9r/kFa95k2PvUKnfUUY5FVTm2Pzu9bz3sZ8DOfbs20PHnfcJqjnJKU5zhrOc4zwXkveih7UnvehNH/rSj/4MYCCDGMyQLPcVO9MSVrOGtaxjPRvYmJz5W3P6jmZaeE8rH5L5ner7plFIEdOT709bM3Qkj0459v5HUdS++gm/goyn
   </data>
  </layer>
  <layer id="10" name="RoadDetails" width="240" height="13">
   <data encoding="base64" compression="zlib">
-   eJztmDsOwjAMhkM7w8aKxGOGjZWKxwXgAmXnBnAUuA6cAxa4BBJ2mYgiqErSxM3/SVaqSLGcOH/SWCmwa303AEC4sEb7iVIDsiHZiOxMfRfo1xp7soPhW+oYEA6s0TlpdkG2JFuR3anvAf1a40h2MnxLHQPCweb/89NNiCAwekLO9XHiO4JPro7WrWvwa+qr4qdJtGk/dALbEz6QkufcdwAamSO/U0M+TH1V/DQJ6PeNlDzPfAegsXXk15Z+pZzLVeH5NX2OZZCyBrnvADRC168+Rso7qSw8Pyl3j0tMa4DaR/OQck6D/0Gu64frcxOH7zncVfFQV665hnvDvirIlLuaGIMzOR7qynVC902KGmJBptzqF/dvPPjI9TpVapPG23I97FdNLIQ40aI1tS/vXnom
+   eJztmDsOwjAMhkM7w8aKxGOGjZWKxwXgAmXnBnAUuA6cAxa4BBJOmYgiVLVxEzf/J/1KFSmWE8dJY6XAofNfAIBw0Tk6TJQakcakCelKfTfkrzOOpJPlW+oYEA46R5eUsyvSmrQhPanvhfx1xpl0sXxLHQPCweX/85vHRRAYAyHn+jTx7cEvd6Z161vs2vqq2GkTXdoPvcD2hA+kxDn37YBBxmR3bomHra+KnTaB/P0iJc4L3w4Y7JnsuspfKedyVfT82j7HMkhZg9y3Awah5685Rso7qSx6flLuHk5sa4DaR/uQck6D+iDWzaPrczPG9xzuqnhoKta6hvvAvirIFF9NTIMzOR6ainVC902KGmJBpnjzF/dvPPiI9TZVapfG2+p6WN2aWAjzQBtn+wEbrHd6
   </data>
  </layer>
  <layer id="4" name="Vehicles" width="240" height="13">
@@ -67,11 +67,14 @@
   <object id="34" x="1754" y="188.333">
    <polygon points="0,0 1.33333,-27.3333 4.66667,-44.3333 11.6667,-48.3333 37.6667,-50.6667 62,-49.3333 83.6667,-46.6667 83.3333,-41 98,-36.3333 108.667,-25.6667 109.667,-8.33333 108,1.33333"/>
   </object>
+  <object id="554" x="938.5" y="187">
+   <polygon points="0,0 1.5,-18.5 15.5,-30 45.5,-30.5 54.5,-21.5 74.5,-17 73.5,-1.5 73,2"/>
+  </object>
  </objectgroup>
  <objectgroup id="13" name="Ground">
   <object id="20" x="-2.63158" y="189.474" width="1026.32" height="42.1053"/>
-  <object id="31" x="1023.67" y="233.667" width="144.667" height="36"/>
-  <object id="36" x="1163.16" y="189.474" width="1226.32" height="55.2632"/>
+  <object id="31" x="1023.67" y="233.667" width="273.167" height="36"/>
+  <object id="36" x="1296.66" y="189.474" width="1092.82" height="55.2632"/>
   <object id="39" x="3331.58" y="189.474" width="507.895" height="47.3684"/>
   <object id="40" x="2390" y="246" width="940" height="42"/>
   <object id="32" x="1040" y="63.6667" width="128" height="16.3333"/>
