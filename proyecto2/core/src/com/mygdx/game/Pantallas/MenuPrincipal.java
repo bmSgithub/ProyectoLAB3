@@ -87,7 +87,7 @@ public class MenuPrincipal extends ScreenAdapter {
         cameraBackground.update();
 
         sound = DeliveryBros.manager.get("Musica/selection.wav", Sound.class);
-        sound.play();
+//        sound.play();
         musica = DeliveryBros.manager.get("Musica/menu.ogg", Music.class);
         musica.setLooping(true);
         musica.play();
@@ -143,7 +143,7 @@ public class MenuPrincipal extends ScreenAdapter {
         stage.addActor(imgTutorialBoton);
 
         if (!isSoundPlaying) {
-            sound.play();
+//            sound.play();
             isSoundPlaying = true;
         }
     }
@@ -204,6 +204,7 @@ public class MenuPrincipal extends ScreenAdapter {
             }
         };
     }
+
     //TODO: Cambiar nombre al metodo Listener
     private ClickListener createScoreButtonListener() throws InterruptedException {
         return new ClickListener() {
