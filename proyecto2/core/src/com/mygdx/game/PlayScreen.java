@@ -5,7 +5,6 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -15,7 +14,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.mygdx.game.Pantallas.GameOver2;
+import com.mygdx.game.Pantallas.GameOver;
 import com.mygdx.game.Pantallas.PantallaWin;
 import com.mygdx.game.Scenes.Hud;
 import com.mygdx.game.Tools.B2WorldCreator;
@@ -151,7 +150,7 @@ public class PlayScreen extends ScreenAdapter {
 
     public void gameOver() {
         if (player.b2body.getPosition().y <= -0) {
-            game.setScreen(new GameOver2(game, new Jugador(hud.getWorldTimer())));
+            game.setScreen(new GameOver(game, new Jugador(hud.getWorldTimer())));
             dispose();
         }
     }

@@ -12,7 +12,7 @@ import com.mygdx.game.MarioBros;
 import com.mygdx.game.sprites.Jugador;
 
 
-public class GameOver2 extends ScreenAdapter {
+public class GameOver extends ScreenAdapter {
 
     private MarioBros game;
     private Jugador jugador;
@@ -21,7 +21,7 @@ public class GameOver2 extends ScreenAdapter {
     private OrthographicCamera cameraBackground;
 
 
-    public GameOver2(MarioBros game, Jugador jugador) {
+    public GameOver(MarioBros game, Jugador jugador) {
 
         this.game = game;
         this.jugador = jugador;
