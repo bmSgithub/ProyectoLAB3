@@ -39,6 +39,12 @@ public class MenuPrincipal extends ScreenAdapter {
     private Texture textScoreBoton;
     private Sprite spriteScoreBoton;
 
+    private final float TAMANIO_ANCHO_TUTORIAL = 200f;
+    private final float TAMANIO_ALTO_TUTORIAL = 70f;
+    private Image imgTutorialBoton;
+    private Texture textTutorialBoton;
+    private Sprite spriteTutorialBoton;
+
     private float alphaStage = 0f;
 
     private Texture background;
@@ -69,12 +75,17 @@ public class MenuPrincipal extends ScreenAdapter {
         spriteScoreBoton = new Sprite(textScoreBoton);
         imgScoreBoton = new Image(spriteScoreBoton);
 
+        textTutorialBoton = new Texture("Botones/tutorialButton.png");
+        spriteTutorialBoton = new Sprite(textTutorialBoton);
+        imgTutorialBoton = new Image(spriteTutorialBoton);
+
         background = new Texture(Direcciones.BACKGROUND_MENU.getFilePath());
         background.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
 
         cameraBackground = new OrthographicCamera();
         cameraBackground.setToOrtho(false,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         cameraBackground.update();
+
         sound = DeliveryBros.manager.get("Musica/selection.wav", Sound.class);
         sound.play();
         musica = DeliveryBros.manager.get("Musica/menu.ogg", Music.class);
@@ -109,6 +120,11 @@ public class MenuPrincipal extends ScreenAdapter {
 
         imgQuitBoton.setPosition(posicionQuitX, posicionQuitY);
 
+        float posicionTutorialX = posicionQuitX - 80;
+        float posicionTutorialY = posicionQuitY - 70;
+
+        imgTutorialBoton.setPosition(posicionTutorialX,posicionTutorialY);
+
         try {
             imgStartBoton.addListener(createStartButtonListener());
             imgScoreBoton.addListener(createScoreButtonListener());
@@ -117,11 +133,15 @@ public class MenuPrincipal extends ScreenAdapter {
         }
 
         imgQuitBoton.addListener(createQuitButtonListener());
+        imgTutorialBoton.addListener(createTutorialButtonListener());
+
 
 
         stage.addActor(imgStartBoton);
         stage.addActor(imgScoreBoton);
         stage.addActor(imgQuitBoton);
+        stage.addActor(imgTutorialBoton);
+
         if (!isSoundPlaying) {
             sound.play();
             isSoundPlaying = true;
@@ -197,6 +217,15 @@ public class MenuPrincipal extends ScreenAdapter {
                     e.printStackTrace();
                 }
                 game.setScreen(new ScoreBoard(game));
+                dispose();
+            }
+        };
+    }
+    private ClickListener createTutorialButtonListener() {
+        return new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new Tutorial(game));
                 dispose();
             }
         };
