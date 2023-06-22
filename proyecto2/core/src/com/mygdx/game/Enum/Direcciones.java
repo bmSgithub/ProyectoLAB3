@@ -16,8 +16,7 @@ public enum Direcciones {
     BOTON_PLAYGAME("Botones/startButton.png"),
     BOTON_QUITGAME("Botones/quitButton.png"),
     BOTON_SOCRE("Botones/scoreButton.png"),
-    BOTON_GAMEOVER("Botones/saveButton.png"),
-    BOTON_YOUWIN("Botones/saveButton.png"),
+    BOTON_SAVE("Botones/saveButton.png"),
     FILE_SCORE("JSON/score.json");
 
 

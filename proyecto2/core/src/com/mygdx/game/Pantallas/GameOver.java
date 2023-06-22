@@ -1,102 +1,66 @@
 package com.mygdx.game.Pantallas;
 
-import com.badlogic.gdx.*;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.mygdx.game.Enum.Direcciones;
 import com.mygdx.game.MarioBros;
 import com.mygdx.game.sprites.Jugador;
-
-import javax.swing.*;
 
 
 public class GameOver extends ScreenAdapter {
 
     private MarioBros game;
     private Jugador jugador;
-    private Stage stage;
-
-
-    private final float TAMANIO_ANCHO_GAMEOVER = 820f;
-    private final float TAMANIO_ALTO_GAMEOVER = 314f;
-    private Texture textureGameOver;
-    private Sprite spriteGameOver;
-    private Image imageGameOver;
+    private BitmapFont font;
+    private Texture textureBackground;
+    private OrthographicCamera cameraBackground;
 
 
     public GameOver(MarioBros game, Jugador jugador) {
+
         this.game = game;
         this.jugador = jugador;
 
-        this.stage = new Stage();
-        this.textureGameOver = new Texture(Direcciones.BOTON_GAMEOVER.getFilePath());
-        this.textureGameOver.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
-        this.spriteGameOver = new Sprite(textureGameOver);
-        this.imageGameOver = new Image(spriteGameOver);
-
-
-    }
-
-    @Override
-    public void show() {
-
-        Gdx.input.setInputProcessor(stage);
-
-        this.imageGameOver.setSize(TAMANIO_ANCHO_GAMEOVER, TAMANIO_ALTO_GAMEOVER);
-
-        float posicionGameOverX = (float) Gdx.graphics.getWidth() / 2 - imageGameOver.getWidth() / 2;
-        float posicionGameOverY = (float) Gdx.graphics.getHeight() / 2 - imageGameOver.getHeight() / 2 + 35;
-
-        imageGameOver.setPosition(posicionGameOverX, posicionGameOverY);
-
-        imageGameOver.addListener(createGameOverButtonListener());
-
-        stage.addActor(imageGameOver);
+        this.font = new BitmapFont();
+        this.font.setColor(1,0,0,1);
+        this.textureBackground = new Texture(Direcciones.BACKGROUND_GAMEOVER.getFilePath());
+        this.textureBackground.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
+        this.cameraBackground = new OrthographicCamera();
+        this.cameraBackground.setToOrtho(false,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+        this.cameraBackground.update();
 
     }
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(1, 1, 1, 1);
+        Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        stage.act(delta);
-        stage.draw();
+        cameraBackground.update();
+        game.batch.setProjectionMatrix(cameraBackground.combined);
 
-    }
+        game.batch.begin();
 
-    @Override
-    public void resize(int width, int height) {
-        stage.getViewport().update(width, height, true);
+        game.batch.draw(textureBackground,0,0,cameraBackground.viewportWidth,cameraBackground.viewportHeight);
+
+        font.draw(game.batch,Integer.toString(jugador.getScore()),374,191f);
+
+        game.batch.end();
+
+        if (Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)){
+            game.setScreen(new MenuPrincipal(game));
+            dispose();
+        }
     }
 
     @Override
     public void dispose() {
-        textureGameOver.dispose();
-        stage.dispose();
+        font.dispose();
+        textureBackground.dispose();
     }
-
-    //TODO: Cambiar nombre al metodo Listener
-    private ClickListener createGameOverButtonListener() {
-        return new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                jugador.setNombre(JOptionPane.showInputDialog(null, "Ingrese su nombre:", "Nombre de jugador", JOptionPane.PLAIN_MESSAGE));
-                guardarScore(jugador);
-                game.setScreen(new MenuPrincipal(game));
-                dispose();
-            }
-        };
-    }
-    public void guardarScore(Jugador jugador){
-        ScoreBoard scoreBoard = new ScoreBoard(game);
-        scoreBoard.agregarJugador(jugador);
-    }
-
-
 }
