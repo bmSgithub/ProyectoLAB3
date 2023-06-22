@@ -4,17 +4,17 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.mygdx.game.Pantallas.GameOver;
 import com.mygdx.game.Pantallas.GameOver2;
 import com.mygdx.game.Pantallas.PantallaUTN;
 import com.mygdx.game.Pantallas.PantallaWin;
 import com.mygdx.game.sprites.Jugador;
 
+
 public class MarioBros extends Game {
 
 	public SpriteBatch batch;
-	public static final int V_WIDHT = 400;;
-	public static final int V_HEIGHT = 208;;
+	public static final int V_WIDHT = 400;
+	public static final int V_HEIGHT = 208;
 	public static final float PPM = 100;
 
 	public  static  final  short GROUND_BIT =1;
