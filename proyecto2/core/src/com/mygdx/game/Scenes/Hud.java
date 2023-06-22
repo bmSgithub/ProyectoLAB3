@@ -29,11 +29,12 @@ public class Hud {
     Label worldLabel;
     Label marioLabel;
 
+    @SuppressWarnings("DefaultLocale")
     public Hud (SpriteBatch sb) {
 
-        worldTimer = 300;
+        worldTimer = 0;
         timeCount = 0;
-        score = 1000;
+        score = 0000;
 
         viewport = new FitViewport(MarioBros.V_WIDHT,MarioBros.V_HEIGHT, new OrthographicCamera());
         stage = new Stage(viewport,sb);
@@ -68,19 +69,26 @@ public class Hud {
 
 
     }
+    @SuppressWarnings("DefaultLocale")
     public  void  update(float dt){
         timeCount +=dt;
         if(timeCount >=1 ){
-            worldTimer--;
+            worldTimer++;
             countDownLabel.setText(String.format("%03d", worldTimer));
             timeCount = 0;
         }
     }
+    @SuppressWarnings("DefaultLocale")
     public static void addScore (int value){
         score += value;
         scoreLabel.setText(String.format("%06d",score));
     }
 
+    public Integer getWorldTimer() {
+        return worldTimer;
+    }
 
-
+    public void setWorldTimer(Integer worldTimer) {
+        this.worldTimer = worldTimer;
+    }
 }

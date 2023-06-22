@@ -31,4 +31,7 @@
 }, {
   "nombre" : "Jorge",
   "score" : 300
-}]
+}, {
+  "nombre" : "Nueva",
+  "score" : 400
+} ]
