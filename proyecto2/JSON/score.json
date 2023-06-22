@@ -1,0 +1,34 @@
+[ {
+  "nombre" : "Tomas",
+  "score" : 600
+}, {
+  "nombre" : "Blas",
+  "score" : 500
+}, {
+  "nombre" : "Brian",
+  "score" : 300
+}, {
+  "nombre" : "Noah",
+  "score" : 1000
+}, {
+  "nombre" : "Candela",
+  "score" : 1000
+}, {
+  "nombre" : "Gustavo",
+  "score" : 300
+}, {
+  "nombre" : "Cecilia",
+  "score" : 300
+}, {
+  "nombre" : "Axel",
+  "score" : 300
+}, {
+  "nombre" : "Mirtha",
+  "score" : 300
+}, {
+  "nombre" : "Agustin",
+  "score" : 300
+}, {
+  "nombre" : "Jorge",
+  "score" : 300
+}]

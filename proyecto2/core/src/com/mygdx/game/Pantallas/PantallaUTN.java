@@ -5,9 +5,8 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.mygdx.game.Enum.Direcciones;
 import com.mygdx.game.MarioBros;
-import com.mygdx.game.PlayScreen;
 
-public class PantallaUTN extends PantallaCarga{
+public class PantallaUTN extends PantallaInicial {
     public PantallaUTN(MarioBros game) {
         super(game);
         this.direccionLogo = Direcciones.LOGO_UTN.getFilePath();
@@ -29,6 +28,7 @@ public class PantallaUTN extends PantallaCarga{
 
         if (transicionAlpha() == 0f || Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)){
             game.setScreen(new PantallaPedidosYA(game));
+            dispose();
         }
     }
 

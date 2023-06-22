@@ -1,6 +1,7 @@
 package com.mygdx.game.Tools;
 
 import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.objects.PolygonMapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
@@ -10,6 +11,7 @@ import com.mygdx.game.PlayScreen;
 
 public class B2WorldCreator {
     public B2WorldCreator (PlayScreen screen){
+
         World world =screen.getWorld();
         TiledMap map = screen.getMap();
 
@@ -20,15 +22,9 @@ public class B2WorldCreator {
 
 
 
-
-
-
-
-
-
 //        Codigo para el suelo
-        for (MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)){
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+        for (RectangleMapObject object : map.getLayers().get("Ground").getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rect = object.getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
             bdef.position.set((rect.getX() + rect.getWidth() / 2) / MarioBros.PPM ,
@@ -43,9 +39,26 @@ public class B2WorldCreator {
             body.createFixture(fdef);
         }
 
-//        Codigo para la tuberia
-        for (MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)){
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+        //       Codigo para building
+        for (RectangleMapObject object : map.getLayers().get("Buildings").getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rect = object.getRectangle();
+
+            bdef.type = BodyDef.BodyType.StaticBody;
+            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MarioBros.PPM ,
+                    (rect.getY() + rect.getHeight() / 2) / MarioBros.PPM );
+
+            body = world.createBody(bdef);
+
+            shape.setAsBox(rect.getWidth() / 2 / MarioBros.PPM,rect.getHeight() / 2 / MarioBros.PPM);
+
+            fdef.shape = shape;
+
+            body.createFixture(fdef);
+        }
+
+//        Codigo para los autos
+        for (PolygonMapObject object : map.getLayers().get("Cars").getObjects().getByType(PolygonMapObject.class)){
+            Rectangle rect = object.getPolygon().getBoundingRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
             bdef.position.set((rect.getX() + rect.getWidth() / 2) / MarioBros.PPM ,
@@ -62,9 +75,10 @@ public class B2WorldCreator {
             body.createFixture(fdef);
         }
 
-//        Codigo para las coins
-        for (MapObject object : map.getLayers().get(5).getObjects().getByType(RectangleMapObject.class)){
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+//        Codigo para los limites
+        for (RectangleMapObject object : map.getLayers().get("Limits").getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rect = object.getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
             bdef.position.set((rect.getX() + rect.getWidth() / 2) / MarioBros.PPM ,
@@ -80,22 +94,6 @@ public class B2WorldCreator {
         }
 
 
-//        Codigo para los bricks
-        for (MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)){
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MarioBros.PPM ,
-                    (rect.getY() + rect.getHeight() / 2) / MarioBros.PPM );
-
-            body = world.createBody(bdef);
-
-            shape.setAsBox(rect.getWidth() / 2 / MarioBros.PPM,rect.getHeight() / 2 / MarioBros.PPM);
-
-            fdef.shape = shape;
-
-            body.createFixture(fdef);
-
-        }
     }
 }
