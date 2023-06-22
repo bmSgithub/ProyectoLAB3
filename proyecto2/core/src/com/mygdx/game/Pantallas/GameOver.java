@@ -38,10 +38,12 @@ public class GameOver extends ScreenAdapter {
         this.cameraBackground.update();
         this.sound = MarioBros.manager.get("Musica/wasted.wav", Sound.class);
         sound.play();
+
     }
 
     @Override
     public void render(float delta) {
+
         Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
@@ -57,6 +59,11 @@ public class GameOver extends ScreenAdapter {
         game.batch.end();
 
         if (Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)){
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             game.setScreen(new MenuPrincipal(game));
             dispose();
         }

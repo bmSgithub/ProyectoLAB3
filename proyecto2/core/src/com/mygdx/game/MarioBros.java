@@ -31,10 +31,15 @@ public class MarioBros extends Game {
 
 		batch = new SpriteBatch();
 		manager = new AssetManager();
+		manager.load("Musica/menu.ogg", Music.class);
 		manager.load("Musica/music.ogg", Music.class);
+		manager.load("Musica/champions.ogg", Music.class);
 		manager.load("Musica/dingdong.wav", Sound.class);
 		manager.load("Musica/You-Win.wav", Sound.class);
 		manager.load("Musica/wasted.wav", Sound.class);
+		manager.load("Musica/death.wav", Sound.class);
+		manager.load("Musica/jump.wav", Sound.class);
+		manager.load("Musica/selection.wav", Sound.class);
 		manager.finishLoading();
 
 		setScreen(new PantallaUTN(this));

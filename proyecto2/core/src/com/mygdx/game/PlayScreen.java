@@ -49,6 +49,7 @@ public class PlayScreen extends ScreenAdapter {
     private TextureAtlas atlas;
     private Music musica;
     private Sound sound;
+    private Sound sound2;
 
 
     public PlayScreen(MarioBros game) {
@@ -76,6 +77,8 @@ public class PlayScreen extends ScreenAdapter {
 
         player = new Mario(this);
         world.setContactListener(new WorldContactListener());
+        this.sound2 = MarioBros.manager.get("Musica/jump.wav", Sound.class);
+        sound2.play();
         musica = MarioBros.manager.get("Musica/music.ogg", Music.class);
         musica.setLooping(true);
         musica.play();
@@ -86,12 +89,12 @@ public class PlayScreen extends ScreenAdapter {
     }
 
     public void handleInput(float dt) {
-
         boolean jumpKeyPressed = Gdx.input.isKeyJustPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.W);
         boolean rightKeyPressed = Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyPressed(Input.Keys.D);
         boolean leftKeyPressed = Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.A);
 
         if (jumpKeyPressed && jumpCount <= 2 && onGround) {
+            sound2.play();
             player.b2body.applyLinearImpulse(new Vector2(0, 3f), player.b2body.getWorldCenter(), true);
             jumpCount++;
             if (jumpCount == 2){
@@ -161,8 +164,12 @@ public class PlayScreen extends ScreenAdapter {
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
 
-        win();
-        gameOver();
+        try {
+            win();
+            gameOver();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
@@ -173,9 +180,16 @@ public class PlayScreen extends ScreenAdapter {
         }
     }
 
-    public void gameOver() {
+    public void gameOver() throws InterruptedException {
         if (player.b2body.getPosition().y <= -0) {
             musica.pause();
+            this.sound = MarioBros.manager.get("Musica/death.wav", Sound.class);
+            sound.play();
+            try {
+                Thread.sleep(700);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             game.setScreen(new GameOver(game,new Jugador(hud.getWorldTimer())));
             dispose();
         }
@@ -193,6 +207,8 @@ public class PlayScreen extends ScreenAdapter {
         renderer.dispose();
         world.dispose();
         b2dr.dispose();
+        sound.dispose();
+        sound2.dispose();
         musica.dispose();
 
     }

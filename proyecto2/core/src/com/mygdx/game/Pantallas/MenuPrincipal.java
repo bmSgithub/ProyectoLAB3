@@ -2,6 +2,8 @@ package com.mygdx.game.Pantallas;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -43,6 +45,8 @@ public class MenuPrincipal extends ScreenAdapter {
 
     private Texture background;
     private OrthographicCamera cameraBackground;
+    private Music musica;
+    private Sound sound;
 
 
 
@@ -71,7 +75,12 @@ public class MenuPrincipal extends ScreenAdapter {
         cameraBackground = new OrthographicCamera();
         cameraBackground.setToOrtho(false,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         cameraBackground.update();
-
+        sound = MarioBros.manager.get("Musica/selection.wav", Sound.class);
+        sound.play();
+        musica = MarioBros.manager.get("Musica/menu.ogg", Music.class);
+        musica.setLooping(true);
+        musica.play();
+        musica.setVolume(0.20f);
     }
 
 
@@ -99,8 +108,13 @@ public class MenuPrincipal extends ScreenAdapter {
 
         imgQuitBoton.setPosition(posicionQuitX, posicionQuitY);
 
-        imgStartBoton.addListener(createStartButtonListener());
-        imgScoreBoton.addListener(createScoreButtonListener());
+        try {
+            imgStartBoton.addListener(createStartButtonListener());
+            imgScoreBoton.addListener(createScoreButtonListener());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         imgQuitBoton.addListener(createQuitButtonListener());
 
 
@@ -142,23 +156,39 @@ public class MenuPrincipal extends ScreenAdapter {
     public void dispose() {
         background.dispose();
         stage.dispose();
+        sound.dispose();
+        musica.dispose();
     }
 
     //TODO: Cambiar nombre al metodo Listener
-    private ClickListener createStartButtonListener() {
+    private ClickListener createStartButtonListener() throws InterruptedException {
         return new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                musica.pause();
+                sound.play();
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 game.setScreen(new PlayScreen(game));
                 dispose();
             }
         };
     }
     //TODO: Cambiar nombre al metodo Listener
-    private ClickListener createScoreButtonListener() {
+    private ClickListener createScoreButtonListener() throws InterruptedException {
         return new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                musica.pause();
+                sound.play();
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 game.setScreen(new ScoreBoard(game));
                 dispose();
             }

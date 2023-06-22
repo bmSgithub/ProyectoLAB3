@@ -24,12 +24,25 @@ public class PantallaWin extends PantallaFinal {
         this.imgBoton = new Image(spriteBoton);
         this.background = new Texture(Direcciones.BACKGROUND_WIN.getFilePath());
         this.background.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
+
         this.sound = MarioBros.manager.get("Musica/dingdong.wav", Sound.class);
         sound.play();
         this.sound2 = MarioBros.manager.get("Musica/You-Win.wav", Sound.class);
         sound2.play();
+        try {
+            Thread.sleep(700);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        musica = MarioBros.manager.get("Musica/champions.ogg", Music.class);
+        musica.setLooping(true);
+        musica.play();
+        musica.setVolume(0.20f);
     }
 
-
-
+    @Override
+    public void dispose() {
+        sound.dispose();
+        musica.dispose();
+    }
 }

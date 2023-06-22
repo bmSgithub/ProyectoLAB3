@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -30,6 +31,7 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
     private BitmapFont font;
     private Texture background;
     private OrthographicCamera cameraBackground;
+    private Music musica;
 
 
     private List<Jugador> listaJugadores;
@@ -46,9 +48,7 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
         this.cameraBackground = new OrthographicCamera();
         this.cameraBackground.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         this.cameraBackground.update();
-
         cargarJugadores();
-
 
     }
 

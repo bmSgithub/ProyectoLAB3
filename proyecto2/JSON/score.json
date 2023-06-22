@@ -46,4 +46,12 @@
   "id" : 12,
   "nombre" : "Blas",
   "score" : 31.0
+}, {
+  "id" : 13,
+  "nombre" : "Blas",
+  "score" : 24.0
+}, {
+  "id" : 14,
+  "nombre" : "Blasito",
+  "score" : 27.0
 } ]

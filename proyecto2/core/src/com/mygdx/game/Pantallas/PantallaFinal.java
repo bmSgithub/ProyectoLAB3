@@ -44,6 +44,7 @@ public abstract class PantallaFinal extends ScreenAdapter {
     private OrthographicCamera cameraBackground;
     protected Sound sound;
     protected Sound sound2;
+    protected Music musica;
 
     private final ScoreBoard scoreBoard = new ScoreBoard(game);
 
@@ -115,6 +116,7 @@ public abstract class PantallaFinal extends ScreenAdapter {
         font.dispose();
         sound.dispose();
         sound2.dispose();
+        musica.dispose();
     }
 
     public void guardarScore(Jugador jugador) {
@@ -127,6 +129,7 @@ public abstract class PantallaFinal extends ScreenAdapter {
             public void clicked(InputEvent event, float x, float y) {
                 jugador.setNombre(JOptionPane.showInputDialog(null, "Ingrese su nombre:", "Nombre de jugador", JOptionPane.PLAIN_MESSAGE));
                 guardarScore(jugador);
+                musica.pause();
                 game.setScreen(new MenuPrincipal(game));
                 dispose();
             }
