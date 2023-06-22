@@ -1,5 +1,6 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
@@ -77,8 +78,8 @@ public class PlayScreen extends ScreenAdapter {
         world.setContactListener(new WorldContactListener());
         musica = MarioBros.manager.get("Musica/music.ogg", Music.class);
         musica.setLooping(true);
-        //musica.play();
-        System.out.println(player.b2body.getPosition().y);
+        musica.play();
+        musica.setVolume(0.05f);
 
 
 
@@ -120,13 +121,13 @@ public class PlayScreen extends ScreenAdapter {
         handleInput(dt);
 
         world.step(1 / 60f, 6, 2); // afecta la reaccion de dos cuerpos durante una colision
+
         if (player.b2body.getPosition().x >= 2f ){
             if (player.b2body.getPosition().x <= 36.30f){
-
-        gamecam.position.x = player.b2body.getPosition().x; // Rastreamos el player
+                gamecam.position.x = player.b2body.getPosition().x; // Rastreamos el player
             }
-
         }
+
         player.update(dt);
 
         hud.update(dt);
@@ -134,6 +135,8 @@ public class PlayScreen extends ScreenAdapter {
         renderer.setView(gamecam);
 
         renderer.render();
+
+
 
     }
 
@@ -164,18 +167,17 @@ public class PlayScreen extends ScreenAdapter {
     }
 
     public void win()  {
-        if (player.b2body.getPosition().x >= 37.90) {
+        if (player.b2body.getPosition().x >= 37.9) {
             game.setScreen(new PantallaWin(game, new Jugador(hud.getWorldTimer())));
         }
     }
 
     public void gameOver() {
         if (player.b2body.getPosition().y <= -0) {
-            game.setScreen(new GameOver(game, new Jugador(hud.getWorldTimer())));
+            game.setScreen(new GameOver(game,new Jugador(hud.getWorldTimer())));
             dispose();
         }
     }
-
 
     @Override
     public void resize(int width, int height) {

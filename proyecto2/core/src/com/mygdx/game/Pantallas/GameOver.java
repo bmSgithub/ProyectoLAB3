@@ -2,7 +2,9 @@ package com.mygdx.game.Pantallas;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -19,6 +21,7 @@ public class GameOver extends ScreenAdapter {
     private BitmapFont font;
     private Texture textureBackground;
     private OrthographicCamera cameraBackground;
+    private Sound sound;
 
 
     public GameOver(MarioBros game, Jugador jugador) {
@@ -33,7 +36,8 @@ public class GameOver extends ScreenAdapter {
         this.cameraBackground = new OrthographicCamera();
         this.cameraBackground.setToOrtho(false,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         this.cameraBackground.update();
-
+        this.sound = MarioBros.manager.get("Musica/wasted.wav", Sound.class);
+        sound.play();
     }
 
     @Override
@@ -48,7 +52,7 @@ public class GameOver extends ScreenAdapter {
 
         game.batch.draw(textureBackground,0,0,cameraBackground.viewportWidth,cameraBackground.viewportHeight);
 
-        font.draw(game.batch,Integer.toString(jugador.getScore()),374,191f);
+        font.draw(game.batch,Float.toString(jugador.getScore()),660,247);
 
         game.batch.end();
 
@@ -56,11 +60,15 @@ public class GameOver extends ScreenAdapter {
             game.setScreen(new MenuPrincipal(game));
             dispose();
         }
+
     }
 
     @Override
     public void dispose() {
         font.dispose();
         textureBackground.dispose();
+        sound.dispose();
     }
+
+
 }

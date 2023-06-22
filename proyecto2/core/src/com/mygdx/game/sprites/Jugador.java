@@ -34,7 +34,7 @@ public class Jugador implements Serializable {
         this.nombre = nombre;
     }
 
-    public int getScore() {
+    public float getScore() {
         return score;
     }
 

@@ -17,6 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.mygdx.game.MarioBros;
 import com.mygdx.game.sprites.Jugador;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -34,8 +35,8 @@ public abstract class PantallaFinal extends ScreenAdapter {
     protected Texture textureBoton;
     protected Sprite spriteBoton;
     protected Image imgBoton;
-    protected final float posicionBotonX = 320;
-    protected final float posicionBotonY = 100;
+    protected final float posicionBotonX = 350;
+    protected final float posicionBotonY = 160;
 
     private BitmapFont font;
 
@@ -52,10 +53,10 @@ public abstract class PantallaFinal extends ScreenAdapter {
         this.jugador = jugador;
         this.stage = new Stage();
         this.font = new BitmapFont();
-        this.font.setColor(5f,0f,0f,1f);
+        this.font.setColor(5f, 0f, 0f, 1f);
 
         this.cameraBackground = new OrthographicCamera();
-        this.cameraBackground.setToOrtho(false, Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+        this.cameraBackground.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         this.cameraBackground.update();
 
     }
@@ -64,9 +65,9 @@ public abstract class PantallaFinal extends ScreenAdapter {
     public void show() {
         Gdx.input.setInputProcessor(stage);
 
-        this.imgBoton.setSize(this.TAMANIO_ANCHO_IMG,this.TAMANIO_ALTO_IMG);
+        this.imgBoton.setSize(this.TAMANIO_ANCHO_IMG, this.TAMANIO_ALTO_IMG);
 
-        this.imgBoton.setPosition(posicionBotonX,posicionBotonY);
+        this.imgBoton.setPosition(posicionBotonX, posicionBotonY);
         this.imgBoton.addListener(tocarBoton());
 
         this.stage.addActor(imgBoton);
@@ -85,24 +86,25 @@ public abstract class PantallaFinal extends ScreenAdapter {
 
         game.batch.begin();
 
-        game.batch.draw(background,0,0,cameraBackground.viewportWidth,cameraBackground.viewportHeight);
+        game.batch.draw(background, 0, 0, cameraBackground.viewportWidth, cameraBackground.viewportHeight);
 
-        font.draw(game.batch,Float.toString(jugador.getScore()),374,191f );
+        font.draw(game.batch, Float.toString(jugador.getScore()), 660, 247f);
 
         game.batch.end();
 
-        if (Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)){
+        if (Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)) {
             game.setScreen(new MenuPrincipal(game));
             dispose();
         }
 
         this.stage.act(delta);
         this.stage.draw();
+
     }
 
     @Override
     public void resize(int width, int height) {
-        this.stage.getViewport().update(width,height,true);
+        this.stage.getViewport().update(width, height, true);
     }
 
     @Override
@@ -115,7 +117,7 @@ public abstract class PantallaFinal extends ScreenAdapter {
         sound2.dispose();
     }
 
-    public void guardarScore (Jugador jugador){
+    public void guardarScore(Jugador jugador) {
         this.scoreBoard.agregarJugador(jugador);
     }
 
@@ -130,4 +132,5 @@ public abstract class PantallaFinal extends ScreenAdapter {
             }
         };
     }
-    }
+
+}

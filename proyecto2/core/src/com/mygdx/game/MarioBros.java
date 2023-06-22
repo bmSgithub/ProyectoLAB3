@@ -1,9 +1,11 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.game.Pantallas.PantallaUTN;
 
@@ -26,6 +28,7 @@ public class MarioBros extends Game {
 
 	@Override
 	public void create () {
+
 		batch = new SpriteBatch();
 		manager = new AssetManager();
 		manager.load("Musica/music.ogg", Music.class);
@@ -34,8 +37,6 @@ public class MarioBros extends Game {
 		manager.load("Musica/wasted.wav", Sound.class);
 		manager.finishLoading();
 
-		//setScreen(new PantallaWin(this,new Jugador("Lauti",300)));
-		//setScreen(new GameOver2(this,new Jugador("Candela",100)));
 		setScreen(new PantallaUTN(this));
 
 	}

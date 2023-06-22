@@ -88,7 +88,7 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
         Collections.sort(listaJugadores, new Comparator<Jugador>() {
             @Override
             public int compare(Jugador jugador1, Jugador jugador2) {
-                return Integer.compare(jugador1.getScore(), jugador2.getScore());
+                return Float.compare(jugador1.getScore(), jugador2.getScore());
             }
         });
     }
@@ -96,17 +96,17 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
     //TODO: Cambiar posicion y agregar imagen de fondo.
     private void mostrarTop10Jugadores() {
 
-        float y = 326f;
+        float y = 430;
         int cont = listaJugadores.size();
         int topeMax = cont <= 10 ? cont : 10;
 
 
         for (int i = 0; i < topeMax; i++) {
 
-            font.draw(game.batch, listaJugadores.get(i).getNombre(), 114f, y);
+            font.draw(game.batch, listaJugadores.get(i).getNombre(), 150f, y);
             font.draw(game.batch, Float.toString(listaJugadores.get(i).getScore()), 280f, y);
 
-            y -= 25f;
+            y -= 33f;
 
         }
     }
