@@ -118,6 +118,11 @@ public abstract class PantallaFinal extends ScreenAdapter {
         sound2.dispose();
         musica.dispose();
     }
+    public void disposeMusic(){
+        sound.dispose();
+        sound2.dispose();
+        musica.dispose();
+    }
 
     public void guardarScore(Jugador jugador) {
         this.scoreBoard.agregarJugador(jugador);

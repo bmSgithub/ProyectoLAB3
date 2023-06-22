@@ -47,6 +47,8 @@ public class MenuPrincipal extends ScreenAdapter {
     private OrthographicCamera cameraBackground;
     private Music musica;
     private Sound sound;
+    private boolean isSoundPlaying = false;
+
 
 
 
@@ -81,6 +83,7 @@ public class MenuPrincipal extends ScreenAdapter {
         musica.setLooping(true);
         musica.play();
         musica.setVolume(0.20f);
+
     }
 
 
@@ -121,6 +124,10 @@ public class MenuPrincipal extends ScreenAdapter {
         stage.addActor(imgStartBoton);
         stage.addActor(imgScoreBoton);
         stage.addActor(imgQuitBoton);
+        if (!isSoundPlaying) {
+            sound.play();
+            isSoundPlaying = true;
+        }
     }
 
     @Override
@@ -156,8 +163,10 @@ public class MenuPrincipal extends ScreenAdapter {
     public void dispose() {
         background.dispose();
         stage.dispose();
-        sound.dispose();
+
         musica.dispose();
+        sound.stop();
+        isSoundPlaying = false;
     }
 
     //TODO: Cambiar nombre al metodo Listener

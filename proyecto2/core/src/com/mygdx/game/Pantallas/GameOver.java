@@ -22,9 +22,12 @@ public class GameOver extends ScreenAdapter {
     private Texture textureBackground;
     private OrthographicCamera cameraBackground;
     private Sound sound;
+    private boolean isSoundPlaying = false;
+
 
 
     public GameOver(MarioBros game, Jugador jugador) {
+
 
         this.game = game;
         this.jugador = jugador;
@@ -38,6 +41,7 @@ public class GameOver extends ScreenAdapter {
         this.cameraBackground.update();
         this.sound = MarioBros.manager.get("Musica/wasted.wav", Sound.class);
         sound.play();
+
 
     }
 
@@ -68,14 +72,29 @@ public class GameOver extends ScreenAdapter {
             dispose();
         }
 
+
     }
 
     @Override
     public void dispose() {
         font.dispose();
         textureBackground.dispose();
-        sound.dispose();
+
+        sound.stop();
+        isSoundPlaying = false;
     }
+    @Override
+    public void show() {
+        // ...
+
+        if (!isSoundPlaying) {
+            sound.play();
+            isSoundPlaying = true;
+        }
+
+        // ...
+    }
+
 
 
 }

@@ -101,6 +101,7 @@ public class PlayScreen extends ScreenAdapter {
 
             onGround = false;
             }
+
         }
 
         if (rightKeyPressed && player.b2body.getLinearVelocity().x <= 2) {
@@ -111,6 +112,7 @@ public class PlayScreen extends ScreenAdapter {
             player.b2body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2body.getWorldCenter(), true);
         }if (player.b2body.getLinearVelocity().y==0){
             onGroundCollision();
+
         }
     }
 
@@ -138,6 +140,7 @@ public class PlayScreen extends ScreenAdapter {
         renderer.setView(gamecam);
 
         renderer.render();
+
 
 
 
@@ -208,7 +211,7 @@ public class PlayScreen extends ScreenAdapter {
         world.dispose();
         b2dr.dispose();
         sound.dispose();
-        sound2.dispose();
+        sound2.stop();
         musica.dispose();
 
     }

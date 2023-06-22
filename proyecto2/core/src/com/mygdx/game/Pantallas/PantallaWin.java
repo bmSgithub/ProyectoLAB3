@@ -14,6 +14,8 @@ import com.mygdx.game.sprites.Jugador;
 
 
 public class PantallaWin extends PantallaFinal {
+    private boolean isSoundPlaying = false;
+
 
     public PantallaWin(MarioBros game, Jugador jugador) {
         super(game, jugador);
@@ -42,7 +44,21 @@ public class PantallaWin extends PantallaFinal {
 
     @Override
     public void dispose() {
-        sound.dispose();
-        musica.dispose();
+        sound.stop();
+        musica.stop();
+        isSoundPlaying = false;
     }
+    @Override
+    public void show() {
+        // ...
+
+        if (!isSoundPlaying) {
+            sound.play();
+            musica.play();
+            isSoundPlaying = true;
+        }
+
+        // ...
+    }
+
 }
