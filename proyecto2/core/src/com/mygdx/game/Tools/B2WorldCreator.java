@@ -39,7 +39,7 @@ public class B2WorldCreator {
             body.createFixture(fdef);
         }
 
-        //        Codigo para el suelo
+        //       Codigo para building
         for (RectangleMapObject object : map.getLayers().get("Buildings").getObjects().getByType(RectangleMapObject.class)){
             Rectangle rect = object.getRectangle();
 
@@ -56,7 +56,7 @@ public class B2WorldCreator {
             body.createFixture(fdef);
         }
 
-//        Codigo para la tuberia
+//        Codigo para los autos
         for (PolygonMapObject object : map.getLayers().get("Cars").getObjects().getByType(PolygonMapObject.class)){
             Rectangle rect = object.getPolygon().getBoundingRectangle();
 
@@ -74,9 +74,9 @@ public class B2WorldCreator {
 
             body.createFixture(fdef);
         }
-        
 
-//        Codigo para las coins
+
+//        Codigo para los limites
         for (RectangleMapObject object : map.getLayers().get("Limits").getObjects().getByType(RectangleMapObject.class)){
             Rectangle rect = object.getRectangle();
 
