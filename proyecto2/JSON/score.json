@@ -31,28 +31,4 @@
 }, {
   "nombre" : "Jorge",
   "score" : 300
-}, {
-  "nombre" : null,
-  "score" : 100
-}, {
-  "nombre" : null,
-  "score" : 100
-}, {
-  "nombre" : null,
-  "score" : 100
-}, {
-  "nombre" : null,
-  "score" : 100
-}, {
-  "nombre" : null,
-  "score" : 300
-}, {
-  "nombre" : null,
-  "score" : 100
-}, {
-  "nombre" : null,
-  "score" : 300
-}, {
-  "nombre" : null,
-  "score" : 300
-} ]
+}]
