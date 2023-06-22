@@ -24,7 +24,7 @@ import com.mygdx.game.sprites.Jugador;
 import com.mygdx.game.sprites.Delivery;
 
 public class PlayScreen extends ScreenAdapter {
-   private int jumpCount =0;
+    private int jumpCount =0;
     private  boolean onGround = true;
 
     private static final int MAX_JUMP_COUNT = 2;
@@ -139,9 +139,6 @@ public class PlayScreen extends ScreenAdapter {
 
         renderer.render();
 
-
-
-
     }
 
     @Override
@@ -165,17 +162,21 @@ public class PlayScreen extends ScreenAdapter {
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
 
+        winOrGameOver();
+
+    }
+
+    public void winOrGameOver (){
         try {
             win();
             gameOver();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
     }
-//37.9
+
     public void win()  {
-        if (player.b2body.getPosition().x >= 5) {
+        if (player.b2body.getPosition().x >= 37.9) {
             musica.pause();
             game.setScreen(new PantallaWin(game, new Jugador(hud.getWorldTimer())));
         }
