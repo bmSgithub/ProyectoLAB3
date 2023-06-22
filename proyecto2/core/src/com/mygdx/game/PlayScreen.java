@@ -1,5 +1,6 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
@@ -155,6 +156,7 @@ public class PlayScreen extends ScreenAdapter {
 
     public void gameOver() {
         if (player.b2body.getPosition().y <= -0) {
+            game.setScreen(new GameOver(game,new Jugador(hud.getWorldTimer())));
             dispose();
         }
     }

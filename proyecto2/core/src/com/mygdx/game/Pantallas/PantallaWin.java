@@ -24,7 +24,7 @@ public class PantallaWin extends PantallaFinal {
         this.background.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
         this.sound = MarioBros.manager.get("Musica/dingdong.wav", Sound.class);
         sound.play();
-        this.sound = MarioBros.manager.get("Musica/You-Win.wav", Sound.class);
+        this.sound2 = MarioBros.manager.get("Musica/You-Win.wav", Sound.class);
         sound2.play();
     }
 
