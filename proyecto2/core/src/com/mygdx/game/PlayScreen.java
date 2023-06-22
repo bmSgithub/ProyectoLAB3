@@ -25,6 +25,8 @@ import com.mygdx.game.sprites.Jugador;
 import com.mygdx.game.sprites.Mario;
 
 public class PlayScreen extends ScreenAdapter {
+   private int jumpCount =0;
+    private  boolean onGround = true;
 
     private static final int MAX_JUMP_COUNT = 2;
 
@@ -83,54 +85,36 @@ public class PlayScreen extends ScreenAdapter {
     }
 
     public void handleInput(float dt) {
-        boolean enPiso= true;
-        boolean puedeSaltar = true;
-        int jumpCount =0;
 
+        boolean jumpKeyPressed = Gdx.input.isKeyJustPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.W);
+        boolean rightKeyPressed = Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyPressed(Input.Keys.D);
+        boolean leftKeyPressed = Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.A);
 
-        if ((Gdx.input.isKeyJustPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.W))  && jumpCount<MAX_JUMP_COUNT && enPiso&& puedeSaltar ) {
-            if (enPiso){
-                player.b2body.applyLinearImpulse(new Vector2(0, 3f), player.b2body.getWorldCenter(), true);
-                enPiso = false;
-                jumpCount++;
+        if (jumpKeyPressed && jumpCount <= 2 && onGround) {
+            player.b2body.applyLinearImpulse(new Vector2(0, 3f), player.b2body.getWorldCenter(), true);
+            jumpCount++;
+            if (jumpCount == 2){
 
-
-            } else if (jumpCount < MAX_JUMP_COUNT) {
-
-                player.b2body.applyLinearImpulse(new Vector2(0, 3f), player.b2body.getWorldCenter(), true);
-                player.b2body.setLinearVelocity(player.b2body.getLinearVelocity().x, -3f);
-                jumpCount++;
-
+            onGround = false;
             }
-            puedeSaltar = false;
-
         }
-        if ((Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyPressed(Input.Keys.D)) && player.b2body.getLinearVelocity().x <= 2) {
-            // Se fija que si apretamos solo una vez o mantenemos apretado
-            // la segunda parte controla que el movimieto no sea de una velocidad mayor a la deseada
-            // se pueden hacer variables globales o enum
+
+        if (rightKeyPressed && player.b2body.getLinearVelocity().x <= 2) {
             player.b2body.applyLinearImpulse(new Vector2(0.1f, 0), player.b2body.getWorldCenter(), true);
-
-
         }
-        if ((Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.A)) && player.b2body.getLinearVelocity().x >= -2) {
+
+        if (leftKeyPressed && player.b2body.getLinearVelocity().x >= -2) {
             player.b2body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2body.getWorldCenter(), true);
-
+        }if (player.b2body.getLinearVelocity().y==0){
+            onGroundCollision();
         }
-        if (playerOnGround()){
-            enPiso = true;
-            jumpCount = 0;
-            puedeSaltar = true;
-
-        }
-
     }
-private boolean playerOnGround (){
-        float groundY = 1.32f;
-        float playerY = player.b2body.getPosition().y;
-        float epsilon = 0.01f;
-        return playerY <= groundY+epsilon;
-}
+
+    public void onGroundCollision() {
+        onGround = true;
+        jumpCount = 0;
+    }
+
     public void update(float dt) {
 
         handleInput(dt);
