@@ -1,12 +1,8 @@
 package com.mygdx.game.Pantallas;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputAdapter;
-import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
+
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.mygdx.game.Enum.Direcciones;
 import com.mygdx.game.MarioBros;
@@ -25,22 +21,5 @@ public class PantallaWin extends PantallaFinal {
         this.background = new Texture(Direcciones.BACKGROUND_WIN.getFilePath());
         this.background.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
 
-        this.sound = MarioBros.manager.get("Musica/dingdong.wav", Sound.class);
-        sound.play();
-        this.sound2 = MarioBros.manager.get("Musica/You-Win.wav", Sound.class);
-        sound2.play();
-
-
-        try {
-            Thread.sleep(700);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
-        musica = MarioBros.manager.get("Musica/champions.ogg", Music.class);
-        musica.setLooping(true);
-        musica.play();
-        musica.setVolume(0.20f);
     }
 }

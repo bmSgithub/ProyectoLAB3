@@ -58,4 +58,8 @@
   "id" : 15,
   "nombre" : "Pruebita2",
   "score" : 3.0
+}, {
+  "id" : 16,
+  "nombre" : "Pruebita 3",
+  "score" : 3.0
 } ]

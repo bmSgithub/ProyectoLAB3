@@ -2,7 +2,6 @@ package com.mygdx.game.Pantallas;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
@@ -19,9 +18,6 @@ import com.mygdx.game.MarioBros;
 import com.mygdx.game.sprites.Jugador;
 
 import javax.swing.*;
-import java.awt.*;
-
-import static java.awt.Color.RED;
 
 
 public abstract class PantallaFinal extends ScreenAdapter {
@@ -42,14 +38,13 @@ public abstract class PantallaFinal extends ScreenAdapter {
 
     protected Texture background;
     private OrthographicCamera cameraBackground;
-    protected Sound sound;
-    protected Sound sound2;
-    protected Music musica;
+
+    private Sound soundTimbre;
+    private Sound soundYouWin;
+    private Music soundChampion;
 
     private final ScoreBoard scoreBoard = new ScoreBoard(game);
     private boolean isSoundPlaying = false;
-
-
 
 
     public PantallaFinal(MarioBros game, Jugador jugador) {
@@ -63,6 +58,14 @@ public abstract class PantallaFinal extends ScreenAdapter {
         this.cameraBackground.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         this.cameraBackground.update();
 
+        this.soundTimbre = MarioBros.manager.get("Musica/dingdong.wav", Sound.class);
+        this.soundTimbre.play();
+        this.soundYouWin = MarioBros.manager.get("Musica/You-Win.wav", Sound.class);
+        this.soundYouWin.play();
+        this.soundChampion = MarioBros.manager.get("Musica/champions.ogg", Music.class);
+        this.soundChampion.setLooping(true);
+        this.soundChampion.play();
+        this.soundChampion.setVolume(0.20f);
     }
 
     @Override
@@ -77,10 +80,12 @@ public abstract class PantallaFinal extends ScreenAdapter {
         this.stage.addActor(imgBoton);
 
         if (!isSoundPlaying){
-            sound.play();
-            musica.play();
+            soundTimbre.play();
+            soundChampion.play();
             isSoundPlaying = true;
         }
+
+        sleep();
 
 
     }
@@ -123,18 +128,10 @@ public abstract class PantallaFinal extends ScreenAdapter {
         background.dispose();
         stage.dispose();
         font.dispose();
-        sound.stop();
-        musica.stop();
-        sound2.stop();
+        soundTimbre.stop();
+        soundChampion.stop();
+        soundYouWin.stop();
         isSoundPlaying = false;
-//        sound.dispose();
-//        sound2.dispose();
-//        musica.dispose();
-    }
-    public void disposeMusic(){
-        sound.dispose();
-        sound2.dispose();
-        musica.dispose();
     }
 
     public void guardarScore(Jugador jugador) {
@@ -147,11 +144,19 @@ public abstract class PantallaFinal extends ScreenAdapter {
             public void clicked(InputEvent event, float x, float y) {
                 jugador.setNombre(JOptionPane.showInputDialog(null, "Ingrese su nombre:", "Nombre de jugador", JOptionPane.PLAIN_MESSAGE));
                 guardarScore(jugador);
-                musica.pause();
+                soundChampion.pause();
                 game.setScreen(new MenuPrincipal(game));
                 dispose();
             }
         };
+    }
+
+    public void sleep (){
+        try {
+            Thread.sleep(700);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
     }
 
 }

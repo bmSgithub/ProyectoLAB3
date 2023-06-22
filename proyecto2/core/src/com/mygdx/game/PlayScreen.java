@@ -175,9 +175,9 @@ public class PlayScreen extends ScreenAdapter {
         }
 
     }
-
+//37.9
     public void win()  {
-        if (player.b2body.getPosition().x >= 37.9) {
+        if (player.b2body.getPosition().x >= 5) {
             musica.pause();
             game.setScreen(new PantallaWin(game, new Jugador(hud.getWorldTimer())));
         }
