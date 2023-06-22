@@ -2,6 +2,7 @@ package com.mygdx.game.Pantallas;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
@@ -51,7 +52,7 @@ public class GameOver extends ScreenAdapter {
 
         game.batch.draw(textureBackground,0,0,cameraBackground.viewportWidth,cameraBackground.viewportHeight);
 
-        font.draw(game.batch,Integer.toString(jugador.getScore()),374,191f);
+        font.draw(game.batch,Float.toString(jugador.getScore()),660,247);
 
         game.batch.end();
 
@@ -59,6 +60,7 @@ public class GameOver extends ScreenAdapter {
             game.setScreen(new MenuPrincipal(game));
             dispose();
         }
+
     }
 
     @Override
@@ -67,4 +69,6 @@ public class GameOver extends ScreenAdapter {
         textureBackground.dispose();
         sound.dispose();
     }
+
+
 }

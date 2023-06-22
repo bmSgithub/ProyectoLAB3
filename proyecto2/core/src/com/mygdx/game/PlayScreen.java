@@ -74,6 +74,7 @@ public class PlayScreen extends ScreenAdapter {
         musica = MarioBros.manager.get("Musica/music.ogg", Music.class);
         musica.setLooping(true);
         musica.play();
+        musica.setVolume(0.05f);
 
 
 
@@ -105,13 +106,13 @@ public class PlayScreen extends ScreenAdapter {
         handleInput(dt);
 
         world.step(1 / 60f, 6, 2); // afecta la reaccion de dos cuerpos durante una colision
+
         if (player.b2body.getPosition().x >= 2f ){
             if (player.b2body.getPosition().x <= 36.30f){
-
-        gamecam.position.x = player.b2body.getPosition().x; // Rastreamos el player
+                gamecam.position.x = player.b2body.getPosition().x; // Rastreamos el player
             }
-
         }
+
         player.update(dt);
 
         hud.update(dt);
@@ -119,6 +120,8 @@ public class PlayScreen extends ScreenAdapter {
         renderer.setView(gamecam);
 
         renderer.render();
+
+
 
     }
 
@@ -149,7 +152,7 @@ public class PlayScreen extends ScreenAdapter {
     }
 
     public void win()  {
-        if (player.b2body.getPosition().x >= 37.90) {
+        if (player.b2body.getPosition().x >= 37.9) {
             game.setScreen(new PantallaWin(game, new Jugador(hud.getWorldTimer())));
         }
     }
@@ -160,7 +163,6 @@ public class PlayScreen extends ScreenAdapter {
             dispose();
         }
     }
-
 
     @Override
     public void resize(int width, int height) {

@@ -1,5 +1,7 @@
 package com.mygdx.game.Pantallas;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
@@ -27,5 +29,7 @@ public class PantallaWin extends PantallaFinal {
         this.sound2 = MarioBros.manager.get("Musica/You-Win.wav", Sound.class);
         sound2.play();
     }
+
+
 
 }
