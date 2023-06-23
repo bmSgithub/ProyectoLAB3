@@ -25,7 +25,6 @@ public class Delivery extends Sprite {
     private Animation<TextureRegion> marioJump;
     private float estadoTimer;
     private boolean runningRight;
-    protected Fixture fixture;
 
 
     public Delivery(PlayScreen screen){

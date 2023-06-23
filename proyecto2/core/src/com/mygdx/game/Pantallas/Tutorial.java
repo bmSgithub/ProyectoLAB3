@@ -9,17 +9,11 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.DeliveryBros;
 
-public class Tutorial extends ScreenAdapter {
-
-    private DeliveryBros game;
-    private Texture background;
-    private OrthographicCamera cameraBackground;
-
-
+public class Tutorial extends BaseScreen {
     public Tutorial(DeliveryBros game) {
         this.game = game;
-        this.background = new Texture("Botones/tutorialMenu.png");
-        this.background.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        this.textureBackground = new Texture("Botones/tutorialMenu.png");
+        this.textureBackground.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         this.cameraBackground = new OrthographicCamera();
         this.cameraBackground.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         this.cameraBackground.update();
@@ -36,7 +30,7 @@ public class Tutorial extends ScreenAdapter {
 
         game.batch.begin();
 
-        game.batch.draw(background, 0, 0, cameraBackground.viewportWidth, cameraBackground.viewportHeight);
+        game.batch.draw(textureBackground, 0, 0, cameraBackground.viewportWidth, cameraBackground.viewportHeight);
 
 
         game.batch.end();
@@ -49,6 +43,6 @@ public class Tutorial extends ScreenAdapter {
 
     @Override
     public void dispose() {
-        background.dispose();
+        textureBackground.dispose();
     }
 }

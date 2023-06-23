@@ -15,6 +15,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.mygdx.game.Pantallas.BaseScreen;
 import com.mygdx.game.Pantallas.GameOver;
 import com.mygdx.game.Pantallas.PantallaWin;
 import com.mygdx.game.Scenes.Hud;
@@ -23,29 +24,20 @@ import com.mygdx.game.Tools.WorldContactListener;
 import com.mygdx.game.sprites.Jugador;
 import com.mygdx.game.sprites.Delivery;
 
-public class PlayScreen extends ScreenAdapter {
+public class PlayScreen extends BaseScreen {
     private int jumpCount =0;
     private  boolean onGround = true;
 
     private static final int MAX_JUMP_COUNT = 2;
-
-    private final DeliveryBros game;
-
-    private final OrthographicCamera gamecam;
     private final Viewport gamePort;
     private final Hud hud;
-
     private final TmxMapLoader mapLoader;
     private final TiledMap map;
     private final OrthogonalTiledMapRenderer renderer;
-
     private final World world;
     private final Box2DDebugRenderer b2dr;
     private Delivery player;
-
-
     private TextureAtlas atlas;
-    private Music musica;
     private Sound sound;
     private Sound sound2;
 
@@ -55,16 +47,16 @@ public class PlayScreen extends ScreenAdapter {
 
         this.game = game;
 
-        gamecam = new OrthographicCamera();
+        cameraBackground = new OrthographicCamera();
 
-        gamePort = new FitViewport((float) DeliveryBros.V_WIDHT / DeliveryBros.PPM, (float) DeliveryBros.V_HEIGHT / DeliveryBros.PPM, gamecam);
+        gamePort = new FitViewport((float) DeliveryBros.V_WIDHT / DeliveryBros.PPM, (float) DeliveryBros.V_HEIGHT / DeliveryBros.PPM, cameraBackground);
         hud = new Hud(game.batch);
 
         mapLoader = new TmxMapLoader();
         map = mapLoader.load("Level1/level1.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, (float) 1 / DeliveryBros.PPM);
 
-        gamecam.position.set((float) gamePort.getWorldWidth() / 2,
+        cameraBackground.position.set((float) gamePort.getWorldWidth() / 2,
                 (float) gamePort.getWorldHeight() / 2, 0);
 
         world = new World(new Vector2(0, -10), true);
@@ -127,15 +119,15 @@ public class PlayScreen extends ScreenAdapter {
 
         if (player.b2body.getPosition().x >= 2f ){
             if (player.b2body.getPosition().x <= 36.30f){
-                gamecam.position.x = player.b2body.getPosition().x; // Rastreamos el player
+                cameraBackground.position.x = player.b2body.getPosition().x; // Rastreamos el player
             }
         }
 
         player.update(dt);
 
         hud.update(dt);
-        gamecam.update();
-        renderer.setView(gamecam);
+        cameraBackground.update();
+        renderer.setView(cameraBackground);
 
         renderer.render();
 
@@ -151,8 +143,8 @@ public class PlayScreen extends ScreenAdapter {
 
         renderer.render();
 
-        b2dr.render(world, gamecam.combined);
-        game.batch.setProjectionMatrix(gamecam.combined);
+        b2dr.render(world, cameraBackground.combined);
+        game.batch.setProjectionMatrix(cameraBackground.combined);
         game.batch.begin();
         player.draw(game.batch);
 
@@ -209,10 +201,9 @@ public class PlayScreen extends ScreenAdapter {
         renderer.dispose();
         world.dispose();
         b2dr.dispose();
-        sound.dispose();
+        sound.stop();
         sound2.stop();
         musica.dispose();
-
     }
 
     public World getWorld() {

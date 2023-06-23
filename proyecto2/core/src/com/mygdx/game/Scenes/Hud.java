@@ -15,11 +15,9 @@ public class Hud {
 
     public Stage stage;
     private Viewport viewport;
-
     private Integer worldTimer;
     private float timeCount;
     private static Integer score;
-
     Label countDownLabel ;
     static Label  scoreLabel;
     Label timeLabel;

@@ -16,45 +16,29 @@ import com.mygdx.game.Enum.Direcciones;
 import com.mygdx.game.DeliveryBros;
 import com.mygdx.game.PlayScreen;
 
-public class MenuPrincipal extends ScreenAdapter {
-
-    private Stage stage;
-    private DeliveryBros game;
-
+public class MenuPrincipal extends BaseScreen {
     private final float TAMANIO_ANCHO_START = 200f;
     private final float TAMANIO_ALTO_START = 60f;
     private Image imgStartBoton;
     private Texture textStartBoton;
     private Sprite spriteStartBoton;
-
     private final float TAMANIO_ANCHO_QUIT = 200f;
     private final float TAMANIO_ALTO_QUIT = 70f;
     private Image imgQuitBoton;
     private Texture textQuitBoton;
     private Sprite spriteQuitBoton;
-
     private final float TAMANIO_ANCHO_SCORE = 200f;
     private final float TAMANIO_ALTO_SCORE = 60f;
     private Image imgScoreBoton;
     private Texture textScoreBoton;
     private Sprite spriteScoreBoton;
-
     private final float TAMANIO_ANCHO_TUTORIAL = 200f;
     private final float TAMANIO_ALTO_TUTORIAL = 70f;
     private Image imgTutorialBoton;
     private Texture textTutorialBoton;
     private Sprite spriteTutorialBoton;
-
     private float alphaStage = 0f;
-
-    private Texture background;
-    private OrthographicCamera cameraBackground;
-    private Music musica;
     private Sound sound;
-    private boolean isSoundPlaying = false;
-
-
-
 
     //TODO: Agregar imagenes en vez de fuentes.
     //TODO: Ver si el menu puede aparecer con un fade.
@@ -79,15 +63,14 @@ public class MenuPrincipal extends ScreenAdapter {
         spriteTutorialBoton = new Sprite(textTutorialBoton);
         imgTutorialBoton = new Image(spriteTutorialBoton);
 
-        background = new Texture(Direcciones.BACKGROUND_MENU.getFilePath());
-        background.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
+        textureBackground = new Texture(Direcciones.BACKGROUND_MENU.getFilePath());
+        textureBackground.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
 
         cameraBackground = new OrthographicCamera();
         cameraBackground.setToOrtho(false,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         cameraBackground.update();
 
         sound = DeliveryBros.manager.get("Musica/selection.wav", Sound.class);
-//        sound.play();
         musica = DeliveryBros.manager.get("Musica/menu.ogg", Music.class);
         musica.setLooping(true);
         musica.play();
@@ -158,7 +141,7 @@ public class MenuPrincipal extends ScreenAdapter {
 
         game.batch.begin();
 
-        game.batch.draw(background,0,0,cameraBackground.viewportWidth,cameraBackground.viewportHeight);
+        game.batch.draw(textureBackground,0,0,cameraBackground.viewportWidth,cameraBackground.viewportHeight);
 
         game.batch.end();
 
@@ -174,7 +157,7 @@ public class MenuPrincipal extends ScreenAdapter {
 
     @Override
     public void dispose() {
-        background.dispose();
+        textureBackground.dispose();
         stage.dispose();
 
         musica.dispose();

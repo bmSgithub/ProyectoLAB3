@@ -2,8 +2,6 @@ package com.mygdx.game.Pantallas;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -11,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import com.mygdx.game.Enum.Direcciones;
-import com.mygdx.game.Pantallas.Interfaces.IJackson;
+import com.mygdx.game.Interfaces.IRepository;
 import com.mygdx.game.sprites.Jugador;
 import com.mygdx.game.DeliveryBros;
 
@@ -24,15 +22,7 @@ import java.util.List;
 
 //TODO: Ver si podemos sacar los metodos de Jackson de esta clase.
 
-public class ScoreBoard extends ScreenAdapter implements IJackson {
-
-    private DeliveryBros game;
-    private BitmapFont font;
-    private Texture background;
-    private OrthographicCamera cameraBackground;
-    private Music musica;
-
-
+public class ScoreBoard extends BaseScreen implements IRepository<Jugador>{
     private List<Jugador> listaJugadores;
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final File fileScore = new File(Direcciones.FILE_SCORE.getFilePath());
@@ -41,13 +31,13 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
         this.game = game;
         this.font = new BitmapFont();
 
-        this.background = new Texture(Direcciones.BACKGROUND_SCOREBOARD.getFilePath());
-        this.background.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        this.textureBackground = new Texture(Direcciones.BACKGROUND_SCOREBOARD.getFilePath());
+        this.textureBackground.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
 
         this.cameraBackground = new OrthographicCamera();
         this.cameraBackground.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         this.cameraBackground.update();
-        cargarJugadores();
+        cargar();
 
     }
 
@@ -62,7 +52,7 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
 
         game.batch.begin();
 
-        game.batch.draw(background, 0, 0, cameraBackground.viewportWidth, cameraBackground.viewportHeight);
+        game.batch.draw(textureBackground, 0, 0, cameraBackground.viewportWidth, cameraBackground.viewportHeight);
 
         ordenarJugadoresPorPuntuacion();
 
@@ -80,7 +70,7 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
     @Override
     public void dispose() {
         font.dispose();
-        background.dispose();
+        textureBackground.dispose();
     }
 
     private void ordenarJugadoresPorPuntuacion() {
@@ -111,7 +101,7 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
     }
 
     @Override
-    public void cargarJugadores() {
+    public void cargar() {
         try {
             CollectionType type = objectMapper.getTypeFactory().constructCollectionType(List.class, Jugador.class);
             this.listaJugadores = objectMapper.readValue(fileScore, type);
@@ -121,7 +111,7 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
     }
 
     @Override
-    public void guardarJugadores() {
+    public void guardar() {
         try {
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(fileScore, this.listaJugadores);
         } catch (IOException e) {
@@ -130,16 +120,16 @@ public class ScoreBoard extends ScreenAdapter implements IJackson {
     }
 
     @Override
-    public void agregarJugador(Jugador jugador) {
-        cargarJugadores();
+    public void agregar(Jugador jugador) {
+        cargar();
         jugador.setId(listaJugadores.size() + 1);
         this.listaJugadores.add(jugador);
-        guardarJugadores();
+        guardar();
     }
 
     @Override
-    public List<Jugador> listarJugadores() {
-        cargarJugadores();
+    public List<Jugador> listar() {
+        cargar();
         return this.listaJugadores;
     }
 }

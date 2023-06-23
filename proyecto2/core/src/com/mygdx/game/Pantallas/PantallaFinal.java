@@ -2,7 +2,6 @@ package com.mygdx.game.Pantallas;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
@@ -20,12 +19,7 @@ import com.mygdx.game.sprites.Jugador;
 import javax.swing.*;
 
 
-public abstract class PantallaFinal extends ScreenAdapter {
-
-
-    protected DeliveryBros game;
-    protected Jugador jugador;
-    protected Stage stage;
+public abstract class PantallaFinal extends BaseScreen {
     protected final float TAMANIO_ANCHO_IMG = 160;
     protected final float TAMANIO_ALTO_IMG = 70f;
     protected Texture textureBoton;
@@ -33,19 +27,9 @@ public abstract class PantallaFinal extends ScreenAdapter {
     protected Image imgBoton;
     protected final float posicionBotonX = 350;
     protected final float posicionBotonY = 160;
-
-    private BitmapFont font;
-
-    protected Texture background;
-    private OrthographicCamera cameraBackground;
-
     private Sound soundTimbre;
     private Sound soundYouWin;
-    private Music soundChampion;
-
     private final ScoreBoard scoreBoard = new ScoreBoard(game);
-    private boolean isSoundPlaying = false;
-
 
     public PantallaFinal(DeliveryBros game, Jugador jugador) {
         this.game = game;
@@ -62,10 +46,10 @@ public abstract class PantallaFinal extends ScreenAdapter {
         this.soundTimbre.play();
         this.soundYouWin = DeliveryBros.manager.get("Musica/You-Win.wav", Sound.class);
         this.soundYouWin.play();
-        this.soundChampion = DeliveryBros.manager.get("Musica/champions.ogg", Music.class);
-        this.soundChampion.setLooping(true);
-        this.soundChampion.play();
-        this.soundChampion.setVolume(0.20f);
+        this.musica = DeliveryBros.manager.get("Musica/champions.ogg", Music.class);
+        this.musica.setLooping(true);
+        this.musica.play();
+        this.musica.setVolume(0.20f);
     }
 
     @Override
@@ -81,7 +65,7 @@ public abstract class PantallaFinal extends ScreenAdapter {
 
         if (!isSoundPlaying){
             soundTimbre.play();
-            soundChampion.play();
+            musica.play();
             isSoundPlaying = true;
         }
 
@@ -101,7 +85,7 @@ public abstract class PantallaFinal extends ScreenAdapter {
 
         game.batch.begin();
 
-        game.batch.draw(background, 0, 0, cameraBackground.viewportWidth, cameraBackground.viewportHeight);
+        game.batch.draw(textureBackground, 0, 0, cameraBackground.viewportWidth, cameraBackground.viewportHeight);
 
         font.draw(game.batch, Float.toString(jugador.getScore()), 660, 247f);
 
@@ -125,17 +109,17 @@ public abstract class PantallaFinal extends ScreenAdapter {
     @Override
     public void dispose() {
         textureBoton.dispose();
-        background.dispose();
+        textureBackground.dispose();
         stage.dispose();
         font.dispose();
         soundTimbre.stop();
-        soundChampion.stop();
+        musica.stop();
         soundYouWin.stop();
         isSoundPlaying = false;
     }
 
     public void guardarScore(Jugador jugador) {
-        this.scoreBoard.agregarJugador(jugador);
+        this.scoreBoard.agregar(jugador);
     }
 
     public ClickListener tocarBoton() {
@@ -144,7 +128,7 @@ public abstract class PantallaFinal extends ScreenAdapter {
             public void clicked(InputEvent event, float x, float y) {
                 jugador.setNombre(JOptionPane.showInputDialog(null, "Ingrese su nombre:", "Nombre de jugador", JOptionPane.PLAIN_MESSAGE));
                 guardarScore(jugador);
-                soundChampion.pause();
+                musica.pause();
                 game.setScreen(new MenuPrincipal(game));
                 dispose();
             }

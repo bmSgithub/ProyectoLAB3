@@ -6,25 +6,20 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.DeliveryBros;
 
-public abstract class PantallaInicial extends ScreenAdapter {
+public abstract class PantallaInicial extends BaseScreen {
 
-    protected DeliveryBros game;
     protected String direccionLogo;
-
     protected Texture textureLogo;
-    protected OrthographicCamera camera;
-    protected Sprite sprite;
     protected Viewport viewport;
-
     protected float posicionX;
     protected float posicionY;
     protected final float aumentarAlpha = 0.003f;
     protected final float disminuirAlpha = 0.008f;
-
     protected boolean alphaLogoCompletado;
     protected float alphaLogoActualmente;
 
@@ -36,13 +31,13 @@ public abstract class PantallaInicial extends ScreenAdapter {
     @Override
     public void show() {
 
-        this.camera = new OrthographicCamera();
-        this.camera.setToOrtho(false);
+        this.cameraBackground = new OrthographicCamera();
+        this.cameraBackground.setToOrtho(false);
 
         this.textureLogo = new Texture(direccionLogo);
         this.textureLogo.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
 
-        this.viewport = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), camera);
+        this.viewport = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), cameraBackground);
 
         this.sprite = new Sprite(this.textureLogo);
 
@@ -53,7 +48,7 @@ public abstract class PantallaInicial extends ScreenAdapter {
         this.alphaLogoActualmente = 0f;
         this.alphaLogoCompletado = false;
 
-        game.batch.setProjectionMatrix(camera.combined);
+        game.batch.setProjectionMatrix(cameraBackground.combined);
 
     }
 

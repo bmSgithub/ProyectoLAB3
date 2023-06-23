@@ -13,21 +13,11 @@ import com.mygdx.game.DeliveryBros;
 import com.mygdx.game.sprites.Jugador;
 
 
-public class GameOver extends ScreenAdapter {
+public class GameOver extends BaseScreen {
 
-    private DeliveryBros game;
-    private Jugador jugador;
-    private BitmapFont font;
-    private Texture textureBackground;
-    private OrthographicCamera cameraBackground;
     private Sound sound;
-    private boolean isSoundPlaying = false;
-
-
-
+    protected Texture textureBackground;
     public GameOver(DeliveryBros game, Jugador jugador) {
-
-
         this.game = game;
         this.jugador = jugador;
 
@@ -40,8 +30,6 @@ public class GameOver extends ScreenAdapter {
         this.cameraBackground.update();
         this.sound = DeliveryBros.manager.get("Musica/wasted.wav", Sound.class);
         sound.play();
-
-
     }
 
     @Override
