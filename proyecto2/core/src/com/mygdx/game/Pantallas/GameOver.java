@@ -16,7 +16,6 @@ import com.mygdx.game.sprites.Jugador;
 public class GameOver extends BaseScreen {
 
     private Sound sound;
-    protected Texture textureBackground;
     public GameOver(DeliveryBros game, Jugador jugador) {
         this.game = game;
         this.jugador = jugador;
