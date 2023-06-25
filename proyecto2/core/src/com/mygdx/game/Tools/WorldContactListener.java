@@ -11,6 +11,10 @@ import java.awt.event.ContainerListener;
  *
  * */
 public class WorldContactListener implements ContactListener {
+    /**
+     * @author Tomas Alberto
+     * @version 1.0
+     */
     public WorldContactListener() {
     }
 

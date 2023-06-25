@@ -25,6 +25,10 @@ import com.mygdx.game.sprites.Jugador;
 import com.mygdx.game.sprites.Delivery;
 
 public class PlayScreen extends BaseScreen {
+    /**
+     * @author Tomas Alberto
+     * @version 1.0
+     */
     private int jumpCount =0;
     private  boolean onGround = true;
 
@@ -40,6 +44,7 @@ public class PlayScreen extends BaseScreen {
     private TextureAtlas atlas;
     private Sound sound;
     private Sound sound2;
+
 
 
     public PlayScreen(DeliveryBros game) {
@@ -77,6 +82,11 @@ public class PlayScreen extends BaseScreen {
 
 
     }
+    /**
+     *Metodo para controlar el movimiento del personaje
+     * @param dt parameto delta time
+     *
+     */
 
     public void handleInput(float dt) {
         boolean jumpKeyPressed = Gdx.input.isKeyJustPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.W);
@@ -106,10 +116,18 @@ public class PlayScreen extends BaseScreen {
         }
     }
 
+    /**
+     * Permite inicializar las validaciones para la limitaciond el dole salto
+     * indicando que estamos en el suelo
+     * */
     public void onGroundCollision() {
         onGround = true;
         jumpCount = 0;
     }
+    /**
+     * Actualiza nuesto juego
+     * @param dt parametro delta time
+     */
 
     public void update(float dt) {
 
@@ -158,6 +176,10 @@ public class PlayScreen extends BaseScreen {
 
     }
 
+    /**
+     * Llama a las pantallas de Win o GameOver
+     */
+
     public void winOrGameOver (){
         try {
             win();
@@ -167,12 +189,21 @@ public class PlayScreen extends BaseScreen {
         }
     }
 
+    /**
+     * Frena la musica de la pantalla principal al llegar a la cordenada de la victoria
+     */
+
     public void win()  {
         if (player.b2body.getPosition().x >= 37.9) {
             musica.pause();
             game.setScreen(new PantallaWin(game, new Jugador(hud.getWorldTimer())));
         }
     }
+
+    /**
+     * Pone pausa a la musica principal en el caso de perder
+     * @throws interupcion en tiempo de ejecucion
+     * */
 
     public void gameOver() throws InterruptedException {
         if (player.b2body.getPosition().y <= -0) {
@@ -206,14 +237,26 @@ public class PlayScreen extends BaseScreen {
         musica.dispose();
     }
 
+    /**
+     * Devuelve el mundo en el que esta nuestro personaje
+     * @return world
+     */
     public World getWorld() {
         return world;
     }
 
+    /**
+     * Devuelve las texturas
+     * @return atlas
+     */
     public TextureAtlas getAtlas() {
         return atlas;
     }
 
+    /**
+     *Devuelve el mapa de TILED MAP
+     * @return map
+     */
     public TiledMap getMap() {
         return map;
     }

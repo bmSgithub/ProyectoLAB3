@@ -20,6 +20,10 @@ import javax.swing.*;
 
 
 public abstract class PantallaFinal extends BaseScreen {
+    /**
+     * @autor Brian Chiastellino
+     * @version 1.0
+     */
     protected final float TAMANIO_ANCHO_IMG = 160;
     protected final float TAMANIO_ALTO_IMG = 70f;
     protected Texture textureBoton;
@@ -118,10 +122,18 @@ public abstract class PantallaFinal extends BaseScreen {
         isSoundPlaying = false;
     }
 
+    /**
+     *Guarda nuestro score en el listado
+     * @param jugador parametro de la clase jugador
+     *
+     */
     public void guardarScore(Jugador jugador) {
         this.scoreBoard.agregar(jugador);
     }
 
+    /**
+     *Detecta cuando oprimimos el boton y nos permite guardar nuestro score
+     */
     public ClickListener tocarBoton() {
         return new ClickListener() {
             @Override
@@ -134,6 +146,9 @@ public abstract class PantallaFinal extends BaseScreen {
             }
         };
     }
+    /**
+     *Frena la musica despues de 700 milisegundos
+     */
 
     public void sleep (){
         try {

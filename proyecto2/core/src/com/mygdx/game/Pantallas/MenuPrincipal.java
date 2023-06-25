@@ -17,6 +17,10 @@ import com.mygdx.game.DeliveryBros;
 import com.mygdx.game.PlayScreen;
 
 public class MenuPrincipal extends BaseScreen {
+    /**
+     * @autor Brian Chiastellino
+     * @version 1.0
+     */
     private final float TAMANIO_ANCHO_START = 200f;
     private final float TAMANIO_ALTO_START = 60f;
     private Image imgStartBoton;
@@ -164,6 +168,9 @@ public class MenuPrincipal extends BaseScreen {
         sound.stop();
         isSoundPlaying = false;
     }
+    /**
+     *Crea los botones para poder iniciar nuestro juego
+     */
 
     //TODO: Cambiar nombre al metodo Listener
     private ClickListener createStartButtonListener() {
@@ -182,6 +189,9 @@ public class MenuPrincipal extends BaseScreen {
     }
 
     //TODO: Cambiar nombre al metodo Listener
+    /**
+     *Crea boton de scoreBoard
+     */
     private ClickListener createScoreButtonListener() {
         return new ClickListener() {
             @Override
@@ -196,6 +206,9 @@ public class MenuPrincipal extends BaseScreen {
             }
         };
     }
+    /**
+     *Crea nuestro boton de tutorial
+     */
     private ClickListener createTutorialButtonListener() {
         return new ClickListener() {
             @Override
@@ -212,6 +225,9 @@ public class MenuPrincipal extends BaseScreen {
     }
 
     //TODO: Cambiar nombre al metodo Listener
+    /**
+     *Crea nuestro boton de salir
+     */
     private ClickListener createQuitButtonListener() {
         return new ClickListener() {
             @Override
@@ -225,6 +241,9 @@ public class MenuPrincipal extends BaseScreen {
             }
         };
     }
+    /**
+     *Pone un sleep de 500 milisegundos
+     */
 
     public void sleep (){
         try {

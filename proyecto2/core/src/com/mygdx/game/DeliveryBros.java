@@ -9,6 +9,10 @@ import com.mygdx.game.Pantallas.PantallaUTN;
 
 
 public class DeliveryBros extends Game {
+	/**
+	 *@author Tomas Alberto
+	 * @version 1.0
+	 */
 
 	public SpriteBatch batch;
 	public static final int V_WIDHT = 400;

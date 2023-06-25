@@ -23,6 +23,10 @@ import java.util.List;
 //TODO: Ver si podemos sacar los metodos de Jackson de esta clase.
 
 public class ScoreBoard extends BaseScreen implements IRepository<Jugador>{
+    /**
+     * @autor Brian Chastellino
+     * @version 1.0
+     */
     private List<Jugador> listaJugadores;
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final File fileScore = new File(Direcciones.FILE_SCORE.getFilePath());
@@ -72,7 +76,10 @@ public class ScoreBoard extends BaseScreen implements IRepository<Jugador>{
         font.dispose();
         textureBackground.dispose();
     }
-
+    /**
+     *Ordena nuestra tabla de campeones por los 10 mejores puntajes
+     * @retur jugador
+     */
     private void ordenarJugadoresPorPuntuacion() {
         Collections.sort(listaJugadores, new Comparator<Jugador>() {
             @Override
@@ -83,6 +90,10 @@ public class ScoreBoard extends BaseScreen implements IRepository<Jugador>{
     }
 
     //TODO: Cambiar posicion y agregar imagen de fondo.
+    /**
+     * cambiar posicion y agregar imagen al fondo
+     *
+     */
     private void mostrarTop10Jugadores() {
 
         float y = 430;

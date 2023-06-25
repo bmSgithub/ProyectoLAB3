@@ -12,6 +12,10 @@ import com.mygdx.game.Enum.*;
 
 
 public class Delivery extends Sprite {
+    /**
+     * @autor Tomas Alberto
+     * @version 1.0
+     */
 
     public World world; //Mundo en el que mario va a estar situado
     public Body b2body;
@@ -55,10 +59,18 @@ public class Delivery extends Sprite {
         ///setBounds(0,0.1f,0.5f,0.6f);
         setRegion(marioStand);
     }
+    /**
+     *Actualiza la posicion de nuestro player
+     * @param dt parametro delta time
+     */
     public void update(float dt){
         setPosition(b2body.getPosition().x-getWidth()/2,b2body.getPosition().y - getHeight() /2);
         setRegion(getFrame(dt));
     }
+
+    /**
+     *Definimos la estructura de nuestro player generando un cuerpo circular y dynamico como tambien sus filtros y limitaciones
+     */
 
     public void defineMario(){
         BodyDef bdef= new BodyDef();
@@ -86,6 +98,11 @@ public class Delivery extends Sprite {
         b2body.createFixture(fdef).setUserData("head");
 
     }
+    /**
+     *Obtenemos la fraccion de textura de nuestro player segun el estado en el que se encuentra
+     * @param dt parametro deltatime
+     * @return region
+     */
     public TextureRegion getFrame(float dt){
         estadoActual = getState();
         TextureRegion region = marioStand;
@@ -117,6 +134,10 @@ public class Delivery extends Sprite {
         estadoPrevio = estadoActual;
         return region;
     }
+    /**
+     *Obtenemos el estado de nuestro player
+     * @return state
+     */
     public State getState(){
         if((b2body.getLinearVelocity().y > 0 ) || (b2body.getLinearVelocity().y <0 && estadoPrevio == State.JUMPING) ){
             return State.RUNNING;

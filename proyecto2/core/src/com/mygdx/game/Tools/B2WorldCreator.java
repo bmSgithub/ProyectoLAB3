@@ -9,6 +9,11 @@ import com.mygdx.game.DeliveryBros;
 import com.mygdx.game.PlayScreen;
 
 public class B2WorldCreator {
+
+    /**
+     * @author Tomas Alberto
+     * @version 1.0
+     */
     public B2WorldCreator (PlayScreen screen){
 
         World world =screen.getWorld();

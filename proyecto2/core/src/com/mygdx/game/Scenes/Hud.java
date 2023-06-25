@@ -12,6 +12,10 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.DeliveryBros;
 
 public class Hud {
+    /**
+     * @autor Blas Machado
+     * @version 1.0
+     */
 
     public Stage stage;
     private Viewport viewport;
@@ -59,6 +63,11 @@ public class Hud {
 
 
     }
+
+    /**
+     *Actualiza el tiempo transcurrido
+     * @param dt  parametro delta time
+     */
     @SuppressWarnings("DefaultLocale")
     public  void  update(float dt){
         timeCount +=dt;
@@ -68,15 +77,31 @@ public class Hud {
             timeCount = 0;
         }
     }
+
+    /**
+     *agrega Score a nuestro contador
+     * @param value parametro value
+     */
     @SuppressWarnings("DefaultLocale")
     public static void addScore (int value){
         score += value;
         scoreLabel.setText(String.format("%06d",score));
     }
 
+    /**
+     *devuelve el tiempo de juego
+     * @return world timer
+     */
+
     public Integer getWorldTimer() {
         return worldTimer;
     }
+
+    /**
+     * inicializa el tiempo en el juego
+     * @param worldTimer parametro world timer
+     *
+     */
 
     public void setWorldTimer(Integer worldTimer) {
         this.worldTimer = worldTimer;
