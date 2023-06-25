@@ -7,12 +7,12 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.game.Pantallas.PantallaUTN;
 
-
+/**
+ *@author Tomas Alberto
+ * @version 1.0
+ */
 public class DeliveryBros extends Game {
-	/**
-	 *@author Tomas Alberto
-	 * @version 1.0
-	 */
+
 
 	public SpriteBatch batch;
 	public static final int V_WIDHT = 400;

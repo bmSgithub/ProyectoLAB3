@@ -2,7 +2,10 @@ package com.mygdx.game.sprites;
 
 import java.io.Serializable;
 import java.util.Objects;
-
+/**
+ * @author Brian Chiastellino
+ * @version 1.0
+ */
 public class Jugador implements Serializable {
 
 

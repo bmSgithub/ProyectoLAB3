@@ -7,13 +7,14 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.*;
 import com.mygdx.game.DeliveryBros;
 import com.mygdx.game.PlayScreen;
-
+/**
+ * Crea los objetos y limitaciones dentro del juego
+ * @author Tomas Alberto
+ * @version 1.0
+ */
 public class B2WorldCreator {
 
-    /**
-     * @author Tomas Alberto
-     * @version 1.0
-     */
+
     public B2WorldCreator (PlayScreen screen){
 
         World world =screen.getWorld();

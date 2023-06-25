@@ -10,12 +10,12 @@ import com.mygdx.game.DeliveryBros;
 import com.mygdx.game.PlayScreen;
 import com.mygdx.game.Enum.*;
 
-
+/**
+ * @author Tomas Alberto
+ * @version 1.0
+ */
 public class Delivery extends Sprite {
-    /**
-     * @autor Tomas Alberto
-     * @version 1.0
-     */
+
 
     public World world; //Mundo en el que mario va a estar situado
     public Body b2body;

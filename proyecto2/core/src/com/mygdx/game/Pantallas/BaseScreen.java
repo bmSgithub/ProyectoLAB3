@@ -10,7 +10,11 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.game.DeliveryBros;
 import com.mygdx.game.sprites.Jugador;
-
+/**
+ * Se utiliza como base abstracta para las demas screens
+ * @author Blas Machado Susseret
+ * @version 1.0
+ */
 public abstract class BaseScreen extends ScreenAdapter {
     protected DeliveryBros game;
     protected Jugador jugador;

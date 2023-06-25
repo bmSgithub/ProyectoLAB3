@@ -10,12 +10,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.DeliveryBros;
-
+/**
+ * @author Blas Machado
+ * @version 1.0
+ */
 public class Hud {
-    /**
-     * @autor Blas Machado
-     * @version 1.0
-     */
+
 
     public Stage stage;
     private Viewport viewport;

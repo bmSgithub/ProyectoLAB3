@@ -18,12 +18,12 @@ import com.mygdx.game.sprites.Jugador;
 
 import javax.swing.*;
 
-
+/**
+ * @author Tomas Alberto
+ * @version 1.0
+ */
 public abstract class PantallaFinal extends BaseScreen {
-    /**
-     * @autor Brian Chiastellino
-     * @version 1.0
-     */
+
     protected final float TAMANIO_ANCHO_IMG = 160;
     protected final float TAMANIO_ALTO_IMG = 70f;
     protected Texture textureBoton;

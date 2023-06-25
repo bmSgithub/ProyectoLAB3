@@ -3,7 +3,10 @@ package com.mygdx.game;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.mygdx.game.Enum.Direcciones;
-
+/**
+ *@author Brian Chiastellino
+ * @version 1.0
+ */
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {

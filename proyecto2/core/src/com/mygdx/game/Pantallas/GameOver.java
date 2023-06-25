@@ -12,7 +12,10 @@ import com.mygdx.game.Enum.Direcciones;
 import com.mygdx.game.DeliveryBros;
 import com.mygdx.game.sprites.Jugador;
 
-
+/**
+ *@author Brian Chiastellino
+ * @version 1.0
+ */
 public class GameOver extends BaseScreen {
 
     private Sound sound;

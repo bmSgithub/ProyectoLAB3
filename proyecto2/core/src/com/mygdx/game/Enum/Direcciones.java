@@ -1,5 +1,9 @@
 package com.mygdx.game.Enum;
 
+/**
+ *@author Blas Machado
+ * @version 1.0
+ */
 public enum Direcciones {
 
 
@@ -18,8 +22,8 @@ public enum Direcciones {
     BOTON_SOCRE("Botones/scoreButton.png"),
     BOTON_SAVE("Botones/saveButton.png"),
     FILE_SCORE("proyecto2/JSON/score.json");
-    //FILE_SCORE("JSON/score.json");
 
+//FILE_SCORE("JSON/score.json");
 
 
     private String filePath;

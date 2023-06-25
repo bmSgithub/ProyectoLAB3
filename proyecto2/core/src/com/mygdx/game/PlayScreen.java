@@ -23,12 +23,12 @@ import com.mygdx.game.Tools.B2WorldCreator;
 import com.mygdx.game.Tools.WorldContactListener;
 import com.mygdx.game.sprites.Jugador;
 import com.mygdx.game.sprites.Delivery;
-
+/**
+ * @author Tomas Alberto
+ * @version 1.0
+ */
 public class PlayScreen extends BaseScreen {
-    /**
-     * @author Tomas Alberto
-     * @version 1.0
-     */
+
     private int jumpCount =0;
     private  boolean onGround = true;
 
@@ -195,19 +195,19 @@ public class PlayScreen extends BaseScreen {
 
     public void win()  {
         if (player.b2body.getPosition().x >= 37.9) {
-            musica.pause();
+            musica.stop();
             game.setScreen(new PantallaWin(game, new Jugador(hud.getWorldTimer())));
         }
     }
 
     /**
      * Pone pausa a la musica principal en el caso de perder
-     * @throws interupcion en tiempo de ejecucion
+     * @throws InterruptedException tiempo de ejecucion
      * */
 
     public void gameOver() throws InterruptedException {
         if (player.b2body.getPosition().y <= -0) {
-            musica.pause();
+            musica.stop();
             this.sound = DeliveryBros.manager.get("Musica/death.wav", Sound.class);
             sound.play();
             try {

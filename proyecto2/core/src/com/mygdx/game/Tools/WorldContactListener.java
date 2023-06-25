@@ -2,7 +2,6 @@ package com.mygdx.game.Tools;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.*;
-import com.mygdx.game.sprites.ObjectTile.InteractiveTileObject;
 
 import java.awt.event.ContainerEvent;
 import java.awt.event.ContainerListener;
@@ -30,9 +29,7 @@ public class WorldContactListener implements ContactListener {
             Fixture head = "head".equals(fixA.getUserData()) ? fixA : fixB;
             Fixture object = (head == fixA) ? fixB : fixA;
 
-            if (object.getUserData() != null && InteractiveTileObject.class.isAssignableFrom(object.getUserData().getClass())) {
-                ((InteractiveTileObject) object.getUserData()).onHeadHit();
-            }
+
         }
 
 

@@ -15,12 +15,12 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.mygdx.game.Enum.Direcciones;
 import com.mygdx.game.DeliveryBros;
 import com.mygdx.game.PlayScreen;
-
+/**
+ * @author Brian Chiastellino
+ * @version 1.0
+ */
 public class MenuPrincipal extends BaseScreen {
-    /**
-     * @autor Brian Chiastellino
-     * @version 1.0
-     */
+
     private final float TAMANIO_ANCHO_START = 200f;
     private final float TAMANIO_ALTO_START = 60f;
     private Image imgStartBoton;
